@@ -1,0 +1,67 @@
+{
+  "name": "uzi-client-desktop",
+  "version": "2.0.0",
+  "description": "UZI-Skill 股票深度分析桌面客户端 (Electron + React)",
+  "main": "electron/main.js",
+  "private": true,
+  "scripts": {
+    "electron:dev": "chcp 65001 >nul && electron .",
+    "electron:build": "electron-builder --win",
+    "electron:pack": "electron-builder --dir"
+  },
+  "devDependencies": {
+    "electron": "^37.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.uzi.skill.client",
+    "productName": "UZI-Skill 深度分析台",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "electron/**",
+      "package.json"
+    ],
+    "extraResources": [
+      { "from": "server.py", "to": "engine/server.py" },
+      { "from": "static", "to": "engine/static" },
+      { "from": "data", "to": "engine/data" },
+      { "from": "../run.py", "to": "engine/run.py" },
+      { "from": "../requirements.txt", "to": "engine/requirements.txt" },
+      { "from": "../commands", "to": "engine/commands" },
+      {
+        "from": "../skills/deep-analysis/scripts",
+        "to": "engine/skills/deep-analysis/scripts",
+        "filter": [
+          "**/*.py",
+          "**/*.yaml",
+          "**/*.json",
+          "**/*.md",
+          "**/*.svg",
+          "**/*.html",
+          "**/*.png",
+          "reports/**",
+          "!**/.cache/**",
+          "!**/__pycache__/**",
+          "!**/api_cache/**"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        { "target": "portable", "arch": ["x64"] },
+        { "target": "nsis", "arch": ["x64"] }
+      ],
+      "artifactName": "UZI-Skill-Client-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false
+    },
+    "portable": {
+      "artifactName": "UZI-Skill-Client-${version}-portable-${arch}.${ext}"
+    }
+  }
+}
