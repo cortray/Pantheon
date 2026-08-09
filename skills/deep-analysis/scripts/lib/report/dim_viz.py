@@ -116,15 +116,15 @@ def _viz_valuation(raw: dict) -> str:
     # KPI trio
     viz += f'''<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px;padding-top:10px;border-top:1px solid #e2e8f0;text-align:center">
   <div style="padding:8px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px">
-    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim)">当前 PE</div>
+    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim)">当前 PE</div>
     <div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:16px;color:var(--text-main);font-weight:700">{pe}</div>
   </div>
   <div style="padding:8px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px">
-    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim)">行业均值</div>
+    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim)">行业均值</div>
     <div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:16px;color:var(--text-main);font-weight:700">{industry_pe}</div>
   </div>
   <div style="padding:8px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px">
-    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim)">DCF 内在</div>
+    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim)">DCF 内在</div>
     <div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:16px;color:var(--text-main);font-weight:700">{dcf}</div>
   </div>
 </div>'''
@@ -189,7 +189,7 @@ def _viz_financials(raw: dict) -> str:
   <div style="flex:1">{spark}</div>
   <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:11px;text-align:right;min-width:72px">
     <div style="color:var(--text-main);font-weight:700">{last}{unit}</div>
-    <div style="color:{dcolor};font-size:9px">{arrow} {abs(delta):.1f}</div>
+    <div style="color:{dcolor};font-size:10px">{arrow} {abs(delta):.1f}</div>
   </div>
 </div>'''
     viz += '<div style="margin-top:10px">'
@@ -281,7 +281,7 @@ def _viz_kline(raw: dict) -> str:
         stat_items = []
         for k, lbl in [("beta", "Beta"), ("volatility", "年化波动"), ("max_drawdown", "最大回撤"), ("ytd_return", "年初至今")]:
             if k in stats:
-                stat_items.append(f'<div><div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim)">{lbl}</div><div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:12px;color:var(--text-main);font-weight:700">{stats[k]}</div></div>')
+                stat_items.append(f'<div><div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim)">{lbl}</div><div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:12px;color:var(--text-main);font-weight:700">{stats[k]}</div></div>')
         if stat_items:
             badges += f'<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid #e2e8f0">{"".join(stat_items)}</div>'
 
@@ -298,7 +298,7 @@ def _viz_macro(raw: dict) -> str:
     cells = "".join(
         f'<div style="padding:10px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;text-align:center">'
         f'<div style="font-size:18px;margin-bottom:4px">{ic}</div>'
-        f'<div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);letter-spacing:.1em">{l}</div>'
+        f'<div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim);letter-spacing:.1em">{l}</div>'
         f'<div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:11px;color:var(--text-main);font-weight:600;margin-top:2px">{v}</div>'
         f'</div>'
         for l, v, ic in items
@@ -401,15 +401,15 @@ def _viz_industry(raw: dict) -> str:
     gauge = svg_gauge(min(growth_val, 100), 100, "行业增速 %", color=COLOR_BULL if growth_val > 15 else COLOR_GOLD)
     tail = f'''<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px;text-align:center">
   <div style="padding:6px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px">
-    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim)">TAM</div>
+    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim)">TAM</div>
     <div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:13px;font-weight:700;color:var(--text-main)">{tam}</div>
   </div>
   <div style="padding:6px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px">
-    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim)">渗透率</div>
+    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim)">渗透率</div>
     <div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:13px;font-weight:700;color:var(--text-main)">{penetration}</div>
   </div>
   <div style="padding:6px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px">
-    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim)">周期</div>
+    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim)">周期</div>
     <div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:11px;font-weight:700;color:var(--text-main)">{lifecycle}</div>
   </div>
 </div>'''
@@ -438,7 +438,7 @@ def _viz_futures(raw: dict) -> str:
     linked = raw.get("linked_contract") or "—"
     trend = raw.get("contract_trend") or "—"
     return f'''<div style="padding:16px;text-align:center;background:var(--bg-card);border:1px dashed #cbd5e1;border-radius:8px">
-  <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);letter-spacing:.15em">LINKED CONTRACT</div>
+  <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim);letter-spacing:.15em">LINKED CONTRACT</div>
   <div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:16px;color:var(--text-main);font-weight:700;margin-top:4px">{linked}</div>
   <div style="font-size:11px;color:var(--text-main);margin-top:4px">{trend}</div>
 </div>'''
@@ -475,7 +475,7 @@ def _viz_governance(raw: dict) -> str:
         color = COLOR_BULL if positive else COLOR_BEAR if positive is False else COLOR_GOLD
         bg = "#d1fae5" if positive else "#fee2e2" if positive is False else "#fef3c7"
         return f'''<div style="padding:10px 12px;background:{bg};border-left:3px solid {color};border-radius:0 8px 8px 0">
-  <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);letter-spacing:.1em">{label}</div>
+  <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim);letter-spacing:.1em">{label}</div>
   <div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:13px;color:var(--text-main);font-weight:700;margin-top:2px">{val}</div>
 </div>'''
     low_pledge = isinstance(pledge_raw, list) and len(pledge_raw) > 0 and (isinstance(pledge_raw[0], dict) and pledge_raw[0].get("质押比例", 100) < 20)
@@ -494,13 +494,13 @@ def _viz_capital_flow(raw: dict) -> str:
             summary = "—"
         if not values or len(values) < 2:
             return f'''<div style="padding:10px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px">
-  <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim)">{label}</div>
+  <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim)">{label}</div>
   <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:12px;font-weight:700;color:var(--text-main);margin-top:2px">{summary}</div>
 </div>'''
         spark = svg_sparkline(values, width=120, height=34, color=color)
         return f'''<div style="padding:10px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-    <span style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim)">{label}</span>
+    <span style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim)">{label}</span>
     <strong style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-main)">{summary}</strong>
   </div>
   {spark}
@@ -557,11 +557,11 @@ def _viz_policy(raw: dict) -> str:
     cells = ""
     for label, val, positive in items:
         if val in ("—", "不适用", "无"):
-            cells += f'<div style="padding:10px;background:var(--bg-tinted);border:1px solid var(--border);border-radius:8px"><div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim)">{label}</div><div style="font-size:11px;color:var(--text-dim);margin-top:2px">{val}</div></div>'
+            cells += f'<div style="padding:10px;background:var(--bg-tinted);border:1px solid var(--border);border-radius:8px"><div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim)">{label}</div><div style="font-size:11px;color:var(--text-dim);margin-top:2px">{val}</div></div>'
         else:
             color = COLOR_BULL if positive else COLOR_GOLD
             bg = "#d1fae5" if positive else "#fef3c7"
-            cells += f'<div style="padding:10px;background:{bg};border:1px solid {color};border-radius:8px"><div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim)">{label}</div><div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:11px;color:var(--text-main);font-weight:600;margin-top:2px">{val}</div></div>'
+            cells += f'<div style="padding:10px;background:{bg};border:1px solid {color};border-radius:8px"><div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim)">{label}</div><div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:11px;color:var(--text-main);font-weight:600;margin-top:2px">{val}</div></div>'
     return f'<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">{cells}</div>'
 
 
@@ -631,7 +631,7 @@ def _viz_lhb(raw: dict) -> str:
             inv_id = nick_to_id.get(nick, nick)
             cells += f'''<div style="display:flex;flex-direction:column;align-items:center;gap:3px">
   <img src="avatars/{inv_id}.svg" style="width:36px;height:36px;image-rendering:pixelated;border:2px solid #d97706;border-radius:6px;background:var(--bg-card)">
-  <span style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-main);font-weight:600">{nick}</span>
+  <span style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-main);font-weight:600">{nick}</span>
 </div>'''
         avatars_row = f'<div style="display:flex;gap:8px;flex-wrap:wrap;padding:10px;background:#fef3c7;border-radius:8px;margin-bottom:10px">{cells}</div>'
     inst_vs = raw.get("inst_vs_youzi") or {}
@@ -709,8 +709,8 @@ def _viz_contests(raw: dict) -> str:
     high_return = raw.get("high_return_cubes", "—")
 
     html = f'''<div style="padding:10px;background:#fef3c7;border:1px solid #d97706;border-radius:8px;margin-bottom:12px;display:flex;justify-content:space-around;text-align:center">
-  <div><div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:22px;font-weight:900;color:#d97706;line-height:1">{xq_summary}</div><div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);margin-top:2px">XUEQIU 组合</div></div>
-  <div><div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:22px;font-weight:900;color:#059669;line-height:1">{high_return}</div><div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);margin-top:2px">高收益 &gt;50%</div></div>
+  <div><div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:22px;font-weight:900;color:#d97706;line-height:1">{xq_summary}</div><div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim);margin-top:2px">XUEQIU 组合</div></div>
+  <div><div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:22px;font-weight:900;color:#059669;line-height:1">{high_return}</div><div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim);margin-top:2px">高收益 &gt;50%</div></div>
 </div>'''
 
     # 雪球组合列表
@@ -725,7 +725,7 @@ def _viz_contests(raw: dict) -> str:
             cube_rows += f'''<a href="{url}" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;text-decoration:none;margin-bottom:4px;transition:all .15s">
   <div style="min-width:0;flex:1">
     <div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:12px;color:var(--text-main);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{name}</div>
-    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim)">@{owner}</div>
+    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim)">@{owner}</div>
   </div>
   <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:13px;font-weight:700;color:{gain_color};margin-left:10px">{gain}</div>
 </a>'''

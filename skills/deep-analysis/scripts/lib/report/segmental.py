@@ -508,7 +508,7 @@ def _svg_segment_projection(segments: list, rev_hist: list, width: int = 420, he
         v = ymax - frac * span
         grid += (
             f'<line x1="{pad}" y1="{y:.1f}" x2="{width-20}" y2="{y:.1f}" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="2,2"/>'
-            f'<text x="{pad-6}" y="{y:.1f}" text-anchor="end" font-size="9" fill="#94a3b8" dy="3">{v:.0f}</text>'
+            f'<text x="{pad-6}" y="{y:.1f}" text-anchor="end" font-size="10" fill="#94a3b8" dy="3">{v:.0f}</text>'
         )
 
     # X 轴 labels (历史年份 + 未来 Y+1/+2/+3)
@@ -519,7 +519,7 @@ def _svg_segment_projection(segments: list, rev_hist: list, width: int = 420, he
         else:
             lbl = f"T+{i - n_hist + 1}"
         x_labels += (
-            f'<text x="{sx(i):.1f}" y="{height - 10}" text-anchor="middle" font-size="9" fill="#64748b">{lbl}</text>'
+            f'<text x="{sx(i):.1f}" y="{height - 10}" text-anchor="middle" font-size="10" fill="#64748b">{lbl}</text>'
         )
 
     # Legend

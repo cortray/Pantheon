@@ -161,7 +161,7 @@ def svg_radar(labels: list, values: list, max_val: float = 10, size: int = 160) 
         axes.append(f'<line x1="{cx}" y1="{cy}" x2="{x}" y2="{y}" stroke="#e2e8f0" stroke-width="1"/>')
         lx = cx + (r + 12) * math.cos(a)
         ly = cy + (r + 14) * math.sin(a)
-        axes.append(f'<text x="{lx}" y="{ly}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="9" fill="#64748b">{lbl}</text>')
+        axes.append(f'<text x="{lx}" y="{ly}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="10" fill="#64748b">{lbl}</text>')
     # rings
     for ring in (0.33, 0.66, 1.0):
         ring_r = r * ring
@@ -213,17 +213,17 @@ def svg_supply_flow(upstream: str, company: str, downstream: str) -> str:
     # 会变浅色 → 浅字压浅底看不清。这里锁死为深墨字 #14202e，两种主题都可读。
     return f'''<div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:center;font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;overflow:hidden">
   <div style="padding:10px 12px;background:#cffafe;border:1px solid #0891b2;border-radius:8px;text-align:center;overflow:hidden">
-    <div style="font-size:9px;color:#0e6b7a;letter-spacing:.1em;margin-bottom:4px;font-weight:700">UPSTREAM</div>
+    <div style="font-size:10px;color:#0e6b7a;letter-spacing:.1em;margin-bottom:4px;font-weight:700">UPSTREAM</div>
     <div style="font-size:11px;font-weight:600;color:#14202e;line-height:1.4;word-break:break-all;overflow-wrap:break-word">{upstream}</div>
   </div>
   <div style="font-size:18px;color:#0891b2;flex-shrink:0">→</div>
   <div style="padding:10px 12px;background:#fef3c7;border:2px solid #d97706;border-radius:8px;text-align:center;overflow:hidden">
-    <div style="font-size:9px;color:#8a5a08;letter-spacing:.1em;margin-bottom:4px;font-weight:700">COMPANY</div>
+    <div style="font-size:10px;color:#8a5a08;letter-spacing:.1em;margin-bottom:4px;font-weight:700">COMPANY</div>
     <div style="font-size:11px;font-weight:700;color:#14202e;line-height:1.4">{company}</div>
   </div>
   <div style="font-size:18px;color:#0891b2;flex-shrink:0">→</div>
   <div style="padding:10px 12px;background:#d1fae5;border:1px solid #059669;border-radius:8px;text-align:center;overflow:hidden">
-    <div style="font-size:9px;color:#0a6b45;letter-spacing:.1em;margin-bottom:4px;font-weight:700">DOWNSTREAM</div>
+    <div style="font-size:10px;color:#0a6b45;letter-spacing:.1em;margin-bottom:4px;font-weight:700">DOWNSTREAM</div>
     <div style="font-size:11px;font-weight:600;color:#14202e;line-height:1.4;word-break:break-all;overflow-wrap:break-word">{downstream}</div>
   </div>
 </div>'''
@@ -268,9 +268,9 @@ def svg_bars(values: list, labels: list = None, width: int = 280, height: int = 
         y = pad_t + chart_h - bar_h
         bars.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{bar_w:.1f}" height="{bar_h:.1f}" fill="{color}" rx="2"/>')
         if show_values:
-            vals_txt.append(f'<text x="{x + bar_w/2:.1f}" y="{y - 4:.1f}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="9" fill="#0f172a" font-weight="700">{v}</text>')
+            vals_txt.append(f'<text x="{x + bar_w/2:.1f}" y="{y - 4:.1f}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="10" fill="#0f172a" font-weight="700">{v}</text>')
         if labels:
-            labels_txt.append(f'<text x="{x + bar_w/2:.1f}" y="{pad_t + chart_h + 14}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="9" fill="#64748b">{labels[i] if i < len(labels) else ""}</text>')
+            labels_txt.append(f'<text x="{x + bar_w/2:.1f}" y="{pad_t + chart_h + 14}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="10" fill="#64748b">{labels[i] if i < len(labels) else ""}</text>')
 
     # y-axis zero line
     y_zero = pad_t + chart_h - (0 - min_v) / span * chart_h if span else pad_t + chart_h
@@ -334,7 +334,7 @@ def svg_candlestick(candles: list, width: int = 380, height: int = 180, ma_20: l
     # y labels
     for frac, v in [(0, y_max), (0.5, (y_max+y_min)/2), (1, y_min)]:
         yt = pad_t + chart_h * frac
-        elems.append(f'<text x="{pad_l-5}" y="{yt+3:.1f}" text-anchor="end" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="9" fill="#64748b">{v:.1f}</text>')
+        elems.append(f'<text x="{pad_l-5}" y="{yt+3:.1f}" text-anchor="end" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="10" fill="#64748b">{v:.1f}</text>')
 
     # candles
     for i, c in enumerate(candles):
@@ -372,12 +372,12 @@ def svg_candlestick(candles: list, width: int = 380, height: int = 180, ma_20: l
     if candles and "date" in candles[0]:
         for i in [0, n // 2, n - 1]:
             x = pad_l + i * (chart_w / n) + cw / 2
-            elems.append(f'<text x="{x:.1f}" y="{pad_t+chart_h+14}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="8" fill="#64748b">{candles[i]["date"][-5:]}</text>')
+            elems.append(f'<text x="{x:.1f}" y="{pad_t+chart_h+14}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="10" fill="#64748b">{candles[i]["date"][-5:]}</text>')
 
     return f'''<svg width="{width}" height="{height}" viewBox="0 0 {width} {height}" style="width:100%">
   {"".join(elems)}
 </svg>
-<div style="display:flex;gap:14px;margin-top:6px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px">
+<div style="display:flex;gap:14px;margin-top:6px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px">
   <span><span style="display:inline-block;width:12px;height:2px;background:{COLOR_GOLD};vertical-align:middle"></span> MA20</span>
   <span><span style="display:inline-block;width:12px;height:2px;background:{COLOR_INDIGO};vertical-align:middle"></span> MA60</span>
 </div>'''
@@ -416,9 +416,9 @@ def svg_pe_band(pe_history: list, bands: dict = None, width: int = 300, height: 
   <line x1="{pad_l}" y1="{y25:.1f}" x2="{pad_l+w}" y2="{y25:.1f}" stroke="#059669" stroke-width="1" stroke-dasharray="3,3"/>
   <line x1="{pad_l}" y1="{y50:.1f}" x2="{pad_l+w}" y2="{y50:.1f}" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
   <line x1="{pad_l}" y1="{y75:.1f}" x2="{pad_l+w}" y2="{y75:.1f}" stroke="#dc2626" stroke-width="1" stroke-dasharray="3,3"/>
-  <text x="{pad_l-3}" y="{y25+3:.1f}" text-anchor="end" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="8" fill="#059669">25%</text>
-  <text x="{pad_l-3}" y="{y50+3:.1f}" text-anchor="end" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="8" fill="#64748b">50%</text>
-  <text x="{pad_l-3}" y="{y75+3:.1f}" text-anchor="end" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="8" fill="#dc2626">75%</text>
+  <text x="{pad_l-3}" y="{y25+3:.1f}" text-anchor="end" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="10" fill="#059669">25%</text>
+  <text x="{pad_l-3}" y="{y50+3:.1f}" text-anchor="end" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="10" fill="#64748b">50%</text>
+  <text x="{pad_l-3}" y="{y75+3:.1f}" text-anchor="end" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="10" fill="#dc2626">75%</text>
     '''
 
     # line
@@ -460,11 +460,11 @@ def svg_peer_table(rows: list) -> str:
     if not rows:
         return ""
     head = '''<tr style="background:var(--bg-tinted)">
-  <th style="text-align:left;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);font-weight:700;border-bottom:2px solid #e2e8f0">公司</th>
-  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);font-weight:700;border-bottom:2px solid #e2e8f0">PE</th>
-  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);font-weight:700;border-bottom:2px solid #e2e8f0">PB</th>
-  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);font-weight:700;border-bottom:2px solid #e2e8f0">ROE</th>
-  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);font-weight:700;border-bottom:2px solid #e2e8f0">营收增速</th>
+  <th style="text-align:left;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim);font-weight:700;border-bottom:2px solid #e2e8f0">公司</th>
+  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim);font-weight:700;border-bottom:2px solid #e2e8f0">PE</th>
+  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim);font-weight:700;border-bottom:2px solid #e2e8f0">PB</th>
+  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim);font-weight:700;border-bottom:2px solid #e2e8f0">ROE</th>
+  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim);font-weight:700;border-bottom:2px solid #e2e8f0">营收增速</th>
 </tr>'''
     body = ""
     for r in rows:
@@ -500,8 +500,8 @@ def svg_unlock_timeline(unlocks: list, width: int = 280, height: int = 100) -> s
         y = pad_t + h - bar_h
         color = COLOR_BEAR if amt > max_a * 0.5 else COLOR_GOLD
         bars.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{bar_w:.1f}" height="{bar_h:.1f}" fill="{color}" rx="2"/>')
-        bars.append(f'<text x="{x + bar_w/2:.1f}" y="{y - 3:.1f}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="9" fill="#0f172a" font-weight="700">{amt}</text>')
-        bars.append(f'<text x="{x + bar_w/2:.1f}" y="{pad_t+h+14}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="8" fill="#64748b">{date}</text>')
+        bars.append(f'<text x="{x + bar_w/2:.1f}" y="{y - 3:.1f}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="10" fill="#0f172a" font-weight="700">{amt}</text>')
+        bars.append(f'<text x="{x + bar_w/2:.1f}" y="{pad_t+h+14}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="10" fill="#64748b">{date}</text>')
     axis = f'<line x1="{pad_l}" y1="{pad_t+h}" x2="{pad_l+w}" y2="{pad_t+h}" stroke="#cbd5e1"/>'
     return f'<svg width="{width}" height="{height}" viewBox="0 0 {width} {height}" style="width:100%">{axis}{"".join(bars)}</svg>'
 
@@ -525,8 +525,8 @@ def svg_dividend_combo(years: list, amounts: list, yields: list, width: int = 30
         bar_h = a / max_a * h
         y = pad_t + h - bar_h
         bars.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{bar_w:.1f}" height="{bar_h:.1f}" fill="{COLOR_CYAN}" rx="2"/>')
-        bars.append(f'<text x="{x+bar_w/2:.1f}" y="{y-3:.1f}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="9" fill="#0f172a" font-weight="700">{a}</text>')
-        bars.append(f'<text x="{x+bar_w/2:.1f}" y="{pad_t+h+14}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="9" fill="#64748b">{years[i]}</text>')
+        bars.append(f'<text x="{x+bar_w/2:.1f}" y="{y-3:.1f}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="10" fill="#0f172a" font-weight="700">{a}</text>')
+        bars.append(f'<text x="{x+bar_w/2:.1f}" y="{pad_t+h+14}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="10" fill="#64748b">{years[i]}</text>')
 
     # yield line (right axis)
     if yields:
@@ -540,8 +540,8 @@ def svg_dividend_combo(years: list, amounts: list, yields: list, width: int = 30
         bars.append(line)
         bars.append(dots)
         # right axis label
-        bars.append(f'<text x="{pad_l+w+4}" y="{pad_t+10}" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="9" fill="{COLOR_GOLD}">{max_y:.1f}%</text>')
-        bars.append(f'<text x="{pad_l+w+4}" y="{pad_t+h}" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="9" fill="{COLOR_GOLD}">0%</text>')
+        bars.append(f'<text x="{pad_l+w+4}" y="{pad_t+10}" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="10" fill="{COLOR_GOLD}">{max_y:.1f}%</text>')
+        bars.append(f'<text x="{pad_l+w+4}" y="{pad_t+h}" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="10" fill="{COLOR_GOLD}">0%</text>')
 
     return f'<svg width="{width}" height="{height}" viewBox="0 0 {width} {height}" style="width:100%">{"".join(bars)}</svg>'
 
@@ -578,9 +578,9 @@ def svg_institutional_quarters(data: dict, width: int = 300, height: int = 120) 
             x = bx + si * bar_w
             y = pad_t + h - bar_h
             elems.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{bar_w-0.5:.1f}" height="{bar_h:.1f}" fill="{col}" rx="1"/>')
-        elems.append(f'<text x="{bx + 1.5*bar_w:.1f}" y="{pad_t+h+14}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="9" fill="#64748b">{quarters[i]}</text>')
+        elems.append(f'<text x="{bx + 1.5*bar_w:.1f}" y="{pad_t+h+14}" text-anchor="middle" font-family="-apple-system, SF Mono, Consolas, monospace" font-size="10" fill="#64748b">{quarters[i]}</text>')
 
-    legend = f'''<div style="display:flex;gap:10px;margin-top:4px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px">
+    legend = f'''<div style="display:flex;gap:10px;margin-top:4px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px">
   <span style="color:{COLOR_CYAN}">■ 公募</span>
   <span style="color:{COLOR_BLUE}">■ QFII</span>
   <span style="color:{COLOR_GOLD}">■ 社保</span>
@@ -598,7 +598,7 @@ def svg_thermometer(value: int, max_val: int = 100, label: str = "") -> str:
   </div>
   <div>
     <div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-weight:900;font-size:32px;color:{color};line-height:1">{value}</div>
-    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);letter-spacing:.1em">{label}</div>
+    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim);letter-spacing:.1em">{label}</div>
   </div>
 </div>'''
 

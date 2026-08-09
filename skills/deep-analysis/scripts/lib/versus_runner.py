@@ -177,7 +177,7 @@ def _render_comparison_grid(stocks: list[dict]) -> str:
                 display = _num(v, dec)
             color = "var(--bull-green)" if i == real_idx else "var(--text-main)"
             weight = "700" if i == real_idx else "500"
-            badge = ' <span style="font-size:9px;color:var(--bull-green);letter-spacing:.1em">★ WIN</span>' if i == real_idx else ""
+            badge = ' <span style="font-size:10px;color:var(--bull-green);letter-spacing:.1em">★ WIN</span>' if i == real_idx else ""
             cells.append(
                 f'<td style="padding:10px 16px;text-align:center;color:{color};font-weight:{weight};font-variant-numeric:tabular-nums">'
                 f'{display}{badge}</td>'

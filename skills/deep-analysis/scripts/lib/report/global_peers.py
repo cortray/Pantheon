@@ -169,9 +169,9 @@ def render_global_peer_comparison(comparison: dict) -> str:
     <div class="global-peer-meta" style="font-size:10px;color:var(--text-main)">有效同行 <strong>{len(peers)}</strong> · 市场 <strong>{market_count}</strong> · 基准币 {base_currency}</div>
   </div>
   <div class="global-peer-summary" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px">
-    <div style="padding:8px;background:var(--bg-tinted);border:1px solid var(--border)"><div style="font-size:9px;color:var(--text-dim)">目标公司</div><div style="font-size:12px;font-weight:700">{_esc(target.get("name") or target.get("symbol"))}</div></div>
-    <div style="padding:8px;background:var(--bg-tinted);border:1px solid var(--border)"><div style="font-size:9px;color:var(--text-dim)">同行中位数 · 毛利率</div><div style="font-size:12px;font-weight:700">{_fmt(benchmark.get("median"), "%")}</div></div>
-    <div style="padding:8px;background:var(--bg-tinted);border:1px solid var(--border)"><div style="font-size:9px;color:var(--text-dim)">目标毛利率分位</div><div style="font-size:12px;font-weight:700">{_fmt(gross_pct, "%")}</div></div>
+    <div style="padding:8px;background:var(--bg-tinted);border:1px solid var(--border)"><div style="font-size:10px;color:var(--text-dim)">目标公司</div><div style="font-size:12px;font-weight:700">{_esc(target.get("name") or target.get("symbol"))}</div></div>
+    <div style="padding:8px;background:var(--bg-tinted);border:1px solid var(--border)"><div style="font-size:10px;color:var(--text-dim)">同行中位数 · 毛利率</div><div style="font-size:12px;font-weight:700">{_fmt(benchmark.get("median"), "%")}</div></div>
+    <div style="padding:8px;background:var(--bg-tinted);border:1px solid var(--border)"><div style="font-size:10px;color:var(--text-dim)">目标毛利率分位</div><div style="font-size:12px;font-weight:700">{_fmt(gross_pct, "%")}</div></div>
   </div>
   {_scatter(target, peers, str(comparison.get("base_currency") or "USD"))}
   <div class="global-peer-table" style="overflow-x:auto;margin-top:12px"><table style="width:100%;border-collapse:collapse;font-size:10px;white-space:nowrap">
