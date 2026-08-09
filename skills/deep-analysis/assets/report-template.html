@@ -3114,32 +3114,155 @@ footer strong { color: var(--navy); }
 .oo-big, .wr-oo { color: var(--gold); }
 
 /* ═══════════════════════════════════════════════════════════
-   Pantheon v4 · 视觉重构层
-   万神殿 · 墨金深空 · 大圆角卡片系统
+   Pantheon · 证券投行研报排版层
+   白底纸感 · 页面化 · 专业表格 · 克制的金色强调
    ═══════════════════════════════════════════════════════════ */
 
-/* ── 背景：墨黑深空 + 金色辉光 ── */
+/* ── 页面：纸感背景 + 报告页(居中白页) ── */
 body {
-  background:
-    radial-gradient(1100px 520px at 50% -8%, rgba(227,192,106,.08), transparent 62%),
-    radial-gradient(700px 480px at 88% 12%, rgba(157,140,248,.05), transparent 60%),
-    radial-gradient(900px 700px at 6% 92%, rgba(227,192,106,.04), transparent 60%),
-    #090b10;
+  background: #f2f0ea;
   background-attachment: fixed;
 }
-
-/* ── 通用卡片系统：大圆角 · 金微光描边 · 柔和深影 ── */
-.panel-section, .core-conclusion, .battle-plan, .debate-rounds,
-.chat-container, .inst-modeling-wrap, .friendly-card, .fund-card,
-.seg-card, .dim-card, .inv-card, .jury-board, .share-qr-card,
-.safety-card, .style-chip-wrap, .name-card, .data-gap-banner {
-  background: linear-gradient(180deg, rgba(227,192,106,.035), rgba(227,192,106,0) 32%), var(--bg-card);
-  border: 1px solid rgba(227,192,106,.10);
-  border-radius: 18px;
-  box-shadow: 0 10px 32px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.03);
+.container {
+  max-width: 1180px;
+  padding: 0 56px 90px;
+  background: #fff;
+  box-shadow: 0 0 48px rgba(28,36,48,.10);
 }
 
-/* ── LOADING · 万神殿加载环 ── */
+/* ── 页眉：研报抬头(白底 + 金色底线) ── */
+.topbar {
+  background: #fff;
+  border: none;
+  border-bottom: 2px solid #9a7b2f;
+  border-radius: 0;
+  padding: 20px 0 14px;
+  margin-bottom: 32px;
+  box-shadow: none;
+}
+.topbar .brand {
+  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  font-size: 21px; font-weight: 700; letter-spacing: .06em; color: #1c2430;
+}
+.topbar .brand span { color: #9a7b2f; }
+.topbar .status { font-size: 10px; letter-spacing: .1em; color: #8a8f99; }
+.market-badge { border-radius: 4px; letter-spacing: .08em; }
+
+/* ── 章节标题：编号 + 金色细线 ── */
+.section-head, .section-title, .seg-section-header {
+  border-bottom: 1px solid #e8e4da;
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+}
+.section-tag, .seg-section-title {
+  color: #9a7b2f; letter-spacing: .12em; font-size: 11px;
+}
+
+/* ── TOC：左栏白底细边 ── */
+.toc-rail {
+  left: 24px;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(6px);
+  border: 1px solid #e6e2d8;
+  border-radius: 8px;
+  padding: 14px 10px;
+  box-shadow: 0 4px 20px rgba(28,36,48,.06);
+}
+.toc-rail .toc-item {
+  font-size: 11px; letter-spacing: .04em; border-radius: 4px;
+  border-left: none; padding: 7px 12px; color: #5a6472;
+}
+.toc-rail .toc-item.active {
+  background: #f6f1e4; color: #9a7b2f;
+  box-shadow: inset 3px 0 0 #9a7b2f; font-weight: 600;
+}
+
+/* ── 公司抬头：名称 + 代码 + 价格行 ── */
+.name-card {
+  background: #fff; border: 1px solid #ece8de; border-radius: 6px;
+  box-shadow: none; padding: 22px 24px;
+}
+.stock-name { font-family: 'Playfair Display','Noto Serif SC','Songti SC','SimSun',serif; font-size: 30px; font-weight: 700; color: #1c2430; letter-spacing: .02em; }
+.ticker-label { color: #9a7b2f; letter-spacing: .1em; }
+
+/* ── HERO：评分横幅(非霸屏) ── */
+.score-label { font-size: 10px; letter-spacing: .2em; color: #9a7b2f; }
+.score-giant {
+  font-family: 'Playfair Display', serif;
+  font-size: 96px; font-weight: 700; line-height: 1;
+  color: #1c2430; letter-spacing: -.02em;
+}
+.score-giant::after { content: '/100'; font-size: 22px; color: #9a7b2f; font-weight: 600; }
+.score-verdict { font-size: 22px; color: #9a7b2f; letter-spacing: .04em; }
+
+/* ── 核心结论引言：左金线 ── */
+.core-conclusion, .punchline {
+  background: #faf8f2;
+  border: 1px solid #ece8de;
+  border-left: 4px solid #9a7b2f;
+  border-radius: 4px;
+  box-shadow: none;
+}
+.punchline { border-left-width: 4px; }
+
+/* ── 卡片系统：白底细边 · 研报克制圆角 ── */
+.panel-section, .battle-plan, .debate-rounds, .chat-container,
+.inst-modeling-wrap, .friendly-card, .fund-card, .seg-card,
+.dim-card, .inv-card, .jury-board, .share-qr-card, .safety-card,
+.style-chip-wrap, .data-gap-banner, .risk-box, .zone {
+  background: #fff;
+  border: 1px solid #ece8de;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(28,36,48,.04);
+}
+
+/* ── 表格：投行网格表 ── */
+.tab, .seg-table-wrap, .seg-projections-table-wrap {
+  border: 1px solid #e4e0d6;
+  border-radius: 4px; overflow: hidden;
+}
+.tab th, .seg-projections-table th {
+  background: #f4f1e9; color: #1c2430;
+  font-size: 11px; letter-spacing: .06em;
+  border-bottom: 1px solid #e4e0d6;
+}
+.tab td, .seg-projections-table td {
+  border-bottom: 1px solid #f0ede6;
+  font-variant-numeric: tabular-nums;
+}
+.tab tr:last-child td { border-bottom: none; }
+.tab tbody tr:hover { background: #faf8f2; }
+
+/* ── 评审团 / 审判席 ── */
+.jury-board { padding: 20px; }
+.seat, .fighter { border-radius: 6px; border: 1px solid #ece8de; background: #fff; }
+.inv-card { border-radius: 6px; }
+
+/* ── 聊天室 ── */
+.chat-msg { border-radius: 8px; border: 1px solid #f0ede6; background: #fafaf8; }
+.msg-score-badge, .chat-tab { border-radius: 4px; }
+.chat-tab.active { background: #f6f1e4; color: #9a7b2f; }
+
+/* ── 多空辩论 ── */
+.round-bull { border-left: 3px solid var(--bull-green); }
+.round-bear { border-left: 3px solid var(--bear-red); }
+
+/* ── 22 维卡片 ── */
+.dim-card { padding: 16px; }
+.dim-bar, .dim-bar .fill { border-radius: 2px; }
+
+/* ── 风格 chips / 数据缺口横幅 ── */
+.chip, .style-chip-wrap .chip { border-radius: 4px; }
+.data-gap-banner { border-radius: 4px; }
+
+/* ── 页脚：页面化 ── */
+footer {
+  border-top: 2px solid #9a7b2f;
+  margin-top: 40px; padding-top: 18px;
+  color: #8a8f99; font-size: 11px;
+}
+
+/* ── LOADING：保持深色万神殿加载环(启动动画独立于报告主题) ── */
 .boot-overlay {
   background:
     radial-gradient(800px 400px at 50% 28%, rgba(227,192,106,.10), transparent 62%),
@@ -3165,9 +3288,7 @@ body {
   font-size: 34px; font-weight: 700; letter-spacing: .26em;
   color: #e3c06a; text-shadow: 0 0 34px rgba(227,192,106,.35);
 }
-.boot-logo em {
-  color: #f0d48a; font-style: normal; font-size: 17px; letter-spacing: .34em;
-}
+.boot-logo em { color: #f0d48a; font-style: normal; font-size: 17px; letter-spacing: .34em; }
 .boot-eye { font-size: 20px; color: #f0d48a; opacity: .75; }
 .boot-bar {
   width: 230px; height: 3px; border-radius: 2px; overflow: hidden;
@@ -3181,128 +3302,27 @@ body {
 @keyframes boot-load { 0% { transform: translateX(-110%); } 100% { transform: translateX(360%); } }
 .boot-status { color: #8d98a8; font-size: 11px; letter-spacing: .22em; }
 
-/* ── TOP BAR · 毛玻璃胶囊 ── */
-.topbar {
-  background: rgba(16,21,29,.78);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(227,192,106,.12);
-  border-radius: 16px;
-  padding: 12px 22px;
-  box-shadow: 0 8px 28px rgba(0,0,0,.35);
+/* ── 深色模式：保留切换能力(深色终端风) ── */
+[data-theme="dark"] body {
+  background: #0a0c10;
 }
-.topbar .brand {
-  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
-  font-weight: 700; font-size: 19px; letter-spacing: .12em; color: #e3c06a;
+[data-theme="dark"] .container { background: #0f1319; box-shadow: none; }
+[data-theme="dark"] .topbar { background: transparent; border-bottom-color: #e3c06a; }
+[data-theme="dark"] .topbar .brand { color: #edf1f6; }
+[data-theme="dark"] .name-card,
+[data-theme="dark"] .panel-section, [data-theme="dark"] .battle-plan,
+[data-theme="dark"] .debate-rounds, [data-theme="dark"] .chat-container,
+[data-theme="dark"] .inst-modeling-wrap, [data-theme="dark"] .friendly-card,
+[data-theme="dark"] .fund-card, [data-theme="dark"] .seg-card,
+[data-theme="dark"] .dim-card, [data-theme="dark"] .inv-card,
+[data-theme="dark"] .jury-board, [data-theme="dark"] .risk-box,
+[data-theme="dark"] .zone {
+  background: var(--bg-card); border-color: #2a3648;
 }
-.topbar .brand span { color: #f0d48a; }
-.topbar .status { font-size: 10px; letter-spacing: .14em; }
-.market-badge { border-radius: 999px; padding: 4px 12px; letter-spacing: .1em; }
+[data-theme="dark"] .stock-name, [data-theme="dark"] .score-giant { color: #e3c06a; }
+[data-theme="dark"] .tab th { background: #16202f; }
+[data-theme="dark"] footer { border-top-color: #e3c06a; }
 
-/* ── TOC 导航 · 深色胶囊 ── */
-.toc-rail {
-  left: 20px;
-  background: rgba(13,17,24,.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(227,192,106,.12);
-  border-radius: 16px;
-  padding: 14px 10px;
-  box-shadow: 0 12px 36px rgba(0,0,0,.4);
-}
-.toc-rail .toc-item {
-  font-size: 11px; letter-spacing: .06em;
-  border-radius: 10px; border-left: none;
-  padding: 8px 12px;
-}
-.toc-rail .toc-item.active {
-  background: linear-gradient(90deg, rgba(227,192,106,.16), rgba(227,192,106,.02));
-  color: #e3c06a;
-  box-shadow: inset 2px 0 0 #e3c06a;
-  font-weight: 600;
-}
-
-/* ── HERO · 评分卡 ── */
-.score-label { font-size: 11px; letter-spacing: .2em; color: #f0d48a; }
-.score-giant {
-  background: linear-gradient(180deg, #f9ecc0 0%, #e3c06a 55%, #9a7b2f 100%);
-  -webkit-background-clip: text; background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 6px 24px rgba(227,192,106,.18));
-}
-.score-verdict { letter-spacing: .06em; }
-.punchline {
-  border-radius: 18px;
-  background: linear-gradient(135deg, rgba(227,192,106,.12), rgba(157,140,248,.05));
-  border: 1px solid rgba(227,192,106,.22);
-}
-
-/* ── 数据缺口横幅 ── */
-.data-gap-banner { border-radius: 14px; }
-
-/* ── 评审团 / 审判席 ── */
-.panel-stats { border-radius: 14px; }
-.jury-board { padding: 20px; }
-.seat, .fighter {
-  border-radius: 14px;
-  border: 1px solid rgba(227,192,106,.08);
-}
-.inv-card { border-radius: 16px; }
-
-/* ── 聊天室 · 气泡 ── */
-.chat-container { padding: 18px; }
-.chat-msg {
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.04);
-  background: rgba(255,255,255,.015);
-}
-.chat-msg .msg-name { font-weight: 600; }
-.msg-score-badge { border-radius: 999px; }
-.chat-tab {
-  border-radius: 999px;
-  border: 1px solid rgba(227,192,106,.14);
-}
-.chat-tab.active { background: rgba(227,192,106,.14); color: #e3c06a; }
-
-/* ── 多空辩论 ── */
-.round-card { border-radius: 16px; }
-.round-bull { border-left: 3px solid var(--bull-green); }
-.round-bear { border-left: 3px solid var(--bear-red); }
-.battle-plan { padding: 20px; }
-
-/* ── 22 维卡片 ── */
-.dim-card { border-radius: 16px; padding: 16px; }
-.dim-viz { border-radius: 12px; }
-.dim-bar { border-radius: 999px; }
-.dim-bar .fill { border-radius: 999px; }
-
-/* ── 表格 · 圆角容器 ── */
-.tab, .seg-table-wrap, .seg-projections-table-wrap {
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(227,192,106,.08);
-}
-.tab th { letter-spacing: .06em; }
-
-/* ── 机构建模 ── */
-.inst-modeling-wrap .fm-card { border-radius: 14px; }
-
-/* ── 基金 / 友好三卡 ── */
-.fund-card, .friendly-card { border-radius: 16px; }
-.fc-avatar, .fund-stars { border-radius: 12px; }
-
-/* ── 风险 / 买入区间 ── */
-.risk-box { border-radius: 16px; border-left: 4px solid var(--warning-amber); }
-.zone {
-  border-radius: 16px;
-  border: 1px solid rgba(227,192,106,.10);
-  background: linear-gradient(180deg, rgba(227,192,106,.04), rgba(227,192,106,0) 55%), var(--bg-card);
-}
-
-/* ── 风格 chips ── */
-.chip, .style-chip-wrap .chip { border-radius: 999px; }
-
-/* ── 打印时隐藏 loading 覆盖 ── */
 @media print {
   .boot-overlay { display: none !important; }
 }
@@ -3942,7 +3962,8 @@ body {
   const root = document.documentElement;
   const stored = localStorage.getItem(KEY);
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initial = stored || (prefersDark ? 'dark' : 'light');
+  // 投行研报默认亮色（纸感白）· 深色模式仍可手动切换
+  const initial = stored || 'light';
   root.setAttribute('data-theme', initial);
 
   const btn = document.getElementById('theme-toggle');
