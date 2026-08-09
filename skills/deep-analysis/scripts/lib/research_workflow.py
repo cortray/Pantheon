@@ -49,7 +49,8 @@ def build_initiating_coverage(
     research = (dims.get("6_research") or {}).get("data") or {}
 
     name = basic.get("name", "—")
-    industry = basic.get("industry", "—")
+    # v3.9.5 · industry 键可能存在但值为 None → 之前渲染成 "公司属于None行业"
+    industry = (basic.get("industry") or "").strip()
     price = _num(basic.get("price"))
 
     # Target price: blend DCF + comps if available
@@ -81,10 +82,11 @@ def build_initiating_coverage(
     # Executive summary
     roe_hist = fin.get("roe_history") or []
     roe_last = _num(roe_hist[-1]) if roe_hist else 0
+    industry_clause = f"公司属于 {industry} 行业，" if industry else "公司所属行业未明确披露，"
     exec_summary = (
         f"我们首次覆盖{name}（{basic.get('code','-')}），给予「{rating}」评级，"
         f"目标价 ¥{blended:.2f}，较现价 ¥{price:.2f} 空间 {upside_pct:+.1f}%。"
-        f"公司属于{industry}行业，最新 ROE {roe_last:.1f}%。"
+        f"{industry_clause}最新 ROE {roe_last:.1f}%。"
     )
 
     # Investment thesis (3-5 pillars)

@@ -784,14 +784,16 @@ def get_comment(investor_id: str, signal: str, ctx: dict) -> str:
     line = random.choice(lines)
     # Format safely — missing keys fall back to '—'
     try:
+        # v3.9.5 · ctx 里 key 存在但值为 None 时 .get(k, default) 仍返回 None →
+        # 模板里渲染出裸 "None"。改用 `or` 兜底，None/空串都退回占位符。
         return line.format(**{
-            "roe": ctx.get("roe", "—"),
-            "pe": ctx.get("pe", "—"),
-            "price": ctx.get("price", "—"),
-            "name": ctx.get("name", "这只票"),
-            "industry": ctx.get("industry", "该行业"),
-            "growth": ctx.get("growth", "—"),
-            "stage": ctx.get("stage", "—"),
+            "roe": ctx.get("roe") or "—",
+            "pe": ctx.get("pe") or "—",
+            "price": ctx.get("price") or "—",
+            "name": ctx.get("name") or "这只票",
+            "industry": ctx.get("industry") or "该行业",
+            "growth": ctx.get("growth") or "—",
+            "stage": ctx.get("stage") or "—",
         })
     except (KeyError, IndexError):
         return line

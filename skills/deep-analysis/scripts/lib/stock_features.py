@@ -258,7 +258,7 @@ def extract_features(raw: dict, dims: dict) -> dict:
 
     # ─────────────── INDUSTRY ───────────────
     f["industry_growth_pct"] = _f(industry.get("growth"))
-    f["industry_lifecycle"] = str(industry.get("lifecycle", "—"))
+    f["industry_lifecycle"] = str(industry.get("lifecycle") or "—")
     f["industry_is_growing"] = "成长" in f["industry_lifecycle"]
     f["industry_in_decline"] = "衰退" in f["industry_lifecycle"]
 

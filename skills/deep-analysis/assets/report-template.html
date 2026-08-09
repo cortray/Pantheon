@@ -1001,11 +1001,13 @@ body::after {
   top: -11px; left: 24px;
   font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
+  /* v3.9.5 · 之前白字压在浅金底上看不清 → 改深墨底 + 白字，高对比 */
   color: #ffffff;
-  background: var(--neon-gold);
+  background: var(--text-bright);
   padding: 2px 10px;
-  letter-spacing: .04em;
-  font-weight: 700;
+  border-radius: 4px;
+  letter-spacing: .08em;
+  font-weight: 800;
 }
 
 /* ═══════════════ 50 INVESTOR PERIODIC TABLE ═══════════════ */
@@ -1833,9 +1835,11 @@ body::after {
 .dim-viz {
   margin: 14px 0;
   padding: 16px;
-  background: var(--bg-tinted);
-  border: 1px solid var(--border);
+  /* v3.9.5 · 之前 tinted 米灰底显脏、图表看不清 → 改干净卡片白底 + 描边分隔 */
+  background: var(--bg-card);
+  border: 1px solid var(--border-hot);
   border-radius: 16px;
+  box-shadow: var(--shadow-sm);
 }
 .dim-viz svg { display: block; max-width: 100%; height: auto; }
 
@@ -2917,10 +2921,11 @@ a:hover { text-decoration: underline; }
 .stat-tile .label { color: var(--text-dim); font-size: 11px; }
 .jury-row-label { color: var(--text-dim); font-size: 11px; letter-spacing: .04em; }
 .jury-board { background: var(--bg-tinted); border: 1px solid var(--border); border-radius: 16px; }
-.seat { border-radius: 10px; background: var(--border); }
-.seat.bull { background: var(--bull-green); }
-.seat.bear { background: var(--bear-red); }
-.seat.neutral { background: var(--text-ghost); }
+.seat { border-radius: 10px; }
+/* v3.9.5 · 中性席位之前用 --text-ghost(中灰)当底，姓氏字压上去看不清 →
+   改浅色 tinted 底 + 提高不透明度，保证姓氏可读 */
+.seat.neutral { background: var(--bg-tinted); opacity: .92; }
+.seat.neutral .seat-name { color: var(--text-mid); }
 
 /* ── 群聊 ── */
 .chat-container {
@@ -3202,7 +3207,7 @@ footer strong { color: var(--navy); }
 
 /* ── 页面：canvas-parchment 背景 + 白色画廊页 ── */
 body { background: #f5f5f7; background-attachment: fixed; }
-.container { max-width: 1320px; padding: 0 48px 100px; background: #fff; box-shadow: 0 0 90px rgba(0,0,0,.07); }
+.container { max-width: 1560px; padding: 0 56px 100px; background: #fff; box-shadow: 0 0 90px rgba(0,0,0,.07); }
 
 /* ── TOP BAR：毛玻璃极简 ── */
 .topbar {
@@ -3386,20 +3391,33 @@ footer { border-top: 1px solid #f0f0f0; margin-top: 48px; padding-top: 20px; col
 [data-theme="dark"] .style-chip-wrap .chip { background: var(--bg-tinted); }
 [data-theme="dark"] .share-qr-card .qr-canvas { background: #fff; }  /* QR 码必须白底可扫描 */
 
-/* ── dark · 数据缺口横幅(橙调) ── */
-[data-theme="dark"] .data-gap-banner {
-  background: linear-gradient(135deg, rgba(245,158,11,.14), rgba(245,158,11,.04)), var(--bg-card);
-  border-color: rgba(245,158,11,.35);
+/* ── dark · 数据缺口横幅 ── v3.9.5 · 用实色底，覆盖 low-confidence / fund-type
+   变体（它们的浅色底 specificity 0-2-0，必须用同级或更高选择器压过），
+   之前暗色下这块仍是浅底 → 深色文字看不清 */
+[data-theme="dark"] .data-gap-banner,
+[data-theme="dark"] .data-gap-banner.low-confidence,
+[data-theme="dark"] .data-gap-banner.fund-type {
+  background: var(--bg-elevated);
 }
-[data-theme="dark"] .data-gap-banner .title { color: #fbbf24; }
-[data-theme="dark"] .data-gap-banner .subtitle { color: var(--text-main); }
-[data-theme="dark"] .data-gap-banner .chip, [data-theme="dark"] .data-gap-banner .badge { background: rgba(245,158,11,.15); color: #fbbf24; }
+[data-theme="dark"] .data-gap-banner { border-color: rgba(240,169,92,.4); }
+[data-theme="dark"] .data-gap-banner.low-confidence { border-color: rgba(240,125,125,.45); border-left-color: #f07d7d; }
+[data-theme="dark"] .data-gap-banner.fund-type { border-color: rgba(124,199,240,.4); border-left-color: #7cc7f0; }
+[data-theme="dark"] .data-gap-banner .title { color: #f0a95c; }
+[data-theme="dark"] .data-gap-banner.low-confidence .title { color: #f07d7d; }
+[data-theme="dark"] .data-gap-banner.fund-type .title { color: #7cc7f0; }
+[data-theme="dark"] .data-gap-banner .subtitle,
+[data-theme="dark"] .data-gap-banner .subtitle strong,
+[data-theme="dark"] .data-gap-banner .hint,
+[data-theme="dark"] .data-gap-banner .hint strong { color: var(--text-main); }
+[data-theme="dark"] .data-gap-banner .subtitle strong { color: var(--text-bright); font-weight: 800; }
+[data-theme="dark"] .data-gap-banner .chip, [data-theme="dark"] .data-gap-banner .badge { background: rgba(240,169,92,.18); color: #f0a95c; border-color: rgba(240,169,92,.4); }
+[data-theme="dark"] .data-gap-banner .chip.ack { background: rgba(148,163,184,.16); color: var(--text-dim); border-color: var(--border-hot); }
 
 /* ── dark · 风格 chips 值(indigo 变量) ── */
 [data-theme="dark"] .style-chip-wrap .value { background: var(--tag-indigo-bg); color: var(--tag-indigo-fg); }
 
-/* ── dark · PUNCHLINE 标签 ── */
-[data-theme="dark"] .punchline::before { background: var(--neon-gold); color: #fff; }
+/* ── dark · PUNCHLINE 标签 ── 亮金底配深墨字，避免白字压浅金看不清 */
+[data-theme="dark"] .punchline::before { background: var(--neon-gold); color: #14100a; }
 
 /* ── dark 模式 SVG 图表覆盖(fill/stroke 属性形式) ── */
 [data-theme="dark"] svg text { fill: var(--text-main); }

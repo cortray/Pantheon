@@ -109,13 +109,16 @@ def _fmt_msg(template: str, features: dict) -> str:
     """
     if not template:
         return ""
+    # v3.9.5 · None 值直接 .format 会渲染出裸 "None"（如 "产能周期 None"）→
+    # 先把 None 兜底成 "—"，无格式化占位符即可正常显示。
+    clean = {k: ("—" if v is None else v) for k, v in features.items()}
     try:
-        return template.format(**features)
+        return template.format(**clean)
     except (KeyError, IndexError, ValueError):
         # Fall back: strip unresolved placeholders
         try:
             # replace missing keys with "?"
-            safe = {k: features.get(k, "?") for k in _extract_keys(template)}
+            safe = {k: clean.get(k, "?") for k in _extract_keys(template)}
             return template.format(**safe)
         except Exception:
             return template

@@ -390,10 +390,10 @@ def _viz_research(raw: dict) -> str:
 
 
 def _viz_industry(raw: dict) -> str:
-    growth = raw.get("growth", "—")
-    tam = raw.get("tam", "—")
-    penetration = raw.get("penetration", "—")
-    lifecycle = raw.get("lifecycle", "—")
+    growth = raw.get("growth") or "—"
+    tam = raw.get("tam") or "—"
+    penetration = raw.get("penetration") or "—"
+    lifecycle = raw.get("lifecycle") or "—"
     # parse growth pct
     import re
     m = re.search(r'(\d+)', str(growth))
@@ -417,10 +417,10 @@ def _viz_industry(raw: dict) -> str:
 
 
 def _viz_materials(raw: dict) -> str:
-    core = raw.get("core_material", "—")
-    trend_str = raw.get("price_trend", "—")
-    cost_share = raw.get("cost_share", "—")
-    import_dep = raw.get("import_dep", "—")
+    core = raw.get("core_material") or "—"
+    trend_str = raw.get("price_trend") or "—"
+    cost_share = raw.get("cost_share") or "—"
+    import_dep = raw.get("import_dep") or "—"
     trend_vals = raw.get("price_history_12m", [])
     spark_html = ""
     if trend_vals:
@@ -435,8 +435,8 @@ def _viz_materials(raw: dict) -> str:
 
 
 def _viz_futures(raw: dict) -> str:
-    linked = raw.get("linked_contract", "—")
-    trend = raw.get("contract_trend", "—")
+    linked = raw.get("linked_contract") or "—"
+    trend = raw.get("contract_trend") or "—"
     return f'''<div style="padding:16px;text-align:center;background:var(--bg-card);border:1px dashed #cbd5e1;border-radius:8px">
   <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);letter-spacing:.15em">LINKED CONTRACT</div>
   <div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:16px;color:var(--text-main);font-weight:700;margin-top:4px">{linked}</div>
@@ -490,6 +490,8 @@ def _viz_governance(raw: dict) -> str:
 def _viz_capital_flow(raw: dict) -> str:
     """4 mini sparklines + 机构持仓变化 + 解禁时间表"""
     def _mini(label, values, summary, color):
+        if summary is None or summary == "":
+            summary = "—"
         if not values or len(values) < 2:
             return f'''<div style="padding:10px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px">
   <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim)">{label}</div>
@@ -686,9 +688,9 @@ def _viz_sentiment(raw: dict) -> str:
     m = re.search(r'(\d+)', heat_str)
     heat_val = int(m.group(1)) if m else 50
     thermo = svg_thermometer(heat_val, 100, "雪球热度")
-    big_v = raw.get("big_v_mentions", "—")
-    positive = raw.get("positive_pct", "—")
-    guba = raw.get("guba_volume", "—")
+    big_v = raw.get("big_v_mentions") or "—"
+    positive = raw.get("positive_pct") or "—"
+    guba = raw.get("guba_volume") or "—"
     tail = f'''<div style="flex:1;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:11px;line-height:1.8;color:var(--text-main)">
   <div>📣 <strong style="color:var(--text-main)">{big_v}</strong></div>
   <div>💬 股吧 <strong style="color:var(--text-main)">{guba}</strong></div>

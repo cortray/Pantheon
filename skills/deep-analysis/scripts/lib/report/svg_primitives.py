@@ -209,20 +209,22 @@ def svg_supply_flow(upstream: str, company: str, downstream: str) -> str:
     company = _trunc(company, 30)
     downstream = _trunc(downstream, 50)
 
+    # v3.9.5 · 三个块底色是固定浅色(青/黄/绿)，正文若用 var(--text-main) 在暗色模式
+    # 会变浅色 → 浅字压浅底看不清。这里锁死为深墨字 #14202e，两种主题都可读。
     return f'''<div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:center;font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;overflow:hidden">
   <div style="padding:10px 12px;background:#cffafe;border:1px solid #0891b2;border-radius:8px;text-align:center;overflow:hidden">
-    <div style="font-size:9px;color:#0891b2;letter-spacing:.1em;margin-bottom:4px">UPSTREAM</div>
-    <div style="font-size:11px;font-weight:600;color:var(--text-main);line-height:1.4;word-break:break-all;overflow-wrap:break-word">{upstream}</div>
+    <div style="font-size:9px;color:#0e6b7a;letter-spacing:.1em;margin-bottom:4px;font-weight:700">UPSTREAM</div>
+    <div style="font-size:11px;font-weight:600;color:#14202e;line-height:1.4;word-break:break-all;overflow-wrap:break-word">{upstream}</div>
   </div>
   <div style="font-size:18px;color:#0891b2;flex-shrink:0">→</div>
   <div style="padding:10px 12px;background:#fef3c7;border:2px solid #d97706;border-radius:8px;text-align:center;overflow:hidden">
-    <div style="font-size:9px;color:#d97706;letter-spacing:.1em;margin-bottom:4px">COMPANY</div>
-    <div style="font-size:11px;font-weight:700;color:var(--text-main);line-height:1.4">{company}</div>
+    <div style="font-size:9px;color:#8a5a08;letter-spacing:.1em;margin-bottom:4px;font-weight:700">COMPANY</div>
+    <div style="font-size:11px;font-weight:700;color:#14202e;line-height:1.4">{company}</div>
   </div>
   <div style="font-size:18px;color:#0891b2;flex-shrink:0">→</div>
   <div style="padding:10px 12px;background:#d1fae5;border:1px solid #059669;border-radius:8px;text-align:center;overflow:hidden">
-    <div style="font-size:9px;color:#059669;letter-spacing:.1em;margin-bottom:4px">DOWNSTREAM</div>
-    <div style="font-size:11px;font-weight:600;color:var(--text-main);line-height:1.4;word-break:break-all;overflow-wrap:break-word">{downstream}</div>
+    <div style="font-size:9px;color:#0a6b45;letter-spacing:.1em;margin-bottom:4px;font-weight:700">DOWNSTREAM</div>
+    <div style="font-size:11px;font-weight:600;color:#14202e;line-height:1.4;word-break:break-all;overflow-wrap:break-word">{downstream}</div>
   </div>
 </div>'''
 
