@@ -159,7 +159,7 @@ _PROFILES: dict[str, AnalysisProfile] = {
         fetchers_enabled=_ALL_FETCHERS,
         ddg_budget=30,                    # 标准预算
         industry_dynamic_lookup=True,
-        investors_count=51,
+        investors_count=66,
         enable_bull_bear_debate=False,
         institutional_methods=frozenset({
             "dcf", "comps", "lbo", "three_statement", "merger",
@@ -183,7 +183,7 @@ _PROFILES: dict[str, AnalysisProfile] = {
         fetchers_enabled=_ALL_FETCHERS,
         ddg_budget=60,                    # 允许跑满
         industry_dynamic_lookup=True,
-        investors_count=51,
+        investors_count=66,
         enable_bull_bear_debate=True,     # ← deep 独享
         institutional_methods=frozenset({
             "dcf", "comps", "lbo", "three_statement", "merger",

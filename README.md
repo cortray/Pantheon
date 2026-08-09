@@ -66,6 +66,13 @@ Pantheon 以 AI 编程助手插件 + Python CLI 两种形态分发，任选其�
 gemini extensions install https://github.com/cortray/Pantheon
 ```
 
+### Hermes
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/cortray/Pantheon/main/install-hermes.sh | bash
+# 详见 INSTALL-HERMES.md
+```
+
 ### OpenClaw / 其他 Agent
 
 > 安装 https://github.com/cortray/Pantheon 这个股票分析技能

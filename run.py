@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""UZI-Skill 一键运行入口 — 适用于 Claude Code / Codex / Cursor / 命令行 / 任何 agent。
+"""Pantheon 一键运行入口 — 适用于 Claude Code / Codex / Cursor / 命令行 / 任何 agent。
 
 用法:
     python run.py 002273.SZ                   # 本地分析，浏览器打开
@@ -131,25 +131,31 @@ def _pip_install(args: list, index_url: str | None = None) -> int:
 
 
 def check_dependencies():
-    """检查并安装缺失依赖。pypi 访问不通时自动切国内镜像重试（支持中国大陆网络环境）。"""
-    required = ["akshare", "requests"]
-    missing = []
-    for pkg in required:
-        try:
-            __import__(pkg)
-        except ImportError:
-            missing.append(pkg)
+    """检查并安装缺失依赖。安装后会重新 import 验证，避免"装了却用不了"。
 
-    if not missing:
+    pypi 访问不通时自动切国内镜像重试（支持中国大陆网络环境）。
+    """
+    required = ["akshare", "requests"]
+
+    def _importable(pkgs):
+        for pkg in pkgs:
+            try:
+                __import__(pkg)
+            except ImportError:
+                return False
+        return True
+
+    if _importable(required):
         return
 
+    missing = [p for p in required if not _importable([p])]
     print(f"⚠️  缺少依赖: {', '.join(missing)}")
     req_file = ROOT_DIR / "requirements.txt"
     args = ["-r", str(req_file)] if req_file.exists() else missing
 
     # 第一次尝试：默认 pypi（海外/Codex/美国网络最快）
     print(f"   [1/{len(PYPI_MIRRORS) + 1}] 尝试默认 pypi.org ...")
-    if _pip_install(args) == 0:
+    if _pip_install(args) == 0 and _importable(missing):
         print("   ✓ 依赖安装完成\n")
         return
 
@@ -157,12 +163,12 @@ def check_dependencies():
     print(f"   ⚠️  默认 pypi 安装失败（可能因网络受限），尝试国内镜像...")
     for i, (name, url) in enumerate(PYPI_MIRRORS, start=2):
         print(f"   [{i}/{len(PYPI_MIRRORS) + 1}] 尝试 {name} 镜像 ({url}) ...")
-        if _pip_install(args, index_url=url) == 0:
+        if _pip_install(args, index_url=url) == 0 and _importable(missing):
             print(f"   ✓ 依赖安装完成（via {name}）\n")
             return
 
-    print(f"   ❌ 所有镜像都失败了。请手动安装：")
-    print(f"      pip install -r requirements.txt \\")
+    print(f"   ❌ 依赖安装失败（pip 返回成功但 import 仍失败，或所有镜像都不通）。请手动安装：")
+    print(f"      python -m pip install -r requirements.txt \\")
     print(f"          -i https://pypi.tuna.tsinghua.edu.cn/simple")
     print(f"   或参考 README.md 的\"网络受限环境\"章节\n")
 
@@ -434,7 +440,7 @@ def _maybe_prompt_update() -> None:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="游资（UZI）Skills · 个股深度分析",
+        description="Pantheon · 个股深度分析引擎",
         epilog="示例: python run.py 贵州茅台 --remote",
     )
     parser.add_argument("ticker", nargs="?", default="002273.SZ",
@@ -551,7 +557,7 @@ def main():
 
     print()
     print("━" * 50)
-    print(f"🎯 游资（UZI）Skills v{_get_version()} · 深度分析引擎")
+    print(f"🎯 Pantheon v{_get_version()} · 深度分析引擎")
     print(f"   目标: {args.ticker}")
     print(f"   环境: {'Codex' if env['is_codex'] else 'Docker' if env['is_docker'] else 'SSH' if env['is_ssh'] else '本地'}")
     print(f"   浏览器: {'✓' if env['has_browser'] and not args.no_browser else '✗ (headless)'}")

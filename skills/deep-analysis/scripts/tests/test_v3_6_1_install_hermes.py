@@ -25,10 +25,12 @@ SCRIPT = REPO_ROOT / "install-hermes.sh"
 
 def test_install_script_exists():
     assert SCRIPT.exists(), "install-hermes.sh 必须在 repo root"
-    # 可执行权限
+    # 可执行权限（Windows 无 POSIX exec 位概念 · git core.filemode=false · 该断言仅对类 Unix 有效）
+    import platform
     import stat
-    mode = SCRIPT.stat().st_mode
-    assert mode & stat.S_IXUSR, "install-hermes.sh 必须可执行 (chmod +x)"
+    if platform.system() != "Windows":
+        mode = SCRIPT.stat().st_mode
+        assert mode & stat.S_IXUSR, "install-hermes.sh 必须可执行 (chmod +x)"
 
 
 def test_install_script_bash_syntax_valid():
