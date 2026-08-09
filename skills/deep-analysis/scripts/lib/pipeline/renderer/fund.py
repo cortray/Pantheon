@@ -204,7 +204,7 @@ class FundRenderer(SectionRenderer):
             avatar_html = (
                 f'<img src="avatars/{avatar}.svg" style="width:54px;height:54px;'
                 f'image-rendering:pixelated;border:2px solid #d97706;'
-                f'border-radius:8px;background:#fff;flex-shrink:0">'
+                f'border-radius:8px;background:var(--bg-card);flex-shrink:0">'
             )
         else:
             initial = (name[0] if name and name != "—" else "?")
@@ -212,7 +212,7 @@ class FundRenderer(SectionRenderer):
                 f'<div style="width:54px;height:54px;background:#fef3c7;'
                 f'border:2px solid #d97706;border-radius:8px;'
                 f'display:flex;align-items:center;justify-content:center;'
-                f'font-family:Inter;font-size:20px;font-weight:900;'
+                f'font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:20px;font-weight:900;'
                 f'color:#d97706;flex-shrink:0">{initial}</div>'
             )
 
@@ -249,8 +249,8 @@ class FundRenderer(SectionRenderer):
         badge_style = (
             "background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff"
             if rank <= 3 else
-            "background:#e2e8f0;color:#475569" if rank <= 10 else
-            "background:#f1f5f9;color:#64748b"
+            "background:var(--border);color:var(--text-main)" if rank <= 10 else
+            "background:var(--bg-tinted);color:var(--text-dim)"
         )
 
         if avatar:
@@ -263,8 +263,8 @@ class FundRenderer(SectionRenderer):
 
         # lite 行展示："持仓 X%" · 点进去看业绩
         metric_html = (
-            f'<span class="fc-return" style="color:#64748b">持仓 {position_pct:.2f}%</span>'
-            f'<span class="fc-rank-pct" style="color:#94a3b8;font-size:10px">点→查业绩</span>'
+            f'<span class="fc-return" style="color:var(--text-dim)">持仓 {position_pct:.2f}%</span>'
+            f'<span class="fc-rank-pct" style="color:var(--text-dim);font-size:10px">点→查业绩</span>'
         )
 
         name_display = name if name not in ("—", "-") else fund_name

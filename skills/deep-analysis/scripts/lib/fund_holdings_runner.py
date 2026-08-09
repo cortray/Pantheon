@@ -202,12 +202,12 @@ def _generate_summary_html(
                 rel = os.path.relpath(report_p, out_dir)
                 status_html = f'<a href="{rel}" target="_blank" style="color:#0891b2">查看报告 →</a>'
             except Exception:
-                status_html = '<span style="color:#9ca3af">报告路径异常</span>'
+                status_html = '<span style="color:var(--text-dim)">报告路径异常</span>'
         elif any(f["code"] == code for f in failed):
             err = next(f for f in failed if f["code"] == code)["error"]
             status_html = f'<span style="color:#dc2626" title="{err}">❌ 失败</span>'
         else:
-            status_html = '<span style="color:#9ca3af">未分析</span>'
+            status_html = '<span style="color:var(--text-dim)">未分析</span>'
 
         rows.append(
             f'<tr><td>{h["rank"]}</td><td><strong>{name}</strong></td>'
@@ -222,9 +222,9 @@ def _generate_summary_html(
   <meta charset="UTF-8">
   <title>{fund_label} {fund_ticker} · 持仓分析汇总</title>
   <style>
-    body {{ font-family: -apple-system, "Helvetica Neue", sans-serif; max-width: 880px; margin: 40px auto; padding: 20px; color: #111; }}
+    body {{ font-family: -apple-system, "Helvetica Neue", sans-serif; max-width: 880px; margin: 40px auto; padding: 20px; color:var(--text-main); }}
     h1 {{ color: #0891b2; border-bottom: 3px solid #0891b2; padding-bottom: 8px; }}
-    .meta {{ color: #6b7280; font-size: 14px; margin: 12px 0 24px; }}
+    .meta {{ color:var(--text-dim); font-size: 14px; margin: 12px 0 24px; }}
     table {{ width: 100%; border-collapse: collapse; }}
     th, td {{ padding: 10px 12px; border-bottom: 1px solid #e5e7eb; text-align: left; font-size: 14px; }}
     th {{ background: #f3f4f6; font-weight: 600; }}
@@ -257,7 +257,7 @@ def _generate_summary_html(
     </tbody>
   </table>
 
-  <p style="margin-top:30px;color:#6b7280;font-size:12px;text-align:center">
+  <p style="margin-top:30px;color:var(--text-dim);font-size:12px;text-align:center">
     UZI-Skill v3.4.0 · 基金/ETF 持仓批量分析功能 · 数据来自 akshare.fund_portfolio_hold_em
   </p>
 </body>

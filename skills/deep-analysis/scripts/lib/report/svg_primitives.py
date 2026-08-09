@@ -64,16 +64,16 @@ def svg_h_bar_compare(label_a: str, val_a: float, label_b: str, val_b: float, un
     color_a = COLOR_BULL if val_a >= val_b else COLOR_MUTED
     color_b = COLOR_BULL if val_b > val_a else COLOR_MUTED
     return f'''<div style="font-family: -apple-system, SF Mono, Consolas, monospace, monospace; font-size: 11px;">
-  <div style="display:flex; justify-content:space-between; margin-bottom:4px; color:#475569;">
-    <span>{label_a}</span><strong style="color:#0f172a">{val_a}{unit}</strong>
+  <div style="display:flex; justify-content:space-between; margin-bottom:4px; color:var(--text-main);">
+    <span>{label_a}</span><strong style="color:var(--text-main)">{val_a}{unit}</strong>
   </div>
-  <div style="height:8px; background:#f1f5f9; border-radius:4px; overflow:hidden; margin-bottom:8px;">
+  <div style="height:8px; background:var(--bg-tinted); border-radius:4px; overflow:hidden; margin-bottom:8px;">
     <div style="width:{pct_a}%; height:100%; background:{color_a}; border-radius:4px;"></div>
   </div>
-  <div style="display:flex; justify-content:space-between; margin-bottom:4px; color:#475569;">
-    <span>{label_b}</span><strong style="color:#0f172a">{val_b}{unit}</strong>
+  <div style="display:flex; justify-content:space-between; margin-bottom:4px; color:var(--text-main);">
+    <span>{label_b}</span><strong style="color:var(--text-main)">{val_b}{unit}</strong>
   </div>
-  <div style="height:8px; background:#f1f5f9; border-radius:4px; overflow:hidden;">
+  <div style="height:8px; background:var(--bg-tinted); border-radius:4px; overflow:hidden;">
     <div style="width:{pct_b}%; height:100%; background:{color_b}; border-radius:4px;"></div>
   </div>
 </div>'''
@@ -112,8 +112,8 @@ def svg_donut(segments: list[tuple], total: float = None, label: str = "", size:
     legend = "".join(
         f'<div style="display:flex; align-items:center; gap:6px; font-size:10px; margin-bottom:2px;">'
         f'<span style="width:8px; height:8px; background:{c}; border-radius:2px"></span>'
-        f'<span style="color:#475569">{l}</span>'
-        f'<strong style="margin-left:auto; color:#0f172a">{v}</strong></div>'
+        f'<span style="color:var(--text-main)">{l}</span>'
+        f'<strong style="margin-left:auto; color:var(--text-main)">{v}</strong></div>'
         for l, v, c in segments
     )
     return f'''<div style="display:flex; align-items:center; gap:14px;">
@@ -193,7 +193,7 @@ def svg_signal_lights(hit: int, total: int = 8) -> str:
     label = "🔴 命中信号" if hit > 0 else "🟢 全部通过"
     return f'''<div>
   <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">{"".join(cells)}</div>
-  <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:#475569">{label} · {hit}/{total}</div>
+  <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-main)">{label} · {hit}/{total}</div>
 </div>'''
 
 
@@ -209,20 +209,20 @@ def svg_supply_flow(upstream: str, company: str, downstream: str) -> str:
     company = _trunc(company, 30)
     downstream = _trunc(downstream, 50)
 
-    return f'''<div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:center;font-family:Inter;overflow:hidden">
+    return f'''<div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:center;font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;overflow:hidden">
   <div style="padding:10px 12px;background:#cffafe;border:1px solid #0891b2;border-radius:8px;text-align:center;overflow:hidden">
     <div style="font-size:9px;color:#0891b2;letter-spacing:.1em;margin-bottom:4px">UPSTREAM</div>
-    <div style="font-size:11px;font-weight:600;color:#0f172a;line-height:1.4;word-break:break-all;overflow-wrap:break-word">{upstream}</div>
+    <div style="font-size:11px;font-weight:600;color:var(--text-main);line-height:1.4;word-break:break-all;overflow-wrap:break-word">{upstream}</div>
   </div>
   <div style="font-size:18px;color:#0891b2;flex-shrink:0">→</div>
   <div style="padding:10px 12px;background:#fef3c7;border:2px solid #d97706;border-radius:8px;text-align:center;overflow:hidden">
     <div style="font-size:9px;color:#d97706;letter-spacing:.1em;margin-bottom:4px">COMPANY</div>
-    <div style="font-size:11px;font-weight:700;color:#0f172a;line-height:1.4">{company}</div>
+    <div style="font-size:11px;font-weight:700;color:var(--text-main);line-height:1.4">{company}</div>
   </div>
   <div style="font-size:18px;color:#0891b2;flex-shrink:0">→</div>
   <div style="padding:10px 12px;background:#d1fae5;border:1px solid #059669;border-radius:8px;text-align:center;overflow:hidden">
     <div style="font-size:9px;color:#059669;letter-spacing:.1em;margin-bottom:4px">DOWNSTREAM</div>
-    <div style="font-size:11px;font-weight:600;color:#0f172a;line-height:1.4;word-break:break-all;overflow-wrap:break-word">{downstream}</div>
+    <div style="font-size:11px;font-weight:600;color:var(--text-main);line-height:1.4;word-break:break-all;overflow-wrap:break-word">{downstream}</div>
   </div>
 </div>'''
 
@@ -237,7 +237,7 @@ def svg_timeline(events: list) -> str:
             f'<div style="display:flex;gap:10px;padding:8px 0">'
             f'<div style="width:10px;height:10px;border-radius:50%;background:{COLOR_GOLD};margin-top:4px;flex-shrink:0;'
             f'box-shadow:0 0 0 3px #fef3c7"></div>'
-            f'<div style="font-size:11px;color:#1e293b;line-height:1.5">{ev}</div>'
+            f'<div style="font-size:11px;color:var(--text-main);line-height:1.5">{ev}</div>'
             f'</div>'
         )
     return f'<div style="border-left:2px solid #e2e8f0;padding-left:12px;margin-left:5px">{"".join(items)}</div>'
@@ -445,11 +445,11 @@ def svg_progress_row(label: str, pct: float, color: str = COLOR_CYAN, suffix: st
     """Inline labeled progress bar."""
     pct_clamped = max(0, min(100, pct))
     return f'''<div style="display:flex;align-items:center;gap:10px;margin:6px 0">
-  <div style="width:70px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:#64748b">{label}</div>
-  <div style="flex:1;height:8px;background:#f1f5f9;border-radius:4px;overflow:hidden">
+  <div style="width:70px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim)">{label}</div>
+  <div style="flex:1;height:8px;background:var(--bg-tinted);border-radius:4px;overflow:hidden">
     <div style="width:{pct_clamped}%;height:100%;background:{color};border-radius:4px"></div>
   </div>
-  <div style="min-width:50px;text-align:right;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:11px;color:#0f172a;font-weight:700">{pct:.1f}{suffix}</div>
+  <div style="min-width:50px;text-align:right;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:11px;color:var(--text-main);font-weight:700">{pct:.1f}{suffix}</div>
 </div>'''
 
 
@@ -457,31 +457,31 @@ def svg_peer_table(rows: list) -> str:
     """HTML comparison table. rows = [{name, pe, pb, roe, revenue_growth, is_self}, ...]"""
     if not rows:
         return ""
-    head = '''<tr style="background:#f8fafc">
-  <th style="text-align:left;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:#64748b;font-weight:700;border-bottom:2px solid #e2e8f0">公司</th>
-  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:#64748b;font-weight:700;border-bottom:2px solid #e2e8f0">PE</th>
-  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:#64748b;font-weight:700;border-bottom:2px solid #e2e8f0">PB</th>
-  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:#64748b;font-weight:700;border-bottom:2px solid #e2e8f0">ROE</th>
-  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:#64748b;font-weight:700;border-bottom:2px solid #e2e8f0">营收增速</th>
+    head = '''<tr style="background:var(--bg-tinted)">
+  <th style="text-align:left;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);font-weight:700;border-bottom:2px solid #e2e8f0">公司</th>
+  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);font-weight:700;border-bottom:2px solid #e2e8f0">PE</th>
+  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);font-weight:700;border-bottom:2px solid #e2e8f0">PB</th>
+  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);font-weight:700;border-bottom:2px solid #e2e8f0">ROE</th>
+  <th style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);font-weight:700;border-bottom:2px solid #e2e8f0">营收增速</th>
 </tr>'''
     body = ""
     for r in rows:
         is_self = r.get("is_self", False)
-        row_style = 'background:#fef3c7;font-weight:700' if is_self else 'background:#ffffff'
+        row_style = 'background:#fef3c7;font-weight:700' if is_self else 'background:var(--bg-card)'
         body += f'''<tr style="{row_style}">
-  <td style="padding:8px 10px;font-family:Inter;font-size:12px;color:#0f172a;border-bottom:1px solid #f1f5f9">{'⭐ ' if is_self else ''}{r.get("name", "")}</td>
-  <td style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:11px;color:#0f172a;border-bottom:1px solid #f1f5f9">{r.get("pe", "—")}</td>
-  <td style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:11px;color:#0f172a;border-bottom:1px solid #f1f5f9">{r.get("pb", "—")}</td>
-  <td style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:11px;color:#0f172a;border-bottom:1px solid #f1f5f9">{r.get("roe", "—")}</td>
-  <td style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:11px;color:#0f172a;border-bottom:1px solid #f1f5f9">{r.get("revenue_growth", "—")}</td>
+  <td style="padding:8px 10px;font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:12px;color:var(--text-main);border-bottom:1px solid #f1f5f9">{'⭐ ' if is_self else ''}{r.get("name", "")}</td>
+  <td style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:11px;color:var(--text-main);border-bottom:1px solid #f1f5f9">{r.get("pe", "—")}</td>
+  <td style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:11px;color:var(--text-main);border-bottom:1px solid #f1f5f9">{r.get("pb", "—")}</td>
+  <td style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:11px;color:var(--text-main);border-bottom:1px solid #f1f5f9">{r.get("roe", "—")}</td>
+  <td style="text-align:right;padding:8px 10px;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:11px;color:var(--text-main);border-bottom:1px solid #f1f5f9">{r.get("revenue_growth", "—")}</td>
 </tr>'''
-    return f'<table style="width:100%;border-collapse:collapse;font-family:Inter">{head}{body}</table>'
+    return f'<table style="width:100%;border-collapse:collapse;font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif">{head}{body}</table>'
 
 
 def svg_unlock_timeline(unlocks: list, width: int = 280, height: int = 100) -> str:
     """Future unlock timeline: list of {date, amount_亿}."""
     if not unlocks:
-        return '<div style="text-align:center;color:#94a3b8;font-size:11px;padding:10px">未来 12 个月无解禁</div>'
+        return '<div style="text-align:center;color:var(--text-dim);font-size:11px;padding:10px">未来 12 个月无解禁</div>'
     n = len(unlocks)
     pad_l, pad_r, pad_t, pad_b = 20, 10, 16, 24
     w = width - pad_l - pad_r
@@ -591,12 +591,12 @@ def svg_thermometer(value: int, max_val: int = 100, label: str = "") -> str:
     pct = min(100, max(0, value / max_val * 100))
     color = COLOR_BEAR if value > 80 else COLOR_GOLD if value > 50 else COLOR_BULL
     return f'''<div style="display:flex;align-items:center;gap:14px">
-  <div style="width:24px;height:120px;background:#f1f5f9;border:1px solid #cbd5e1;border-radius:12px;position:relative;overflow:hidden">
+  <div style="width:24px;height:120px;background:var(--bg-tinted);border:1px solid #cbd5e1;border-radius:12px;position:relative;overflow:hidden">
     <div style="position:absolute;bottom:0;left:0;right:0;height:{pct}%;background:linear-gradient(0deg,{color},{color}cc);border-radius:0 0 12px 12px;transition:height 1s"></div>
   </div>
   <div>
-    <div style="font-family:Inter;font-weight:900;font-size:32px;color:{color};line-height:1">{value}</div>
-    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:#64748b;letter-spacing:.1em">{label}</div>
+    <div style="font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-weight:900;font-size:32px;color:{color};line-height:1">{value}</div>
+    <div style="font-family:-apple-system, SF Mono, Consolas, monospace;font-size:9px;color:var(--text-dim);letter-spacing:.1em">{label}</div>
   </div>
 </div>'''
 

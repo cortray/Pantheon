@@ -54,7 +54,7 @@ def _scatter(target: dict, peers: list[dict], base_currency: str) -> str:
             continue
         points.append((entity, is_target, period, revenue, margin))
     if len(points) < 2:
-        return '<div style="color:#94a3b8;font-size:11px">规模/盈利散点数据不足</div>'
+        return '<div style="color:var(--text-dim);font-size:11px">规模/盈利散点数据不足</div>'
 
     width, height = 760, 310
     left, right, top, bottom = 62, 22, 22, 48
@@ -106,7 +106,7 @@ def _scatter(target: dict, peers: list[dict], base_currency: str) -> str:
             f'<text x="{label_x:.1f}" y="{label_y:.1f}" text-anchor="{anchor}" font-size="10" fill="#334155">{label}</text></g>'
         )
     return f'''<div style="margin-top:12px">
-  <div style="font-size:11px;color:#64748b;margin-bottom:6px">规模与盈利质量 · 横轴为 {base_currency} 营收（对数）</div>
+  <div style="font-size:11px;color:var(--text-dim);margin-bottom:6px">规模与盈利质量 · 横轴为 {base_currency} 营收（对数）</div>
   <svg viewBox="0 0 {width} {height}" role="img" aria-label="全球同行营收与毛利率散点图" style="width:100%;height:auto;display:block">
     {''.join(grid)}
     <line x1="{left}" y1="{height-bottom}" x2="{width-right}" y2="{height-bottom}" stroke="#94a3b8"/>
@@ -124,7 +124,7 @@ def render_global_peer_comparison(comparison: dict) -> str:
     if status in {"disabled", "insufficient_target_profile"}:
         return ""
     if status == "unavailable":
-        return '<div style="margin-top:12px;color:#94a3b8;font-size:11px">全球同行数据暂不可用</div>'
+        return '<div style="margin-top:12px;color:var(--text-dim);font-size:11px">全球同行数据暂不可用</div>'
 
     target = comparison.get("target") or {}
     peers = comparison.get("peers") or []
@@ -139,7 +139,7 @@ def render_global_peer_comparison(comparison: dict) -> str:
     rows = []
     for entity, is_target in [(target, True)] + [(peer, False) for peer in peers]:
         period, facts = _latest(entity.get("financials") or {})
-        style = ' style="background:#fffbeb;font-weight:700"' if is_target else ""
+        style = ' style="background:var(--bg-card)beb;font-weight:700"' if is_target else ""
         rows.append(f'''<tr{style}>
   <td>{_esc(entity.get("name") or entity.get("symbol"))}</td>
   <td>{_esc(entity.get("symbol") or entity.get("uzi_symbol"))}</td>
@@ -164,14 +164,14 @@ def render_global_peer_comparison(comparison: dict) -> str:
 </style>
 <div class="global-peer-comparison" style="margin-top:16px;padding-top:14px;border-top:1px solid #e2e8f0">
   <div class="global-peer-head" style="display:flex;justify-content:space-between;gap:12px;align-items:flex-end;flex-wrap:wrap">
-    <div><div style="font-size:13px;font-weight:700;color:#0f172a">全球同行业绩对比</div>
-    <div style="font-size:10px;color:#64748b;margin-top:2px">跨市场、跨币种标准化 · 原币数据保留</div></div>
-    <div class="global-peer-meta" style="font-size:10px;color:#475569">有效同行 <strong>{len(peers)}</strong> · 市场 <strong>{market_count}</strong> · 基准币 {base_currency}</div>
+    <div><div style="font-size:13px;font-weight:700;color:var(--text-main)">全球同行业绩对比</div>
+    <div style="font-size:10px;color:var(--text-dim);margin-top:2px">跨市场、跨币种标准化 · 原币数据保留</div></div>
+    <div class="global-peer-meta" style="font-size:10px;color:var(--text-main)">有效同行 <strong>{len(peers)}</strong> · 市场 <strong>{market_count}</strong> · 基准币 {base_currency}</div>
   </div>
   <div class="global-peer-summary" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px">
-    <div style="padding:8px;background:#f8fafc;border:1px solid #e2e8f0"><div style="font-size:9px;color:#64748b">目标公司</div><div style="font-size:12px;font-weight:700">{_esc(target.get("name") or target.get("symbol"))}</div></div>
-    <div style="padding:8px;background:#f8fafc;border:1px solid #e2e8f0"><div style="font-size:9px;color:#64748b">同行中位数 · 毛利率</div><div style="font-size:12px;font-weight:700">{_fmt(benchmark.get("median"), "%")}</div></div>
-    <div style="padding:8px;background:#f8fafc;border:1px solid #e2e8f0"><div style="font-size:9px;color:#64748b">目标毛利率分位</div><div style="font-size:12px;font-weight:700">{_fmt(gross_pct, "%")}</div></div>
+    <div style="padding:8px;background:var(--bg-tinted);border:1px solid var(--border)"><div style="font-size:9px;color:var(--text-dim)">目标公司</div><div style="font-size:12px;font-weight:700">{_esc(target.get("name") or target.get("symbol"))}</div></div>
+    <div style="padding:8px;background:var(--bg-tinted);border:1px solid var(--border)"><div style="font-size:9px;color:var(--text-dim)">同行中位数 · 毛利率</div><div style="font-size:12px;font-weight:700">{_fmt(benchmark.get("median"), "%")}</div></div>
+    <div style="padding:8px;background:var(--bg-tinted);border:1px solid var(--border)"><div style="font-size:9px;color:var(--text-dim)">目标毛利率分位</div><div style="font-size:12px;font-weight:700">{_fmt(gross_pct, "%")}</div></div>
   </div>
   {_scatter(target, peers, str(comparison.get("base_currency") or "USD"))}
   <div class="global-peer-table" style="overflow-x:auto;margin-top:12px"><table style="width:100%;border-collapse:collapse;font-size:10px;white-space:nowrap">

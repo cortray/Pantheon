@@ -113,26 +113,26 @@ def _render_dcf_block(dim20: dict) -> str:
     tv_pct = dcf.get("tv_pct_of_ev", 0)
 
     return f'''
-    <div class="dcf-block" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+    <div class="dcf-block" style="background:var(--bg-card);border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
       <div class="dcf-head" style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #06b6d4;padding-bottom:8px;margin-bottom:14px">
         <div>
           <span style="background:#06b6d4;color:#fff;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px">DCF VALUATION</span>
-          <span style="margin-left:12px;font-size:14px;color:#6b7280">2-Stage FCF + Gordon Growth Terminal</span>
+          <span style="margin-left:12px;font-size:14px;color:var(--text-dim)">2-Stage FCF + Gordon Growth Terminal</span>
         </div>
-        <div style="font-size:11px;color:#9ca3af">dim 20.dcf</div>
+        <div style="font-size:11px;color:var(--text-dim)">dim 20.dcf</div>
       </div>
       <div class="dcf-summary" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:16px">
-        <div><div style="font-size:11px;color:#6b7280">WACC</div><div style="font-size:22px;font-weight:800;color:#111">{wacc_pct:.2f}%</div><div style="font-size:10px;color:#9ca3af">k_e {ke_pct:.1f}% · k_d {kd_pct:.1f}%</div></div>
-        <div><div style="font-size:11px;color:#6b7280">内在价值 / 股</div><div style="font-size:22px;font-weight:800;color:#111">¥{intrinsic}</div><div style="font-size:10px;color:#9ca3af">vs 当前 ¥{cur_px}</div></div>
-        <div><div style="font-size:11px;color:#6b7280">安全边际</div><div style="font-size:22px;font-weight:800;color:{sm_color}">{sm:+.1f}%</div><div style="font-size:10px;color:#9ca3af">{verdict}</div></div>
-        <div><div style="font-size:11px;color:#6b7280">终值占 EV</div><div style="font-size:22px;font-weight:800;color:#111">{tv_pct}%</div><div style="font-size:10px;color:#9ca3af">高度依赖 g</div></div>
+        <div><div style="font-size:11px;color:var(--text-dim)">WACC</div><div style="font-size:22px;font-weight:800;color:var(--text-main)">{wacc_pct:.2f}%</div><div style="font-size:10px;color:var(--text-dim)">k_e {ke_pct:.1f}% · k_d {kd_pct:.1f}%</div></div>
+        <div><div style="font-size:11px;color:var(--text-dim)">内在价值 / 股</div><div style="font-size:22px;font-weight:800;color:var(--text-main)">¥{intrinsic}</div><div style="font-size:10px;color:var(--text-dim)">vs 当前 ¥{cur_px}</div></div>
+        <div><div style="font-size:11px;color:var(--text-dim)">安全边际</div><div style="font-size:22px;font-weight:800;color:{sm_color}">{sm:+.1f}%</div><div style="font-size:10px;color:var(--text-dim)">{verdict}</div></div>
+        <div><div style="font-size:11px;color:var(--text-dim)">终值占 EV</div><div style="font-size:22px;font-weight:800;color:var(--text-main)">{tv_pct}%</div><div style="font-size:10px;color:var(--text-dim)">高度依赖 g</div></div>
       </div>
       <details style="margin-bottom:14px">
         <summary style="cursor:pointer;color:#0369a1;font-weight:600;font-size:13px">📐 计算推导（7 步）</summary>
         <ol style="margin:10px 0 0 20px;color:#374151;font-size:13px;line-height:1.8">{log_items}</ol>
       </details>
       <div>
-        <div style="font-size:12px;color:#6b7280;margin-bottom:6px">📊 5×5 敏感性表（WACC × 终值 g）· 中心 = 基础案例</div>
+        <div style="font-size:12px;color:var(--text-dim);margin-bottom:6px">📊 5×5 敏感性表（WACC × 终值 g）· 中心 = 基础案例</div>
         {heat_rows}
       </div>
     </div>
@@ -171,27 +171,27 @@ def _render_comps_block(dim20: dict) -> str:
         </tr>'''
 
     implied_rows = "".join(
-        f'<div style="display:inline-block;margin-right:20px"><span style="color:#6b7280;font-size:11px">{k}</span><div style="font-size:20px;font-weight:800">¥{v}</div></div>'
+        f'<div style="display:inline-block;margin-right:20px"><span style="color:var(--text-dim);font-size:11px">{k}</span><div style="font-size:20px;font-weight:800">¥{v}</div></div>'
         for k, v in implied.items()
     ) or '<span class="muted">—</span>'
 
     return f'''
-    <div class="comps-block" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+    <div class="comps-block" style="background:var(--bg-card);border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
       <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #8b5cf6;padding-bottom:8px;margin-bottom:14px">
         <div>
           <span style="background:#8b5cf6;color:#fff;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px">COMPS</span>
-          <span style="margin-left:12px;font-size:14px;color:#6b7280">同行对标 · 分位分析</span>
+          <span style="margin-left:12px;font-size:14px;color:var(--text-dim)">同行对标 · 分位分析</span>
         </div>
         <div style="font-size:14px;font-weight:700">{verdict}</div>
       </div>
       <table style="width:100%;border-collapse:collapse;font-size:13px">
-        <thead style="background:#f9fafb;color:#6b7280;font-size:11px;letter-spacing:0.5px">
+        <thead style="background:var(--bg-tinted);color:var(--text-dim);font-size:11px;letter-spacing:0.5px">
           <tr><th style="padding:8px;text-align:left">METRIC</th><th style="padding:8px;text-align:right">MIN</th><th style="padding:8px;text-align:right">MEDIAN</th><th style="padding:8px;text-align:right">MAX</th><th style="padding:8px;text-align:center">目标分位</th></tr>
         </thead>
         <tbody>{metric_rows}</tbody>
       </table>
       <div style="margin-top:14px;padding-top:12px;border-top:1px dashed #e5e7eb">
-        <div style="font-size:11px;color:#6b7280;margin-bottom:6px">隐含每股价（基于同行中位数倍数）</div>
+        <div style="font-size:11px;color:var(--text-dim);margin-bottom:6px">隐含每股价（基于同行中位数倍数）</div>
         {implied_rows}
       </div>
     </div>
@@ -213,22 +213,22 @@ def _render_lbo_block(dim20: dict) -> str:
     debt_sparks = svg_sparkline(debt_sched, width=220, height=40, color="#ef4444") if debt_sched else ""
 
     return f'''
-    <div class="lbo-block" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+    <div class="lbo-block" style="background:var(--bg-card);border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
       <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #f59e0b;padding-bottom:8px;margin-bottom:14px">
         <div>
           <span style="background:#f59e0b;color:#fff;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px">QUICK LBO</span>
-          <span style="margin-left:12px;font-size:14px;color:#6b7280">PE 买方视角 · 5 年退出</span>
+          <span style="margin-left:12px;font-size:14px;color:var(--text-dim)">PE 买方视角 · 5 年退出</span>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:16px">
-        <div><div style="font-size:11px;color:#6b7280">入场 EBITDA</div><div style="font-size:20px;font-weight:800">{lbo.get("entry_ebitda_yi", 0)} 亿</div><div style="font-size:10px;color:#9ca3af">EV {lbo.get("entry_ev_yi", 0)} 亿</div></div>
-        <div><div style="font-size:11px;color:#6b7280">杠杆倍数</div><div style="font-size:20px;font-weight:800">{lbo.get("leverage_turns", 0)}x</div><div style="font-size:10px;color:#9ca3af">债 {lbo.get("entry_debt_yi", 0)} 亿</div></div>
-        <div><div style="font-size:11px;color:#6b7280">退出 IRR</div><div style="font-size:24px;font-weight:900;color:{irr_color}">{irr}%</div><div style="font-size:10px;color:#9ca3af">MOIC {moic}x</div></div>
-        <div><div style="font-size:11px;color:#6b7280">结论</div><div style="font-size:14px;font-weight:700;color:{irr_color}">{verdict}</div></div>
+        <div><div style="font-size:11px;color:var(--text-dim)">入场 EBITDA</div><div style="font-size:20px;font-weight:800">{lbo.get("entry_ebitda_yi", 0)} 亿</div><div style="font-size:10px;color:var(--text-dim)">EV {lbo.get("entry_ev_yi", 0)} 亿</div></div>
+        <div><div style="font-size:11px;color:var(--text-dim)">杠杆倍数</div><div style="font-size:20px;font-weight:800">{lbo.get("leverage_turns", 0)}x</div><div style="font-size:10px;color:var(--text-dim)">债 {lbo.get("entry_debt_yi", 0)} 亿</div></div>
+        <div><div style="font-size:11px;color:var(--text-dim)">退出 IRR</div><div style="font-size:24px;font-weight:900;color:{irr_color}">{irr}%</div><div style="font-size:10px;color:var(--text-dim)">MOIC {moic}x</div></div>
+        <div><div style="font-size:11px;color:var(--text-dim)">结论</div><div style="font-size:14px;font-weight:700;color:{irr_color}">{verdict}</div></div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-        <div><div style="font-size:11px;color:#6b7280;margin-bottom:4px">5 年 EBITDA 路径</div>{ebitda_sparks}</div>
-        <div><div style="font-size:11px;color:#6b7280;margin-bottom:4px">债务偿还进度</div>{debt_sparks}</div>
+        <div><div style="font-size:11px;color:var(--text-dim);margin-bottom:4px">5 年 EBITDA 路径</div>{ebitda_sparks}</div>
+        <div><div style="font-size:11px;color:var(--text-dim);margin-bottom:4px">债务偿还进度</div>{debt_sparks}</div>
       </div>
     </div>
     '''
@@ -248,36 +248,36 @@ def _render_initiating_coverage(dim21: dict) -> str:
     risks = ic.get("key_risks") or []
 
     pillar_html = "".join(
-        f'<li style="margin-bottom:8px"><strong>{p.get("pillar", "—")}</strong> <span style="background:#e0e7ff;color:#3730a3;padding:2px 6px;border-radius:3px;font-size:10px;margin-left:4px">{p.get("weight", "")}</span><br><span style="color:#6b7280;font-size:12px">{p.get("evidence", "")}</span></li>'
+        f'<li style="margin-bottom:8px"><strong>{p.get("pillar", "—")}</strong> <span style="background:var(--tag-indigo-bg);color:var(--tag-indigo-fg);padding:2px 6px;border-radius:3px;font-size:10px;margin-left:4px">{p.get("weight", "")}</span><br><span style="color:var(--text-dim);font-size:12px">{p.get("evidence", "")}</span></li>'
         for p in pillars[:5]
     )
     risk_html = "".join(
-        f'<li style="margin-bottom:6px"><span style="color:#ef4444">●</span> <strong>{r.get("risk", "—")}</strong> <span style="color:#9ca3af;font-size:11px">({r.get("severity", "")})</span><br><span style="color:#6b7280;font-size:12px">{r.get("detail", "")}</span></li>'
+        f'<li style="margin-bottom:6px"><span style="color:#ef4444">●</span> <strong>{r.get("risk", "—")}</strong> <span style="color:var(--text-dim);font-size:11px">({r.get("severity", "")})</span><br><span style="color:var(--text-dim);font-size:12px">{r.get("detail", "")}</span></li>'
         for r in risks[:5]
     )
 
     return f'''
-    <div class="initiating-block" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+    <div class="initiating-block" style="background:var(--bg-card);border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
       <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #0369a1;padding-bottom:8px;margin-bottom:14px">
         <div>
           <span style="background:#0369a1;color:#fff;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px">INITIATING COVERAGE</span>
-          <span style="margin-left:12px;font-size:14px;color:#6b7280">机构首次覆盖 · JPM/GS/MS 格式</span>
+          <span style="margin-left:12px;font-size:14px;color:var(--text-dim)">机构首次覆盖 · JPM/GS/MS 格式</span>
         </div>
       </div>
-      <div style="display:flex;gap:24px;margin-bottom:14px;padding:12px;background:#f9fafb;border-radius:8px">
-        <div><div style="font-size:11px;color:#6b7280">RATING</div><div style="font-size:18px;font-weight:800;color:{rating_color}">{rating}</div></div>
-        <div><div style="font-size:11px;color:#6b7280">TARGET</div><div style="font-size:18px;font-weight:800">¥{tp}</div></div>
-        <div><div style="font-size:11px;color:#6b7280">CURRENT</div><div style="font-size:18px;font-weight:800">¥{cur}</div></div>
-        <div><div style="font-size:11px;color:#6b7280">UPSIDE</div><div style="font-size:18px;font-weight:800;color:{rating_color}">{ups:+.1f}%</div></div>
+      <div style="display:flex;gap:24px;margin-bottom:14px;padding:12px;background:var(--bg-tinted);border-radius:8px">
+        <div><div style="font-size:11px;color:var(--text-dim)">RATING</div><div style="font-size:18px;font-weight:800;color:{rating_color}">{rating}</div></div>
+        <div><div style="font-size:11px;color:var(--text-dim)">TARGET</div><div style="font-size:18px;font-weight:800">¥{tp}</div></div>
+        <div><div style="font-size:11px;color:var(--text-dim)">CURRENT</div><div style="font-size:18px;font-weight:800">¥{cur}</div></div>
+        <div><div style="font-size:11px;color:var(--text-dim)">UPSIDE</div><div style="font-size:18px;font-weight:800;color:{rating_color}">{ups:+.1f}%</div></div>
       </div>
       <div style="padding:10px;background:#f0f9ff;border-left:3px solid #0369a1;margin-bottom:14px;font-size:13px;line-height:1.6">{ic.get("executive_summary", "")}</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
         <div>
-          <div style="font-size:11px;color:#6b7280;font-weight:700;margin-bottom:8px">💪 INVESTMENT THESIS</div>
+          <div style="font-size:11px;color:var(--text-dim);font-weight:700;margin-bottom:8px">💪 INVESTMENT THESIS</div>
           <ul style="margin:0;padding-left:18px;font-size:13px">{pillar_html}</ul>
         </div>
         <div>
-          <div style="font-size:11px;color:#6b7280;font-weight:700;margin-bottom:8px">⚠️ KEY RISKS</div>
+          <div style="font-size:11px;color:var(--text-dim);font-weight:700;margin-bottom:8px">⚠️ KEY RISKS</div>
           <ul style="margin:0;padding-left:18px;font-size:13px">{risk_html}</ul>
         </div>
       </div>
@@ -303,35 +303,35 @@ def _render_ic_memo(dim22: dict) -> str:
         ret_color = "#10b981" if ret > 0 else "#ef4444"
         scen_html += f'''
         <div style="border:1px solid #e5e7eb;border-radius:8px;padding:10px">
-          <div style="font-size:11px;color:#6b7280;font-weight:700">{s.get("scenario", "—")} · p={s.get("probability_pct", 0)}%</div>
+          <div style="font-size:11px;color:var(--text-dim);font-weight:700">{s.get("scenario", "—")} · p={s.get("probability_pct", 0)}%</div>
           <div style="font-size:20px;font-weight:800;margin:4px 0">¥{s.get("price_target", 0)}</div>
           <div style="font-size:13px;font-weight:700;color:{ret_color}">{ret:+.1f}%</div>
-          <div style="font-size:10px;color:#9ca3af;margin-top:4px">{s.get("assumptions", "")}</div>
+          <div style="font-size:10px;color:var(--text-dim);margin-top:4px">{s.get("assumptions", "")}</div>
         </div>'''
 
     risk_html = "".join(
-        f'<li style="margin-bottom:6px"><strong>{r.get("risk", "—")}</strong> <span style="color:#ef4444;font-size:10px">({r.get("severity", "")})</span><br><span style="color:#6b7280;font-size:12px">{r.get("detail", "")}</span> · <span style="color:#059669;font-size:11px">缓解：{r.get("mitigant", "—")}</span></li>'
+        f'<li style="margin-bottom:6px"><strong>{r.get("risk", "—")}</strong> <span style="color:#ef4444;font-size:10px">({r.get("severity", "")})</span><br><span style="color:var(--text-dim);font-size:12px">{r.get("detail", "")}</span> · <span style="color:#059669;font-size:11px">缓解：{r.get("mitigant", "—")}</span></li>'
         for r in risks[:5]
     )
 
     return f'''
-    <div class="ic-memo-block" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+    <div class="ic-memo-block" style="background:var(--bg-card);border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
       <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #be123c;padding-bottom:8px;margin-bottom:14px">
         <div>
           <span style="background:#be123c;color:#fff;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px">IC MEMO</span>
-          <span style="margin-left:12px;font-size:14px;color:#6b7280">投委会备忘录 · 8 章节</span>
+          <span style="margin-left:12px;font-size:14px;color:var(--text-dim)">投委会备忘录 · 8 章节</span>
         </div>
       </div>
       <div style="padding:14px;background:#fef2f2;border-left:4px solid {rec_color};margin-bottom:14px">
-        <div style="font-size:11px;color:#6b7280;font-weight:700;margin-bottom:4px">RECOMMENDATION</div>
+        <div style="font-size:11px;color:var(--text-dim);font-weight:700;margin-bottom:4px">RECOMMENDATION</div>
         <div style="font-size:18px;font-weight:800;color:{rec_color}">{headline}</div>
       </div>
       <div style="margin-bottom:14px">
-        <div style="font-size:11px;color:#6b7280;font-weight:700;margin-bottom:8px">📊 三情景回报分析</div>
+        <div style="font-size:11px;color:var(--text-dim);font-weight:700;margin-bottom:8px">📊 三情景回报分析</div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">{scen_html}</div>
       </div>
       <div>
-        <div style="font-size:11px;color:#6b7280;font-weight:700;margin-bottom:8px">⚠️ 核心风险 + 缓解</div>
+        <div style="font-size:11px;color:var(--text-dim);font-weight:700;margin-bottom:8px">⚠️ 核心风险 + 缓解</div>
         <ul style="margin:0;padding-left:18px;font-size:13px">{risk_html}</ul>
       </div>
     </div>
@@ -351,22 +351,22 @@ def _render_catalyst_calendar(dim21: dict) -> str:
         imp = ev.get("impact", "low")
         items += f'''
         <div style="display:flex;padding:10px;border-bottom:1px solid #f3f4f6">
-          <div style="min-width:90px;font-size:12px;color:#6b7280;font-family:Menlo,monospace">{ev.get("date", "—")[:10]}</div>
+          <div style="min-width:90px;font-size:12px;color:var(--text-dim);font-family:Menlo,monospace">{ev.get("date", "—")[:10]}</div>
           <div style="width:8px;height:8px;border-radius:50%;background:{_impact_color(imp)};margin:6px 10px 0 0"></div>
-          <div style="flex:1"><div style="font-size:13px;color:#111">{ev.get("event", "—")}</div>
-            {'<div style="font-size:11px;color:#9ca3af">'+ev.get("expectation","")+'</div>' if ev.get("expectation") else ""}
+          <div style="flex:1"><div style="font-size:13px;color:var(--text-main)">{ev.get("event", "—")}</div>
+            {'<div style="font-size:11px;color:var(--text-dim)">'+ev.get("expectation","")+'</div>' if ev.get("expectation") else ""}
           </div>
           <div style="font-size:10px;color:{_impact_color(imp)};font-weight:700;text-transform:uppercase">{imp}</div>
         </div>'''
 
     return f'''
-    <div class="catalyst-block" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+    <div class="catalyst-block" style="background:var(--bg-card);border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
       <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #059669;padding-bottom:8px;margin-bottom:10px">
         <div>
           <span style="background:#059669;color:#fff;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px">CATALYST CALENDAR</span>
-          <span style="margin-left:12px;font-size:14px;color:#6b7280">催化剂日历 · 影响分级</span>
+          <span style="margin-left:12px;font-size:14px;color:var(--text-dim)">催化剂日历 · 影响分级</span>
         </div>
-        <div style="font-size:11px;color:#9ca3af">共 {len(events)} 条 · {cat.get("high_impact_count", 0)} 高影响</div>
+        <div style="font-size:11px;color:var(--text-dim)">共 {len(events)} 条 · {cat.get("high_impact_count", 0)} 高影响</div>
       </div>
       <div>{items}</div>
     </div>
@@ -396,18 +396,18 @@ def _render_competitive_analysis(dim22: dict) -> str:
     bcg_color = {"Star (明星)": "#10b981", "Cash Cow (现金牛)": "#06b6d4", "Question Mark (问号)": "#f59e0b", "Dog (瘦狗)": "#9ca3af"}.get(bcg_cat, "#9ca3af")
 
     return f'''
-    <div class="competitive-block" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+    <div class="competitive-block" style="background:var(--bg-card);border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
       <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #7c3aed;padding-bottom:8px;margin-bottom:14px">
         <div>
           <span style="background:#7c3aed;color:#fff;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px">COMPETITIVE</span>
-          <span style="margin-left:12px;font-size:14px;color:#6b7280">Porter 5 Forces + BCG Matrix</span>
+          <span style="margin-left:12px;font-size:14px;color:var(--text-dim)">Porter 5 Forces + BCG Matrix</span>
         </div>
-        <div style="font-size:12px;color:#6b7280">行业吸引力 <strong style="color:#111">{attr}%</strong></div>
+        <div style="font-size:12px;color:var(--text-dim)">行业吸引力 <strong style="color:var(--text-main)">{attr}%</strong></div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center">
         <div style="text-align:center">{radar}</div>
         <div>
-          <div style="font-size:11px;color:#6b7280;margin-bottom:6px">BCG 矩阵定位</div>
+          <div style="font-size:11px;color:var(--text-dim);margin-bottom:6px">BCG 矩阵定位</div>
           <div style="font-size:22px;font-weight:800;color:{bcg_color};margin-bottom:8px">{bcg_cat}</div>
           <div style="font-size:12px;color:#374151;margin-bottom:4px">市场份额 {bcg.get("market_share_pct", 0)}% · 市场增速 {bcg.get("market_growth_pct", 0)}%</div>
           <div style="padding:10px;background:#faf5ff;border-left:3px solid {bcg_color};font-size:12px">战略建议：{bcg.get("strategic_action", "—")}</div>
@@ -608,7 +608,7 @@ def _render_school_lock_banner(syn: dict | None) -> str:
     fg, bg, icon, members_hint = THEMES.get(group, ("#374151", "rgba(107,114,128,0.10)", "🎯", ""))
     # v3.9.3 · 拆出嵌套 f-string · Python 3.9 不允许 f-string 表达式含反斜杠（3.12+ 才行）
     members_html = (
-        f'<div style="margin-top:4px;color:#6b7280;font-size:11px">代表评委 · {members_hint}</div>'
+        f'<div style="margin-top:4px;color:var(--text-dim);font-size:11px">代表评委 · {members_hint}</div>'
         if members_hint
         else ""
     )
@@ -640,7 +640,7 @@ def _render_institutional_section(raw: dict) -> str:
     d22 = (dims.get("22_deep_methods") or {}).get("data") or {}
 
     if not (d20 or d21 or d22):
-        return '<div class="muted" style="padding:20px;text-align:center;color:#9ca3af">Task 1.5 机构建模数据缺失 · 请运行 compute_deep_methods</div>'
+        return '<div class="muted" style="padding:20px;text-align:center;color:var(--text-dim)">Task 1.5 机构建模数据缺失 · 请运行 compute_deep_methods</div>'
 
     return (
         _render_dcf_block(d20) +

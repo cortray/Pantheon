@@ -62,8 +62,8 @@ def render_friendly_layer(syn: dict, raw: dict) -> str:
   <div class="fc-icon">💰</div>
   <div class="fc-title">如果现在买 1 万块</div>
   <div class="fc-body">
-    {f'<div style="font-size:11px;color:#475569;margin-bottom:8px">按入场价 <strong>¥{entry_price}</strong> 计算：</div>' if entry_price else ''}
-    {scenario_rows or '<div style="color:#94a3b8;font-size:11px">暂无情景模拟</div>'}
+    {f'<div style="font-size:11px;color:var(--text-main);margin-bottom:8px">按入场价 <strong>¥{entry_price}</strong> 计算：</div>' if entry_price else ''}
+    {scenario_rows or '<div style="color:var(--text-dim);font-size:11px">暂无情景模拟</div>'}
   </div>
 </div>'''
 
@@ -87,7 +87,7 @@ def render_friendly_layer(syn: dict, raw: dict) -> str:
   <div class="fc-icon">🔗</div>
   <div class="fc-title">跟它最像的另外几只票</div>
   <div class="fc-body">
-    {similar_pills or '<div style="color:#94a3b8;font-size:11px">暂无可比股</div>'}
+    {similar_pills or '<div style="color:var(--text-dim);font-size:11px">暂无可比股</div>'}
   </div>
 </div>'''
 
@@ -98,7 +98,7 @@ def render_friendly_layer(syn: dict, raw: dict) -> str:
   <div class="fc-icon">🚪</div>
   <div class="fc-title">出现这些信号就离场</div>
   <div class="fc-body">
-    {trigger_items or '<div style="color:#94a3b8;font-size:11px">暂无触发条件</div>'}
+    {trigger_items or '<div style="color:var(--text-dim);font-size:11px">暂无触发条件</div>'}
   </div>
 </div>'''
 
@@ -130,7 +130,7 @@ def render_fund_managers(managers: list) -> str:
     ]
     """
     if not managers:
-        return '<div style="padding:24px;text-align:center;color:#94a3b8;font-size:12px">暂无公募基金持仓数据</div>'
+        return '<div style="padding:24px;text-align:center;color:var(--text-dim);font-size:12px">暂无公募基金持仓数据</div>'
 
     # v2.10.1 · 分 full / lite 两类：full 有 5Y 业绩在前按 5Y 降序，lite 在后按持仓%
     def _sort_key(m: dict) -> tuple:
@@ -178,9 +178,9 @@ def render_fund_managers(managers: list) -> str:
 
         avatar_html = ""
         if avatar:
-            avatar_html = f'<img src="avatars/{avatar}.svg" style="width:54px;height:54px;image-rendering:pixelated;border:2px solid #d97706;border-radius:8px;background:#fff;flex-shrink:0">'
+            avatar_html = f'<img src="avatars/{avatar}.svg" style="width:54px;height:54px;image-rendering:pixelated;border:2px solid #d97706;border-radius:8px;background:var(--bg-card);flex-shrink:0">'
         else:
-            avatar_html = f'<div style="width:54px;height:54px;background:#fef3c7;border:2px solid #d97706;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:Inter;font-size:20px;font-weight:900;color:#d97706;flex-shrink:0">{name[0] if name else "?"}</div>'
+            avatar_html = f'<div style="width:54px;height:54px;background:#fef3c7;border:2px solid #d97706;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:-apple-system, "SF Pro Text", "PingFang SC", sans-serif;font-size:20px;font-weight:900;color:#d97706;flex-shrink:0">{name[0] if name else "?"}</div>'
 
         # Performance stars based on peer rank
         stars = "⭐" * max(1, min(5, int((100 - peer_rank) / 20) + 1))
@@ -217,7 +217,7 @@ def render_fund_managers(managers: list) -> str:
   </div>
 
   <div class="fund-nav-block">
-    <div style="display:flex;justify-content:space-between;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:#64748b;margin-bottom:4px">
+    <div style="display:flex;justify-content:space-between;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:var(--text-dim);margin-bottom:4px">
       <span>5 年净值走势</span>
       <span>同类排名 <strong style="color:{rank_color}">前 {peer_rank}%</strong></span>
     </div>
@@ -315,9 +315,9 @@ def _render_fund_compact_row(m: dict, rank: int) -> str:
     if rank <= 3:
         badge_style = "background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff"
     elif rank <= 10:
-        badge_style = "background:#e2e8f0;color:#475569"
+        badge_style = "background:var(--border);color:var(--text-main)"
     else:
-        badge_style = "background:#f1f5f9;color:#64748b"
+        badge_style = "background:var(--bg-tinted);color:var(--text-dim)"
 
     if avatar:
         avatar_html = f'<img src="avatars/{avatar}.svg" class="fc-avatar" alt="">'
@@ -329,8 +329,8 @@ def _render_fund_compact_row(m: dict, rank: int) -> str:
     if is_lite:
         # Lite 行：不展示 5Y 业绩，给一个"点进去看"的提示
         metric_html = (
-            f'<span class="fc-return" style="color:#94a3b8;font-style:italic">持仓 {position_pct:.2f}%</span>'
-            f'<span class="fc-rank-pct" style="color:#94a3b8;font-size:10px">点→查业绩</span>'
+            f'<span class="fc-return" style="color:var(--text-dim);font-style:italic">持仓 {position_pct:.2f}%</span>'
+            f'<span class="fc-rank-pct" style="color:var(--text-dim);font-size:10px">点→查业绩</span>'
         )
         name_display = fund_name  # lite 行没基金经理名，直接显示基金名
         fund_display = f"代码 {fund_code}"
@@ -476,30 +476,30 @@ def render_school_scores(syn: dict, panel: dict) -> str:
         # v2.15.5 · 分量 tooltip：让鼠标悬停能看到"实分 x.x · 投票 y.y"
         tip = f"score_mean={score_mean:.1f} · vote_weighted={vote_cons:.1f} · 极化后 {cons:.1f}"
         # v3.3.3 · PR #59 · Python 3.11 不允许 f-string 内嵌反斜杠 · 提取为独立变量
-        skip_display = f'· <span style="color:#9ca3af">—{skip}</span>' if skip else ''
+        skip_display = f'· <span style="color:var(--text-dim)">—{skip}</span>' if skip else ''
         items.append(
             f'<div title="{tip}" style="background:{bg};border-radius:8px;padding:14px 16px;'
             f'border:1px solid rgba(0,0,0,0.05)">'
             f'  <div style="display:flex;justify-content:space-between;align-items:baseline">'
             f'    <div style="font-weight:600;font-size:14px;color:{fg}">'
-            f'      {icon} {label} <span style="font-weight:400;font-size:11px;color:#9ca3af">· {n_members} 人</span>'
+            f'      {icon} {label} <span style="font-weight:400;font-size:11px;color:var(--text-dim)">· {n_members} 人</span>'
             f'    </div>'
             f'    <div style="font-size:11px;color:{fg};font-weight:600;letter-spacing:1px">{verdict}</div>'
             f'  </div>'
-            f'  <div style="margin-top:6px;font-size:11px;color:#6b7280">{desc}</div>'
+            f'  <div style="margin-top:6px;font-size:11px;color:var(--text-dim)">{desc}</div>'
             f'  <div style="display:flex;gap:12px;margin-top:10px;align-items:center">'
             f'    <div style="flex:1">'
             f'      <div style="height:6px;background:rgba(0,0,0,0.06);border-radius:3px;overflow:hidden">'
             f'        <div style="height:100%;width:{bar_fill}%;background:linear-gradient(90deg,{fg} 0%,{fg} 100%);opacity:0.75"></div>'
             f'      </div>'
-            f'      <div style="font-size:10px;color:#9ca3af;margin-top:3px">'
+            f'      <div style="font-size:10px;color:var(--text-dim);margin-top:3px">'
             f'        流派分 <strong style="color:{fg};font-size:12px">{cons:.1f}</strong>'
             f'        <span style="color:#d1d5db"> · 实分均值 {score_mean:.1f} · 投票共识 {vote_cons:.0f}%</span>'
             f'      </div>'
             f'    </div>'
             f'    <div style="font-size:11px;color:#374151;white-space:nowrap">'
             f'      <span style="color:#059669">📈{bull}</span> · '
-            f'      <span style="color:#6b7280">⚖️{neu}</span> · '
+            f'      <span style="color:var(--text-dim)">⚖️{neu}</span> · '
             f'      <span style="color:#dc2626">📉{bear}</span>'
             f'      {skip_display}'
             f'    </div>'
@@ -516,7 +516,7 @@ def render_school_scores(syn: dict, panel: dict) -> str:
         f'border-radius:6px">'
         f'  <div style="font-size:11px;color:#7c3aed;letter-spacing:2px;'
         f'margin-bottom:4px">🎭 SCHOOL SCORES · 七大流派各自评分</div>'
-        f'  <div style="font-size:12px;color:#6b7280;margin-bottom:14px">'
+        f'  <div style="font-size:12px;color:var(--text-dim);margin-bottom:14px">'
         f'混合打分 = 0.65 × 实分均值 + 0.35 × 投票共识 · 再做极化拉伸(k=1.3) · '
         f'不同哲学给出不同分数 · 分歧越大意味着结论越不稳 · 鼠标悬停查看分量'
         f'  </div>'

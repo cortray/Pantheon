@@ -50,13 +50,13 @@ class MoatRenderer(SectionRenderer):
     <strong>{zh_label}</strong>
     <span class="moat-score" style="color:{color};font-weight:700">{s}/10</span>
   </div>
-  <div class="moat-body" style="font-size:12px;color:#475569;margin-top:6px">{body_preview}</div>
+  <div class="moat-body" style="font-size:12px;color:var(--text-main);margin-top:6px">{body_preview}</div>
 </div>''')
 
         rd_summary = data.get("rd_summary") or ""
         rd_block = ""
         if rd_summary and rd_summary != "—":
-            rd_block = f'<div class="moat-rd" style="margin-top:12px;padding:10px;background:#f8fafc;border-left:3px solid #d97706"><strong>R&D 摘要</strong>：{rd_summary[:300]}</div>'
+            rd_block = f'<div class="moat-rd" style="margin-top:12px;padding:10px;background:var(--bg-tinted);border-left:3px solid #d97706"><strong>R&D 摘要</strong>：{rd_summary[:300]}</div>'
 
         return f'''<section id="{self.section_id}">
   <h2>{self.section_title}</h2>

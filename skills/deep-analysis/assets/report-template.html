@@ -3153,6 +3153,8 @@ footer strong { color: var(--navy); }
   --shadow-glow-cyan: 0 0 0 4px rgba(0,102,204,.10);
   --shadow-glow-gold: 0 0 0 4px rgba(0,102,204,.10);
   --shadow-brutal: 0 0 0 #000;
+  --tag-indigo-bg: #e0e7ff;
+  --tag-indigo-fg: #4f46e5;
 }
 [data-theme="dark"] {
   --neon-cyan: #2997ff;
@@ -3184,6 +3186,8 @@ footer strong { color: var(--navy); }
   --shadow-sm: 0 1px 2px rgba(0,0,0,.4);
   --shadow-md: 0 4px 16px rgba(0,0,0,.5);
   --shadow-lg: 0 12px 40px rgba(0,0,0,.6);
+  --tag-indigo-bg: rgba(79,70,229,.18);
+  --tag-indigo-fg: #a5b4fc;
 }
 
 /* ── 页面：canvas-parchment 背景 + 白色画廊页 ── */
@@ -3352,6 +3356,32 @@ footer { border-top: 1px solid #f0f0f0; margin-top: 48px; padding-top: 20px; col
 [data-theme="dark"] .toc-rail { background: rgba(22,22,24,.85); border-color: #2a2a2c; }
 [data-theme="dark"] .toc-rail .toc-item.active { background: rgba(41,151,255,.14); color: #2997ff; }
 [data-theme="dark"] footer { border-top-color: #2a2a2c; }
+
+/* ── dark 模式白底组件修正(旧 CSS 硬编码 #fff 覆盖) ── */
+[data-theme="dark"] .bento.name-card, [data-theme="dark"] .punchline,
+[data-theme="dark"] .punchline::before, [data-theme="dark"] .conc-content,
+[data-theme="dark"] .seg-card, [data-theme="dark"] .similar-stock-pill,
+[data-theme="dark"] .exit-trigger-item, [data-theme="dark"] .fc-avatar,
+[data-theme="dark"] .seat-avatar, [data-theme="dark"] .chat-msg .msg-avatar,
+[data-theme="dark"] .chat-tab, [data-theme="dark"] .chat-msg .msg-bubble {
+  background: var(--bg-elevated);
+}
+[data-theme="dark"] .fighter.bull { background: linear-gradient(180deg, rgba(92,203,141,.10), var(--bg-card)); }
+[data-theme="dark"] .fighter.bear { background: linear-gradient(180deg, rgba(240,125,125,.10), var(--bg-card)); }
+[data-theme="dark"] .friendly-card.scenario { background: linear-gradient(135deg, rgba(41,151,255,.10), var(--bg-card)); }
+[data-theme="dark"] .friendly-card.similar { background: linear-gradient(135deg, rgba(41,151,255,.07), var(--bg-card)); }
+[data-theme="dark"] .friendly-card.exit { background: linear-gradient(135deg, rgba(240,125,125,.10), var(--bg-card)); }
+[data-theme="dark"] .seg-metrics-row { background: var(--bg-tinted); }
+[data-theme="dark"] .seg-projection-table th, [data-theme="dark"] .tab.active { background: var(--navy-deep); }
+[data-theme="dark"] .style-chip-wrap .chip { background: var(--bg-tinted); }
+[data-theme="dark"] .share-qr-card .qr-canvas { background: #fff; }  /* QR 码必须白底可扫描 */
+
+/* ── dark 模式 SVG 图表覆盖(fill/stroke 属性形式) ── */
+[data-theme="dark"] svg text { fill: var(--text-main); }
+[data-theme="dark"] svg tspan { fill: var(--text-dim); }
+[data-theme="dark"] svg line, [data-theme="dark"] svg path, [data-theme="dark"] svg circle, [data-theme="dark"] svg rect { stroke: var(--border); }
+[data-theme="dark"] svg rect[fill="#ffffff"], [data-theme="dark"] svg rect[fill="#fff"] { fill: var(--bg-card); }
+[data-theme="dark"] svg rect[fill="#f8fafc"] { fill: var(--bg-tinted); }
 
 @media print {
   .boot-overlay { display: none !important; }
@@ -3708,7 +3738,7 @@ footer { border-top: 1px solid #f0f0f0; margin-top: 48px; padding-top: 20px; col
 
   <!-- Share overlay modal — 包含完整分析摘要 -->
   <div id="share-overlay" onclick="if(event.target===this)this.style.display='none'" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(13,20,32,0.68);z-index:9999;justify-content:center;align-items:center;">
-    <div style="background:#ffffff;border-radius:12px;padding:28px 24px;max-width:380px;text-align:center;box-shadow:0 20px 60px rgba(13,20,32,0.35);max-height:90vh;overflow-y:auto;border:1px solid #e4e1d8">
+    <div style="background:var(--bg-card);border-radius:12px;padding:28px 24px;max-width:380px;text-align:center;box-shadow:0 20px 60px rgba(13,20,32,0.35);max-height:90vh;overflow-y:auto;border:1px solid var(--border)">
       <!-- 标题 -->
       <div style="font-size:22px;font-weight:800;color:#1b3a5c">{{NAME}}</div>
       <div style="font-size:14px;color:#6b7682;margin:4px 0 12px">{{TICKER}} · {{CURRENCY}}{{PRICE}}</div>
@@ -3721,23 +3751,23 @@ footer { border-top: 1px solid #f0f0f0; margin-top: 48px; padding-top: 20px; col
 
       <!-- 投票分布 -->
       <div style="text-align:left;margin-bottom:14px;padding:12px;background:#f3f1ea;border-radius:8px">
-        <div style="font-size:11px;color:#6b7280;margin-bottom:8px;letter-spacing:1px">51 位大佬投票</div>
+        <div style="font-size:11px;color:var(--text-dim);margin-bottom:8px;letter-spacing:1px">51 位大佬投票</div>
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-          <span style="font-size:11px;color:#6b7280;width:40px">看多</span>
+          <span style="font-size:11px;color:var(--text-dim);width:40px">看多</span>
           <div style="flex:1;height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden">
             <div style="height:100%;background:#1b7f4d;width:calc({{BULL_COUNT}} / {{TOTAL_COUNT}} * 100%)"></div>
           </div>
           <span style="font-size:12px;font-weight:700;color:#1b7f4d;width:30px">{{BULL_COUNT}}</span>
         </div>
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-          <span style="font-size:11px;color:#6b7280;width:40px">中性</span>
+          <span style="font-size:11px;color:var(--text-dim);width:40px">中性</span>
           <div style="flex:1;height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden">
             <div style="height:100%;background:#94a3b8;width:calc({{NEUT_COUNT}} / {{TOTAL_COUNT}} * 100%)"></div>
           </div>
-          <span style="font-size:12px;font-weight:700;color:#6b7280;width:30px">{{NEUT_COUNT}}</span>
+          <span style="font-size:12px;font-weight:700;color:var(--text-dim);width:30px">{{NEUT_COUNT}}</span>
         </div>
         <div style="display:flex;align-items:center;gap:8px">
-          <span style="font-size:11px;color:#6b7280;width:40px">看空</span>
+          <span style="font-size:11px;color:var(--text-dim);width:40px">看空</span>
           <div style="flex:1;height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden">
             <div style="height:100%;background:#c62828;width:calc({{BEAR_COUNT}} / {{TOTAL_COUNT}} * 100%)"></div>
           </div>

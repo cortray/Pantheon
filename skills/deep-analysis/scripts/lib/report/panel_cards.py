@@ -167,7 +167,7 @@ def _render_top3_by_signal(investors: list[dict], target_signal: str, empty_msg:
         # 空时整块返一个提示，不再 fill 3 个空 div（那是"缺失"的视觉症状）
         return (
             f'<div class="sc-best-empty" style="grid-column:1/-1;text-align:center;'
-            f'color:#94a3b8;font-size:12px;padding:16px">{empty_msg}</div>'
+            f'color:var(--text-dim);font-size:12px;padding:16px">{empty_msg}</div>'
         )
     cells = []
     for inv in hits:
@@ -182,7 +182,7 @@ def _render_top3_by_signal(investors: list[dict], target_signal: str, empty_msg:
     while len(cells) < 3:
         cells.append(
             '<div class="sc-best-cell" style="opacity:0.2">'
-            '<div style="font-size:12px;color:#94a3b8">—</div></div>'
+            '<div style="font-size:12px;color:var(--text-dim)">—</div></div>'
         )
     return "\n".join(cells)
 
