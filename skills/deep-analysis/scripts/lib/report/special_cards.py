@@ -217,7 +217,7 @@ def render_fund_managers(managers: list) -> str:
   </div>
 
   <div class="fund-nav-block">
-    <div style="display:flex;justify-content:space-between;font-family:JetBrains Mono;font-size:10px;color:#64748b;margin-bottom:4px">
+    <div style="display:flex;justify-content:space-between;font-family:-apple-system, SF Mono, Consolas, monospace;font-size:10px;color:#64748b;margin-bottom:4px">
       <span>5 年净值走势</span>
       <span>同类排名 <strong style="color:{rank_color}">前 {peer_rank}%</strong></span>
     </div>

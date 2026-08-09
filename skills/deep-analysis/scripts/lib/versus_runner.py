@@ -148,7 +148,7 @@ def _render_comparison_grid(stocks: list[dict]) -> str:
             cells.append(
                 f'<th style="width:{col_pct};padding:12px 16px;text-align:center">'
                 f'<div style="font-size:16px;font-weight:700;color:var(--text-bright)">{_esc(s["name"])}</div>'
-                f'<div style="font-family:JetBrains Mono,monospace;font-size:11px;color:var(--text-dim);margin-top:2px">'
+                f'<div style="font-family:-apple-system, SF Mono, Consolas, monospace,monospace;font-size:11px;color:var(--text-dim);margin-top:2px">'
                 f'{_esc(s["ticker"])}</div></th>'
             )
         return "<tr>" + "".join(cells) + "</tr>"
@@ -272,7 +272,7 @@ def _render_html(stocks: list[dict], depth: str) -> str:
   text-align: center;
 }}
 .versus-hero .label {{
-  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif;
+  font-family: -apple-system, "SF Pro Display", "PingFang SC", sans-serif, sans-serif;
   font-size: 11px;
   letter-spacing: .24em;
   color: var(--neon-pink);
@@ -288,7 +288,7 @@ def _render_html(stocks: list[dict], depth: str) -> str:
 .versus-hero .sub {{
   font-size: 12px;
   color: var(--text-dim);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: '-apple-system, SF Mono, Consolas, monospace', monospace;
 }}
 </style>
 </head>

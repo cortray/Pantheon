@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{NAME}} · Pantheon</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════
    Pantheon · 万神殿
@@ -67,7 +65,7 @@
   --gold: #b08d3e;
   --gold-soft: #f6eedd;
   --font-sans: "Inter", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, -apple-system, sans-serif;
-  --font-num: "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", monospace;
+  --font-num: -apple-system, SF Mono, Consolas, monospace, "SF Mono", Consolas, "Liberation Mono", monospace;
 }
 
 /* ───── v3.6.0 · DARK THEME · Pantheon 万神殿终端 ───── */
@@ -149,7 +147,7 @@
 .toc-rail .toc-item {
   display: flex; align-items: center; gap: 8px;
   padding: 6px 10px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   letter-spacing: .07em;
   color: var(--text-dim);
@@ -244,7 +242,7 @@
   flex: 1;
 }
 .share-qr-card .qr-title {
-  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif;
+  font-family: -apple-system, "SF Pro Display", "PingFang SC", sans-serif, sans-serif;
   font-size: 12px;
   letter-spacing: .04em;
   color: var(--neon-cyan);
@@ -254,7 +252,7 @@
 .share-qr-card .qr-desc { font-size: 13px; color: var(--text-main); line-height: 1.5; }
 .share-qr-card .qr-url {
   margin-top: 8px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 11px;
   color: var(--text-dim);
   word-break: break-all;
@@ -265,7 +263,7 @@
 html, body {
   background: var(--bg-deep);
   color: var(--text-main);
-  font-family: 'Inter', -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 15px;
   line-height: 1.65;
   min-height: 100vh;
@@ -305,13 +303,13 @@ body::after {
 .topbar .dot.red    { background: var(--bear-red); }
 .topbar .dot.yellow { background: var(--neon-gold); }
 .topbar .dot.green  { background: var(--bull-green); }
-.topbar .brand { font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: .04em; color: var(--text-bright); }
+.topbar .brand { font-family: -apple-system, "SF Pro Display", "PingFang SC", sans-serif, sans-serif; font-weight: 700; font-size: 16px; letter-spacing: .04em; color: var(--text-bright); }
 .topbar .brand span { color: var(--neon-cyan); }
 .topbar .status { display: flex; align-items: center; gap: 10px; color: var(--text-dim); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
 .topbar .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--bull-green); box-shadow: 0 0 10px var(--bull-green); animation: pulse 2s ease-in-out infinite; }
 @keyframes pulse { 0%,100% { opacity:.4; } 50% { opacity:1; } }
 .market-badge {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   font-weight: 700;
   padding: 3px 8px;
@@ -338,7 +336,7 @@ body::after {
 .data-gap-banner .body { flex: 1; }
 /* v3.4.4 · title 用深棕 #92400e (WCAG AA 通过 on 浅橙底) · 替代之前难读的 #f59e0b */
 .data-gap-banner .title {
-  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif; font-weight: 800; font-size: 15px;
+  font-family: -apple-system, "SF Pro Display", "PingFang SC", sans-serif, sans-serif; font-weight: 800; font-size: 15px;
   color: #92400e; margin-bottom: 4px; letter-spacing: .04em;
 }
 .data-gap-banner .subtitle { font-size: 13px; color: #1f2937; line-height: 1.6; }  /* v3.4.4 · 深灰主文字 */
@@ -347,7 +345,7 @@ body::after {
 .data-gap-banner .list { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
 /* v3.4.4 · chip 深棕字 + 实色橙底 · 高对比 */
 .data-gap-banner .chip {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 11px;
   font-weight: 600;
   padding: 3px 10px;
@@ -406,9 +404,9 @@ body::after {
   flex-wrap: wrap;
 }
 .style-chip-wrap .icon { font-size: 22px; }
-.style-chip-wrap .label { font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif; font-size: 11px; letter-spacing: .07em; color: var(--text-dim); text-transform: uppercase; }
+.style-chip-wrap .label { font-family: -apple-system, "SF Pro Display", "PingFang SC", sans-serif, sans-serif; font-size: 11px; letter-spacing: .07em; color: var(--text-dim); text-transform: uppercase; }
 .style-chip-wrap .value {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-size: 17px; font-weight: 800;
   color: #6366f1;
   padding: 3px 10px;
@@ -417,7 +415,7 @@ body::after {
 }
 .style-chip-wrap .hint { font-size: 12px; color: var(--text-bright); flex: 1 1 280px; line-height: 1.5; }
 .style-chip-wrap .compare {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 11px;
   color: var(--text-dim);
   background: var(--bg-tinted);
@@ -459,9 +457,9 @@ body::after {
   top: 0; right: 0; width: 4px; bottom: 0;
   background: linear-gradient(180deg, var(--neon-cyan), var(--accent-blue));
 }
-.ticker-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--neon-cyan); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 10px; }
+.ticker-label { font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace; font-size: 11px; color: var(--neon-cyan); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 10px; }
 .stock-name {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 900;
   font-size: 72px;
   line-height: 1;
@@ -470,7 +468,7 @@ body::after {
   margin-bottom: 8px;
 }
 .stock-code {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 18px;
   color: var(--text-dim);
   margin-bottom: 28px;
@@ -487,14 +485,14 @@ body::after {
 }
 .price-row { display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap; margin-bottom: 22px; }
 .price {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 56px;
   font-weight: 700;
   color: var(--text-bright);
   letter-spacing: -.02em;
 }
 .change {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 22px;
   font-weight: 600;
   padding: 6px 14px;
@@ -504,7 +502,7 @@ body::after {
 .change.down { color: var(--bear-red); background: var(--bear-tint); border: 1px solid var(--bear-red); }
 .metric-chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 11px;
   padding: 6px 12px;
   border: 1px solid var(--border);
@@ -522,9 +520,9 @@ body::after {
   display: flex; flex-direction: column; justify-content: space-between;
   min-height: 240px;
 }
-.score-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .07em; color: var(--neon-gold); text-transform: uppercase; font-weight: 700; }
+.score-label { font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace; font-size: 10px; letter-spacing: .07em; color: var(--neon-gold); text-transform: uppercase; font-weight: 700; }
 .score-giant {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 800;
   font-size: 128px;
   line-height: .9;
@@ -540,7 +538,7 @@ body::after {
   font-weight: 500;
 }
 .score-verdict {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 700;
   font-size: 28px;
   color: var(--text-bright);
@@ -559,7 +557,7 @@ body::after {
 .bento.safety-card.orange { background: #fed7aa; border-color: var(--warning-amber); }
 .bento.safety-card.red    { background: var(--bear-tint); border-color: var(--bear-red); }
 .safety-icon { font-size: 40px; line-height: 1; }
-.safety-text strong { display: block; font-family: 'Inter', sans-serif; font-weight: 700; color: var(--text-bright); font-size: 16px; margin-bottom: 4px; }
+.safety-text strong { display: block; font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif; font-weight: 700; color: var(--text-bright); font-size: 16px; margin-bottom: 4px; }
 .safety-text span { color: var(--text-mid); font-size: 11px; line-height: 1.5; }
 
 /* ═══════════════ SECTION HEADERS (BRUTAL) ═══════════════ */
@@ -568,7 +566,7 @@ body::after {
   margin: 48px 0 20px;
 }
 .section-tag {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 11px;
   font-weight: 600;
   color: var(--neon-cyan);
@@ -580,7 +578,7 @@ body::after {
   white-space: nowrap;
 }
 .section-title {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 800;
   font-size: 32px;
   color: var(--text-bright);
@@ -608,20 +606,20 @@ body::after {
   content: '"';
   position: absolute;
   top: -20px; left: 20px;
-  font-family: 'Inter', serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, serif;
   font-size: 160px;
   color: rgba(8,145,178,.15);
   line-height: 1;
 }
 .core-conclusion .label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 11px; letter-spacing: .07em;
   color: var(--neon-cyan); text-transform: uppercase;
   margin-bottom: 14px;
   font-weight: 600;
 }
 .core-conclusion .text {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 500;
   font-size: 24px;
   color: var(--text-bright);
@@ -644,7 +642,7 @@ body::after {
   font-size: 20px; opacity: .3;
 }
 .data-cell .key {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   letter-spacing: .04em;
   color: var(--neon-cyan);
@@ -652,7 +650,7 @@ body::after {
   margin-bottom: 8px;
 }
 .data-cell .value {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-size: 15px;
   color: var(--text-main);
   line-height: 1.5;
@@ -671,7 +669,7 @@ body::after {
   box-shadow: var(--shadow-md);
 }
 .battle-plan .plan-label {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 900;
   font-size: 18px;
   color: var(--neon-gold);
@@ -680,7 +678,7 @@ body::after {
   border-right: 1px solid rgba(249,203,64,.3);
 }
 .plan-field .k { font-size: 10px; color: var(--text-dim); letter-spacing: .04em; text-transform: uppercase; display: block; margin-bottom: 4px; }
-.plan-field .v { font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--text-bright); font-weight: 600; }
+.plan-field .v { font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace; font-size: 15px; color: var(--text-bright); font-weight: 600; }
 
 /* ═══════════════ THE GREAT DIVIDE · 拳击擂台 ═══════════════ */
 .divide-section {
@@ -713,7 +711,7 @@ body::after {
   position: absolute;
   top: 30%; left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 900;
   font-size: 200px;
   color: rgba(15,23,42,.025);
@@ -730,7 +728,7 @@ body::after {
 }
 .divide-header .tag {
   display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 11px;
   color: var(--neon-pink);
   letter-spacing: .3em;
@@ -743,7 +741,7 @@ body::after {
   box-shadow: 0 0 20px rgba(255,46,99,.15);
 }
 .divide-header h2 {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 900;
   font-size: 44px;
   color: var(--text-bright);
@@ -752,7 +750,7 @@ body::after {
 }
 .divide-header .round-info {
   margin-top: 8px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 11px;
   color: var(--text-dim);
   letter-spacing: .04em;
@@ -824,7 +822,7 @@ body::after {
 }
 .fighter .corner {
   position: absolute; top: -16px;
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-size: 11px; font-weight: 900;
   letter-spacing: .07em;
   padding: 6px 16px;
@@ -856,21 +854,21 @@ body::after {
 .fighter.bear .avatar-box { border-color: var(--bear-red); }
 .fighter img { width: 100%; height: 100%; image-rendering: pixelated; border-radius: 12px; }
 .fighter .fighter-name {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 800;
   font-size: 24px;
   color: var(--text-bright);
   margin-bottom: 4px;
 }
 .fighter .fighter-tag {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   color: var(--text-dim);
   letter-spacing: .04em;
   margin-bottom: 16px;
 }
 .fighter .confidence {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 900;
   font-size: 96px;
   line-height: 1;
@@ -892,7 +890,7 @@ body::after {
 
 .vs-bolt {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 900;
   font-size: 110px;
   color: var(--neon-gold);
@@ -941,7 +939,7 @@ body::after {
   background: var(--neon-gold);
   border: 1px solid var(--neon-gold);
   color: #ffffff;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   font-weight: 700;
   padding: 3px 10px;
@@ -961,7 +959,7 @@ body::after {
   font-size: 13px;
   line-height: 1.6;
   position: relative;
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
 }
 .round-bull {
   background: var(--bull-tint);
@@ -975,7 +973,7 @@ body::after {
   text-align: right;
 }
 .round-vs {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 900;
   font-size: 18px;
   color: var(--neon-gold);
@@ -988,7 +986,7 @@ body::after {
   border: 2px solid var(--text-bright);
   border-left: 12px solid var(--neon-gold);
   border-radius: 14px;
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 700;
   font-size: 26px;
   line-height: 1.5;
@@ -1001,7 +999,7 @@ body::after {
   content: 'PUNCHLINE';
   position: absolute;
   top: -11px; left: 24px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   color: #ffffff;
   background: var(--neon-gold);
@@ -1022,7 +1020,7 @@ body::after {
   box-shadow: var(--shadow-sm);
 }
 .stat-tile .num {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 900;
   font-size: 36px;
   line-height: 1;
@@ -1032,11 +1030,11 @@ body::after {
 .stat-tile.bear .num  { color: var(--bear-red); }
 .stat-tile.neut .num  { color: var(--text-dim); }
 .stat-tile.total .num { color: var(--neon-cyan); }
-.stat-tile .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-dim); letter-spacing: .04em; text-transform: uppercase; }
+.stat-tile .label { font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace; font-size: 10px; color: var(--text-dim); letter-spacing: .04em; text-transform: uppercase; }
 
 .tabs { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
 .tab {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 11px;
   font-weight: 600;
   padding: 8px 16px;
@@ -1089,21 +1087,21 @@ body::after {
 }
 .inv-meta { flex: 1; min-width: 0; }
 .inv-name {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 700;
   font-size: 13px;
   color: var(--text-bright);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .inv-group-tag {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 9px;
   color: var(--text-dim);
   letter-spacing: .04em;
 }
 .inv-score-row { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
 .inv-score {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 900;
   font-size: 30px;
   color: var(--neon-gold);
@@ -1111,7 +1109,7 @@ body::after {
   line-height: 1;
 }
 .inv-signal {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 9px;
   font-weight: 700;
   padding: 3px 7px;
@@ -1142,7 +1140,7 @@ body::after {
   box-shadow: var(--shadow-md);
 }
 .jury-row-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   color: var(--text-dim);
   letter-spacing: .04em;
@@ -1186,7 +1184,7 @@ body::after {
   background: #ffffff;
 }
 .seat-name {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-size: 10px;
   font-weight: 600;
   color: var(--text-main);
@@ -1197,7 +1195,7 @@ body::after {
   width: 100%;
 }
 .seat-score {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 13px;
   font-weight: 700;
   line-height: 1;
@@ -1233,7 +1231,7 @@ body::after {
   box-shadow: 0 0 20px rgba(34,211,238,.3);
 }
 .chat-room-name {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 700;
   font-size: 17px;
   color: var(--text-bright);
@@ -1242,7 +1240,7 @@ body::after {
 .chat-room-meta strong { color: var(--neon-cyan); }
 .chat-filter-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
 .chat-tab {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   font-weight: 600;
   padding: 5px 11px;
@@ -1273,7 +1271,7 @@ body::after {
 
 .chat-system {
   text-align: center;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 11px;
   color: var(--text-ghost);
   padding: 8px;
@@ -1299,13 +1297,13 @@ body::after {
   font-size: 11px;
 }
 .chat-msg .msg-name {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 700;
   color: var(--text-bright);
   font-size: 13px;
 }
 .chat-msg .msg-group-tag {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 9px;
   padding: 2px 6px;
   border-radius: 8px;
@@ -1315,7 +1313,7 @@ body::after {
   border: 1px solid var(--border);
 }
 .chat-msg .msg-score-badge {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   font-weight: 700;
   padding: 2px 7px;
@@ -1352,7 +1350,7 @@ body::after {
 }
 .chat-msg .msg-verdict {
   display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   padding: 2px 6px;
   margin-top: 4px;
@@ -1362,7 +1360,7 @@ body::after {
   letter-spacing: .04em;
 }
 .chat-msg .msg-confidence {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 9px;
   color: var(--text-dim);
   letter-spacing: .04em;
@@ -1382,7 +1380,7 @@ body::after {
 .chat-msg .msg-details summary {
   cursor: pointer;
   color: var(--neon-cyan);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   letter-spacing: .04em;
   padding: 4px 0;
@@ -1399,7 +1397,7 @@ body::after {
 .conc-block { margin-bottom: 8px; }
 .conc-block:last-child { margin-bottom: 0; }
 .conc-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   color: var(--text-dim);
   margin-bottom: 4px;
@@ -1424,7 +1422,7 @@ body::after {
   display: flex; gap: 8px; margin-bottom: 12px;
 }
 .chat-action-btn {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   padding: 6px 12px;
   background: var(--bg-tinted);
@@ -1444,7 +1442,7 @@ body::after {
   display: flex; align-items: center; gap: 12px;
 }
 .chat-footer-avatar {
-  font-family: 'Inter', serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, serif;
   font-size: 22px;
   width: 34px; height: 34px;
   background: var(--bg-void);
@@ -1452,7 +1450,7 @@ body::after {
   border-radius: 14px;
   display: flex; align-items: center; justify-content: center;
 }
-.chat-footer-text { font-size: 12px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; }
+.chat-footer-text { font-size: 12px; color: var(--text-dim); font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace; }
 
 /* ═══════════════ FRIENDLY TRIO · 友好层 ═══════════════ */
 .friendly-trio {
@@ -1475,7 +1473,7 @@ body::after {
 .friendly-card.exit { background: linear-gradient(135deg, var(--bear-tint), #fff); border-color: var(--bear-red); }
 .friendly-card .fc-icon { font-size: 32px; margin-bottom: 6px; }
 .friendly-card .fc-title {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 800;
   font-size: 15px;
   color: var(--text-bright);
@@ -1494,12 +1492,12 @@ body::after {
   gap: 10px;
   padding: 8px 0;
   border-top: 1px dashed var(--border);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 12px;
 }
 .scenario-row:first-of-type { border-top: none; padding-top: 2px; }
 .scenario-row .label { flex: 1; color: var(--text-mid); }
-.scenario-row .val { font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+.scenario-row .val { font-weight: 700; font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace; }
 .scenario-row .val.up { color: var(--bull-green); }
 .scenario-row .val.down { color: var(--bear-red); }
 .scenario-row .val.flat { color: var(--text-mid); }
@@ -1516,8 +1514,8 @@ body::after {
   transition: all .15s;
 }
 .similar-stock-pill:hover { border-color: var(--neon-cyan); transform: translateX(2px); }
-.similar-stock-pill .ss-name { font-family: 'Inter'; font-weight: 700; font-size: 13px; color: var(--text-bright); }
-.similar-stock-pill .ss-meta { font-family: 'JetBrains Mono'; font-size: 10px; color: var(--text-dim); }
+.similar-stock-pill .ss-name { font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif; font-weight: 700; font-size: 13px; color: var(--text-bright); }
+.similar-stock-pill .ss-meta { font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace; font-size: 10px; color: var(--text-dim); }
 .similar-stock-pill .ss-reason { font-size: 11px; color: var(--text-mid); margin-top: 3px; }
 
 .exit-trigger-item {
@@ -1548,7 +1546,7 @@ body::after {
   background: var(--gold-tint);
   border: 1px solid var(--neon-gold);
   border-radius: 18px;
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-size: 14px;
   color: var(--text-main);
   margin-bottom: 16px;
@@ -1581,7 +1579,7 @@ body::after {
 }
 .fund-compact-head {
   background: var(--bg-tinted);
-  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif;
+  font-family: -apple-system, "SF Pro Display", "PingFang SC", sans-serif, sans-serif;
   font-size: 11px;
   letter-spacing: .04em;
   text-transform: uppercase;
@@ -1597,7 +1595,7 @@ body::after {
   width: 36px; height: 28px;
   display: inline-flex; align-items: center; justify-content: center;
   border-radius: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 12px;
   font-weight: 700;
 }
@@ -1611,26 +1609,26 @@ body::after {
 }
 .fc-avatar-ph {
   display: inline-flex; align-items: center; justify-content: center;
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-size: 14px; font-weight: 800;
   color: var(--neon-gold);
   background: var(--gold-tint);
 }
 .fc-info { min-width: 0; overflow: hidden; }
 .fc-name {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 700; font-size: 13px;
   color: var(--text-bright);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .fc-fund {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-size: 11px;
   color: var(--text-dim);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .fc-return, .fc-rank-pct {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 13px;
   font-weight: 700;
   text-align: right;
@@ -1667,7 +1665,7 @@ body::after {
   margin-bottom: 14px;
 }
 .fund-manager-name {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 800;
   font-size: 17px;
   color: var(--text-bright);
@@ -1678,14 +1676,14 @@ body::after {
   letter-spacing: -2px;
 }
 .fund-name {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-size: 12px;
   color: var(--neon-cyan);
   font-weight: 600;
   margin-top: 2px;
 }
 .fund-meta {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   color: var(--text-dim);
   margin-top: 4px;
@@ -1705,14 +1703,14 @@ body::after {
   border-radius: 14px;
 }
 .fund-metric .fm-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 9px;
   color: var(--text-dim);
   margin-bottom: 3px;
   letter-spacing: .04em;
 }
 .fund-metric .fm-value {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 900;
   font-size: 17px;
   color: var(--text-bright);
@@ -1729,7 +1727,7 @@ body::after {
   padding: 6px 14px;
   background: var(--neon-cyan);
   color: #ffffff;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   font-weight: 700;
   text-decoration: none;
@@ -1743,7 +1741,7 @@ body::after {
 /* ═══════════════ DEEP SCAN · 19 维卡片 ═══════════════ */
 .deep-scan { display: flex; flex-direction: column; gap: 24px; }
 .cat-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 12px;
   color: var(--neon-cyan);
   letter-spacing: .04em;
@@ -1777,21 +1775,21 @@ body::after {
   gap: 12px;
 }
 .dim-card .dim-num {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 9px;
   color: var(--text-dim);
   letter-spacing: .04em;
   margin-bottom: 2px;
 }
 .dim-card .dim-title {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 800;
   font-size: 18px;
   color: var(--text-bright);
   letter-spacing: -.01em;
 }
 .dim-card .dim-en {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 9px;
   color: var(--text-dim);
   letter-spacing: .04em;
@@ -1801,7 +1799,7 @@ body::after {
   flex-shrink: 0;
 }
 .dim-score .num {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 900;
   font-size: 34px;
   line-height: 1;
@@ -1855,7 +1853,7 @@ body::after {
   border-radius: 12px;
 }
 .kpi .k {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 9px;
   color: var(--text-dim);
   letter-spacing: .04em;
@@ -1863,7 +1861,7 @@ body::after {
   margin-bottom: 2px;
 }
 .kpi .v {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 13px;
   color: var(--text-bright);
   font-weight: 600;
@@ -1883,7 +1881,7 @@ body::after {
   margin-top: 12px;
   padding-top: 10px;
   border-top: 1px dashed var(--border);
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-size: 10px;
   color: var(--text-dim);
   display: flex; align-items: center; gap: 6px;
@@ -1892,7 +1890,7 @@ body::after {
   padding: 2px 7px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-weight: 600;
 }
 .dim-source .badge.live { color: var(--bull-green); border-color: var(--bull-green); background: var(--bull-tint); }
@@ -1905,7 +1903,7 @@ body::after {
 .dim-card details summary {
   cursor: pointer;
   color: var(--neon-cyan);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 9px;
   letter-spacing: .04em;
   padding: 4px 0;
@@ -1917,7 +1915,7 @@ body::after {
   background: var(--bg-rail);
   border-radius: 12px;
   border: 1px solid var(--border);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   color: var(--text-main);
   white-space: pre-wrap;
@@ -1950,7 +1948,7 @@ body::after {
   display: flex; align-items: center; justify-content: center;
   background: var(--bear-red); color: var(--text-bright);
   border-radius: 50%;
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 900; font-size: 13px;
 }
 
@@ -1973,7 +1971,7 @@ body::after {
   background: var(--neon-cyan);
 }
 .zone .zone-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 10px;
   letter-spacing: .04em;
   color: var(--neon-cyan);
@@ -1981,7 +1979,7 @@ body::after {
   margin-bottom: 10px;
 }
 .zone .zone-price {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 900;
   font-size: 42px;
   color: var(--neon-gold);
@@ -2008,7 +2006,7 @@ footer strong { color: var(--text-dim); }
 /* ═══════════════ DECORATIVE MARK · ✦ ═══════════════ */
 .oo-eye {
   display: inline-block;
-  font-family: 'Inter', serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, serif;
   font-weight: 900;
   color: var(--neon-cyan);
   text-shadow: 0 0 8px rgba(6,216,216,.5);
@@ -2019,7 +2017,7 @@ footer strong { color: var(--text-dim); }
 #share-card, #war-report {
   position: absolute; left: -9999px; top: -9999px;
   background: var(--bg-void);
-  font-family: 'JetBrains Mono', 'Inter', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, -apple-system, "SF Pro Text", "PingFang SC", sans-serif, monospace;
   color: var(--text-main);
   overflow: hidden;
 }
@@ -2033,7 +2031,7 @@ footer strong { color: var(--text-dim); }
 }
 #share-card .sc-topbar { display: flex; align-items: center; justify-content: space-between; padding-bottom: 30px; border-bottom: 2px solid var(--neon-cyan); }
 #share-card .sc-brand {
-  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif;
+  font-family: -apple-system, "SF Pro Display", "PingFang SC", sans-serif, sans-serif;
   font-weight: 700; font-size: 30px; color: var(--text-bright);
   letter-spacing: .04em;
 }
@@ -2041,7 +2039,7 @@ footer strong { color: var(--text-dim); }
 #share-card .sc-badge { font-size: 22px; color: var(--text-dim); letter-spacing: .04em; }
 
 #share-card .sc-name {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 900;
   font-size: 96px;
   color: var(--text-bright);
@@ -2050,8 +2048,8 @@ footer strong { color: var(--text-dim); }
   margin-bottom: 10px;
 }
 #share-card .sc-code-row { display: flex; align-items: baseline; gap: 24px; margin-bottom: 36px; }
-#share-card .sc-code { font-family: 'JetBrains Mono', monospace; font-size: 30px; color: var(--text-dim); }
-#share-card .sc-price { font-family: 'JetBrains Mono', monospace; font-size: 54px; color: var(--neon-gold); font-weight: 700; }
+#share-card .sc-code { font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace; font-size: 30px; color: var(--text-dim); }
+#share-card .sc-price { font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace; font-size: 54px; color: var(--neon-gold); font-weight: 700; }
 #share-card .sc-change { font-size: 32px; padding: 8px 16px; border-radius: 14px; }
 #share-card .sc-change.up { background: rgba(0,255,157,.15); color: var(--bull-green); }
 #share-card .sc-change.down { background: rgba(255,60,90,.15); color: var(--bear-red); }
@@ -2066,7 +2064,7 @@ footer strong { color: var(--text-dim); }
   box-shadow: 10px 10px 0 rgba(249,203,64,.4);
 }
 #share-card .sc-score-giant {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 900;
   font-size: 260px;
   line-height: .85;
@@ -2076,7 +2074,7 @@ footer strong { color: var(--text-dim); }
 }
 #share-card .sc-score-unit { font-size: 48px; color: var(--text-dim); margin-left: 8px; }
 #share-card .sc-verdict {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 700;
   font-size: 44px;
   color: var(--text-bright);
@@ -2086,7 +2084,7 @@ footer strong { color: var(--text-dim); }
 }
 
 #share-card .sc-section-title {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 22px;
   color: var(--neon-cyan);
   letter-spacing: .07em;
@@ -2100,7 +2098,7 @@ footer strong { color: var(--text-dim); }
 #share-card .sc-vote-row .lbl { width: 160px; }
 #share-card .sc-vote-row .bar { flex: 1; height: 28px; background: var(--bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--border); }
 #share-card .sc-vote-row .fill { height: 100%; }
-#share-card .sc-vote-row .cnt { width: 120px; text-align: right; font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--text-bright); }
+#share-card .sc-vote-row .cnt { width: 120px; text-align: right; font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace; font-weight: 700; color: var(--text-bright); }
 
 #share-card .sc-best { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 #share-card .sc-bestcell {
@@ -2128,13 +2126,13 @@ footer strong { color: var(--text-dim); }
   position: absolute; top: -18px; left: 40px;
   background: var(--neon-gold); color: var(--bg-void);
   padding: 6px 20px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: .07em;
 }
 #share-card .sc-punchline-box .txt {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 700;
   font-size: 42px;
   color: var(--text-bright);
@@ -2162,7 +2160,7 @@ footer strong { color: var(--text-dim); }
   font-size: 22px; color: var(--text-dim);
 }
 #share-card .sc-footer .oo-big {
-  font-family: 'Inter', serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, serif;
   font-size: 64px;
   color: var(--neon-cyan);
   text-shadow: 0 0 20px rgba(6,216,216,.5);
@@ -2173,13 +2171,13 @@ footer strong { color: var(--text-dim); }
 /* WAR REPORT 1920x1080 */
 #war-report { width: 1920px; height: 1080px; padding: 70px 90px; }
 #war-report .wr-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 24px; border-bottom: 2px solid var(--neon-cyan); margin-bottom: 40px; }
-#war-report .wr-brand { font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: .04em; color: var(--text-bright); }
+#war-report .wr-brand { font-family: -apple-system, "SF Pro Display", "PingFang SC", sans-serif, sans-serif; font-weight: 700; font-size: 28px; letter-spacing: .04em; color: var(--text-bright); }
 #war-report .wr-brand em { color: var(--neon-cyan); font-style: normal; }
 #war-report .wr-date { font-size: 20px; color: var(--text-dim); }
 #war-report .wr-body { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; height: calc(100% - 180px); }
 #war-report .wr-left { display: flex; flex-direction: column; justify-content: space-between; }
-#war-report .wr-name { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 88px; color: var(--text-bright); letter-spacing: -.03em; line-height: 1; }
-#war-report .wr-code { font-family: 'JetBrains Mono', monospace; font-size: 26px; color: var(--text-dim); margin-top: 8px; }
+#war-report .wr-name { font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif; font-weight: 900; font-size: 88px; color: var(--text-bright); letter-spacing: -.03em; line-height: 1; }
+#war-report .wr-code { font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace; font-size: 26px; color: var(--text-dim); margin-top: 8px; }
 #war-report .wr-one { color: var(--text-main); font-size: 22px; margin-top: 14px; }
 #war-report .wr-punch {
   padding: 28px 32px;
@@ -2187,7 +2185,7 @@ footer strong { color: var(--text-dim); }
   border: 3px solid var(--neon-gold);
   border-left: 12px solid var(--neon-gold);
   border-radius: 14px;
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif;
   font-weight: 700;
   font-size: 36px;
   color: var(--text-bright);
@@ -2199,11 +2197,11 @@ footer strong { color: var(--text-dim); }
 #war-report .wr-fi img { width: 96px; height: 96px; image-rendering: pixelated; border: 2px solid; border-radius: 14px; padding: 4px; background: var(--bg-void); }
 #war-report .wr-fi.bull img { border-color: var(--bull-green); }
 #war-report .wr-fi.bear img { border-color: var(--bear-red); }
-#war-report .wr-fi .fn { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; color: var(--text-bright); }
-#war-report .wr-fi .fs { font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; }
+#war-report .wr-fi .fn { font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif; font-weight: 700; font-size: 20px; color: var(--text-bright); }
+#war-report .wr-fi .fs { font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace; font-size: 22px; font-weight: 700; }
 #war-report .wr-fi.bull .fs { color: var(--bull-green); }
 #war-report .wr-fi.bear .fs { color: var(--bear-red); }
-#war-report .wr-vs { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 52px; color: var(--neon-gold); transform: skewX(-8deg); }
+#war-report .wr-vs { font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif; font-weight: 900; font-size: 52px; color: var(--neon-gold); transform: skewX(-8deg); }
 #war-report .wr-right {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px;
   padding: 40px;
@@ -2212,12 +2210,12 @@ footer strong { color: var(--text-dim); }
   border-radius: 24px;
   box-shadow: 12px 12px 0 rgba(249,203,64,.4);
 }
-#war-report .wr-score-label { font-family: 'JetBrains Mono', monospace; font-size: 16px; letter-spacing: .07em; color: var(--neon-gold); text-transform: uppercase; }
-#war-report .wr-score { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 280px; line-height: .8; color: var(--neon-gold); text-shadow: 0 0 40px rgba(249,203,64,.5); letter-spacing: -.06em; }
-#war-report .wr-verdict { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--text-bright); text-align: center; }
+#war-report .wr-score-label { font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace; font-size: 16px; letter-spacing: .07em; color: var(--neon-gold); text-transform: uppercase; }
+#war-report .wr-score { font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif; font-weight: 900; font-size: 280px; line-height: .8; color: var(--neon-gold); text-shadow: 0 0 40px rgba(249,203,64,.5); letter-spacing: -.06em; }
+#war-report .wr-verdict { font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, sans-serif; font-weight: 700; font-size: 38px; color: var(--text-bright); text-align: center; }
 #war-report .wr-trap { font-size: 22px; color: var(--text-dim); }
 #war-report .wr-footer { grid-column: 1/-1; display: flex; justify-content: space-between; color: var(--text-dim); font-size: 18px; padding-top: 30px; border-top: 1px solid var(--border); }
-#war-report .wr-oo { font-family: 'Inter', serif; font-size: 42px; color: var(--neon-cyan); text-shadow: 0 0 15px rgba(6,216,216,.5); letter-spacing: .04em; }
+#war-report .wr-oo { font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, serif; font-size: 42px; color: var(--neon-cyan); text-shadow: 0 0 15px rgba(6,216,216,.5); letter-spacing: .04em; }
 
 /* ═══════════════ BOOT SEQUENCE OVERLAY ═══════════════ */
 .boot-overlay {
@@ -2229,14 +2227,14 @@ footer strong { color: var(--text-dim); }
 }
 .boot-overlay.done { opacity: 0; pointer-events: none; }
 .boot-logo {
-  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif;
+  font-family: -apple-system, "SF Pro Display", "PingFang SC", sans-serif, sans-serif;
   font-weight: 700; font-size: 32px;
   letter-spacing: .07em;
   color: var(--text-bright);
 }
 .boot-logo em { color: var(--neon-cyan); font-style: normal; text-shadow: 0 0 20px rgba(6,216,216,.6); }
 .boot-eye {
-  font-family: 'Inter', serif;
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif, serif;
   font-size: 96px;
   color: var(--neon-cyan);
   text-shadow: 0 0 40px rgba(6,216,216,.6);
@@ -2263,7 +2261,7 @@ footer strong { color: var(--text-dim); }
 }
 @keyframes bootFill { to { width: 100%; } }
 .boot-status {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: -apple-system, "SF Mono", "SF Pro Text", Consolas, monospace, monospace;
   font-size: 11px;
   color: var(--text-dim);
   letter-spacing: .04em;
@@ -3114,219 +3112,250 @@ footer strong { color: var(--navy); }
 .oo-big, .wr-oo { color: var(--gold); }
 
 /* ═══════════════════════════════════════════════════════════
-   Pantheon · 证券投行研报排版层
-   白底纸感 · 页面化 · 专业表格 · 克制的金色强调
+/* ═══════════════════════════════════════════════════════════
+   Pantheon · Apple 设计系统重构层
+   画廊式极简 · SF Pro 大标题 · Action Blue · 大留白
    ═══════════════════════════════════════════════════════════ */
 
-/* ── 页面：纸感背景 + 报告页(居中白页) ── */
-body {
-  background: #f2f0ea;
-  background-attachment: fixed;
+/* ── Design tokens · Apple 色板 ── */
+:root {
+  --font-sans: -apple-system, "SF Pro Text", "SF Pro Display", "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  --font-num: -apple-system, "SF Pro Text", "SF Mono", "PingFang SC", Consolas, monospace;
+  --neon-cyan: #0066cc;
+  --neon-gold: #0066cc;
+  --neon-pink: #0066cc;
+  --accent-blue: #0066cc;
+  --accent-indigo: #0066cc;
+  --gold: #0066cc;
+  --gold-soft: #f0f7ff;
+  --cyan-tint: #f0f7ff;
+  --navy: #0066cc;
+  --navy-deep: #1d1d1f;
+  --text-bright: #1d1d1f;
+  --text-main: #1d1d1f;
+  --text-mid: #6e6e73;
+  --text-dim: #86868b;
+  --text-ghost: #a1a1a6;
+  --border: #e0e0e0;
+  --border-hot: #d2d2d7;
+  --border-soft: #f0f0f0;
+  --bg-void: #f5f5f7;
+  --bg-deep: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-tinted: #fafafc;
+  --bg-rail: #f5f5f7;
+  --glass-bg: rgba(255,255,255,.82);
+  --glass-border: rgba(0,0,0,.05);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.03);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.05);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,.08);
+  --shadow-glow-cyan: 0 0 0 4px rgba(0,102,204,.10);
+  --shadow-glow-gold: 0 0 0 4px rgba(0,102,204,.10);
+  --shadow-brutal: 0 0 0 #000;
 }
-.container {
-  max-width: 1180px;
-  padding: 0 56px 90px;
-  background: #fff;
-  box-shadow: 0 0 48px rgba(28,36,48,.10);
+[data-theme="dark"] {
+  --neon-cyan: #2997ff;
+  --neon-gold: #2997ff;
+  --neon-pink: #2997ff;
+  --accent-blue: #2997ff;
+  --accent-indigo: #2997ff;
+  --gold: #2997ff;
+  --gold-soft: rgba(41,151,255,.14);
+  --cyan-tint: rgba(41,151,255,.14);
+  --navy: #2997ff;
+  --navy-deep: #000;
+  --text-bright: #f5f5f7;
+  --text-main: #d2d2d7;
+  --text-mid: #86868b;
+  --text-dim: #6e6e73;
+  --text-ghost: #48484a;
+  --border: #2a2a2c;
+  --border-hot: #3a3a3c;
+  --border-soft: #222224;
+  --bg-void: #000;
+  --bg-deep: #000;
+  --bg-card: #1d1d1f;
+  --bg-elevated: #242426;
+  --bg-tinted: #1d1d1f;
+  --bg-rail: #000;
+  --glass-bg: rgba(22,22,24,.8);
+  --glass-border: rgba(255,255,255,.08);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.4);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.5);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,.6);
 }
 
-/* ── 页眉：研报抬头(白底 + 金色底线) ── */
+/* ── 页面：canvas-parchment 背景 + 白色画廊页 ── */
+body { background: #f5f5f7; background-attachment: fixed; }
+.container { max-width: 1080px; padding: 0 44px 100px; background: #fff; box-shadow: 0 0 90px rgba(0,0,0,.07); }
+
+/* ── TOP BAR：毛玻璃极简 ── */
 .topbar {
-  background: #fff;
-  border: none;
-  border-bottom: 2px solid #9a7b2f;
-  border-radius: 0;
-  padding: 20px 0 14px;
-  margin-bottom: 32px;
+  background: rgba(255,255,255,.82);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: none; border-bottom: 1px solid #f0f0f0;
+  border-radius: 0; padding: 18px 0 16px;
   box-shadow: none;
 }
-.topbar .brand {
-  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
-  font-size: 21px; font-weight: 700; letter-spacing: .06em; color: #1c2430;
-}
-.topbar .brand span { color: #9a7b2f; }
-.topbar .status { font-size: 10px; letter-spacing: .1em; color: #8a8f99; }
-.market-badge { border-radius: 4px; letter-spacing: .08em; }
+.topbar .brand { font-weight: 600; font-size: 17px; letter-spacing: -.01em; color: #1d1d1f; }
+.topbar .brand span { color: #0066cc; }
+.topbar .status { font-size: 11px; letter-spacing: .02em; color: #86868b; }
+.market-badge { border-radius: 999px; letter-spacing: .04em; }
 
-/* ── 章节标题：编号 + 金色细线 ── */
-.section-head, .section-title, .seg-section-header {
-  border-bottom: 1px solid #e8e4da;
-  padding-bottom: 8px;
-  margin-bottom: 18px;
+/* ── 章节标题：display 级大标题 ── */
+.section-title, .section-head, .seg-section-title, .seg-section-header {
+  font-size: 26px; font-weight: 600; letter-spacing: -.022em;
+  color: #1d1d1f; border-bottom: none; padding-bottom: 0;
 }
-.section-tag, .seg-section-title {
-  color: #9a7b2f; letter-spacing: .12em; font-size: 11px;
-}
+.section-tag { color: #86868b; font-size: 12px; letter-spacing: .08em; font-weight: 400; }
+.section-line { border-color: #f0f0f0; }
 
-/* ── TOC：左栏白底细边 ── */
-.toc-rail {
-  left: 24px;
-  background: rgba(255,255,255,.92);
-  backdrop-filter: blur(6px);
-  border: 1px solid #e6e2d8;
-  border-radius: 8px;
-  padding: 14px 10px;
-  box-shadow: 0 4px 20px rgba(28,36,48,.06);
-}
-.toc-rail .toc-item {
-  font-size: 11px; letter-spacing: .04em; border-radius: 4px;
-  border-left: none; padding: 7px 12px; color: #5a6472;
-}
-.toc-rail .toc-item.active {
-  background: #f6f1e4; color: #9a7b2f;
-  box-shadow: inset 3px 0 0 #9a7b2f; font-weight: 600;
-}
+/* ── 公司抬头：display 级 ── */
+.name-card { background: #fff; border: 1px solid #f0f0f0; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,.04); padding: 26px 28px; }
+.stock-name { font-size: 40px; font-weight: 600; letter-spacing: -.022em; color: #1d1d1f; }
+.ticker-label { color: #86868b; letter-spacing: .06em; font-size: 12px; }
 
-/* ── 公司抬头：名称 + 代码 + 价格行 ── */
-.name-card {
-  background: #fff; border: 1px solid #ece8de; border-radius: 6px;
-  box-shadow: none; padding: 22px 24px;
-}
-.stock-name { font-family: 'Playfair Display','Noto Serif SC','Songti SC','SimSun',serif; font-size: 30px; font-weight: 700; color: #1c2430; letter-spacing: .02em; }
-.ticker-label { color: #9a7b2f; letter-spacing: .1em; }
+/* ── HERO：评分 ── */
+.score-label { font-size: 11px; letter-spacing: .08em; color: #86868b; }
+.score-giant { font-size: 72px; font-weight: 600; letter-spacing: -.03em; color: #1d1d1f; line-height: 1; }
+.score-giant::after { content: '/100'; font-size: 24px; color: #a1a1a6; font-weight: 400; }
+.score-verdict { font-size: 21px; font-weight: 600; color: #0066cc; letter-spacing: .01em; }
 
-/* ── HERO：评分横幅(非霸屏) ── */
-.score-label { font-size: 10px; letter-spacing: .2em; color: #9a7b2f; }
-.score-giant {
-  font-family: 'Playfair Display', serif;
-  font-size: 96px; font-weight: 700; line-height: 1;
-  color: #1c2430; letter-spacing: -.02em;
-}
-.score-giant::after { content: '/100'; font-size: 22px; color: #9a7b2f; font-weight: 600; }
-.score-verdict { font-size: 22px; color: #9a7b2f; letter-spacing: .04em; }
-
-/* ── 核心结论引言：左金线 ── */
+/* ── 核心结论 / punchline：无边框卡片 ── */
 .core-conclusion, .punchline {
-  background: #faf8f2;
-  border: 1px solid #ece8de;
-  border-left: 4px solid #9a7b2f;
-  border-radius: 4px;
-  box-shadow: none;
+  background: #fafafc; border: 1px solid #f0f0f0;
+  border-left: none; border-radius: 18px; box-shadow: none;
 }
-.punchline { border-left-width: 4px; }
 
-/* ── 卡片系统：白底细边 · 研报克制圆角 ── */
+/* ── 卡片系统：画廊 tile ── */
 .panel-section, .battle-plan, .debate-rounds, .chat-container,
 .inst-modeling-wrap, .friendly-card, .fund-card, .seg-card,
 .dim-card, .inv-card, .jury-board, .share-qr-card, .safety-card,
 .style-chip-wrap, .data-gap-banner, .risk-box, .zone {
   background: #fff;
-  border: 1px solid #ece8de;
-  border-radius: 6px;
-  box-shadow: 0 2px 10px rgba(28,36,48,.04);
+  border: 1px solid #f0f0f0;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.04);
 }
 
-/* ── 表格：投行网格表 ── */
+/* ── 表格：hairline 网格 ── */
 .tab, .seg-table-wrap, .seg-projections-table-wrap {
-  border: 1px solid #e4e0d6;
-  border-radius: 4px; overflow: hidden;
+  border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden;
 }
 .tab th, .seg-projections-table th {
-  background: #f4f1e9; color: #1c2430;
-  font-size: 11px; letter-spacing: .06em;
-  border-bottom: 1px solid #e4e0d6;
+  background: #fafafc; color: #1d1d1f;
+  font-size: 12px; font-weight: 600; letter-spacing: .02em;
+  border-bottom: 1px solid #e0e0e0;
 }
 .tab td, .seg-projections-table td {
-  border-bottom: 1px solid #f0ede6;
-  font-variant-numeric: tabular-nums;
+  border-bottom: 1px solid #f0f0f0; font-variant-numeric: tabular-nums;
 }
 .tab tr:last-child td { border-bottom: none; }
-.tab tbody tr:hover { background: #faf8f2; }
+.tab tbody tr:hover { background: #fafafc; }
+
+/* ── TOC：毛玻璃胶囊 ── */
+.toc-rail {
+  left: 24px;
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid #f0f0f0; border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.05);
+}
+.toc-rail .toc-item { font-size: 12px; letter-spacing: .02em; border-radius: 8px; color: #6e6e73; padding: 8px 12px; }
+.toc-rail .toc-item.active { background: #f0f7ff; color: #0066cc; box-shadow: none; font-weight: 600; }
+
+/* ── 链接 / 强调：Action Blue ── */
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
 /* ── 评审团 / 审判席 ── */
-.jury-board { padding: 20px; }
-.seat, .fighter { border-radius: 6px; border: 1px solid #ece8de; background: #fff; }
-.inv-card { border-radius: 6px; }
+.jury-board { padding: 22px; }
+.seat, .fighter { border-radius: 12px; border: 1px solid #f0f0f0; background: #fff; }
+.inv-card { border-radius: 14px; }
 
 /* ── 聊天室 ── */
-.chat-msg { border-radius: 8px; border: 1px solid #f0ede6; background: #fafaf8; }
-.msg-score-badge, .chat-tab { border-radius: 4px; }
-.chat-tab.active { background: #f6f1e4; color: #9a7b2f; }
+.chat-container { padding: 20px; }
+.chat-msg { border-radius: 14px; border: 1px solid #f0f0f0; background: #fafafc; }
+.msg-score-badge, .chat-tab { border-radius: 999px; }
+.chat-tab { border: 1px solid #e0e0e0; color: #6e6e73; }
+.chat-tab.active { background: #f0f7ff; color: #0066cc; border-color: transparent; }
 
 /* ── 多空辩论 ── */
 .round-bull { border-left: 3px solid var(--bull-green); }
 .round-bear { border-left: 3px solid var(--bear-red); }
 
 /* ── 22 维卡片 ── */
-.dim-card { padding: 16px; }
-.dim-bar, .dim-bar .fill { border-radius: 2px; }
+.dim-card { padding: 18px; }
+.dim-bar, .dim-bar .fill { border-radius: 4px; }
 
-/* ── 风格 chips / 数据缺口横幅 ── */
-.chip, .style-chip-wrap .chip { border-radius: 4px; }
-.data-gap-banner { border-radius: 4px; }
+/* ── 风格 chips ── */
+.chip, .style-chip-wrap .chip { border-radius: 999px; }
+.data-gap-banner { border-radius: 14px; }
 
-/* ── 页脚：页面化 ── */
-footer {
-  border-top: 2px solid #9a7b2f;
-  margin-top: 40px; padding-top: 18px;
-  color: #8a8f99; font-size: 11px;
-}
+/* ── 页脚 ── */
+footer { border-top: 1px solid #f0f0f0; margin-top: 48px; padding-top: 20px; color: #86868b; font-size: 11px; }
 
-/* ── LOADING：保持深色万神殿加载环(启动动画独立于报告主题) ── */
-.boot-overlay {
-  background:
-    radial-gradient(800px 400px at 50% 28%, rgba(227,192,106,.10), transparent 62%),
-    radial-gradient(600px 400px at 50% 72%, rgba(157,140,248,.06), transparent 60%),
-    #080a0e;
-  gap: 26px;
-}
+/* ── LOADING：极简深空 + 蓝色动作环 ── */
+.boot-overlay { background: #000; gap: 26px; }
 .boot-ring {
   width: 88px; height: 88px; border-radius: 50%;
-  border: 2px solid rgba(227,192,106,.14);
-  border-top-color: #e3c06a;
+  border: 2px solid rgba(41,151,255,.16);
+  border-top-color: #2997ff;
   animation: boot-spin 1.1s linear infinite;
   position: relative;
 }
 .boot-ring::after {
   content: ''; position: absolute; inset: -11px; border-radius: 50%;
-  border: 1px dashed rgba(227,192,106,.20);
+  border: 1px dashed rgba(41,151,255,.22);
   animation: boot-spin 9s linear infinite reverse;
 }
 @keyframes boot-spin { to { transform: rotate(360deg); } }
 .boot-logo {
-  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
-  font-size: 34px; font-weight: 700; letter-spacing: .26em;
-  color: #e3c06a; text-shadow: 0 0 34px rgba(227,192,106,.35);
+  font-family: -apple-system, "SF Pro Display", "PingFang SC", sans-serif;
+  font-size: 30px; font-weight: 600; letter-spacing: .12em;
+  color: #f5f5f7;
 }
-.boot-logo em { color: #f0d48a; font-style: normal; font-size: 17px; letter-spacing: .34em; }
-.boot-eye { font-size: 20px; color: #f0d48a; opacity: .75; }
-.boot-bar {
-  width: 230px; height: 3px; border-radius: 2px; overflow: hidden;
-  background: rgba(227,192,106,.12);
-}
+.boot-logo em { color: #2997ff; font-style: normal; font-size: 16px; letter-spacing: .2em; }
+.boot-eye { font-size: 18px; color: #2997ff; opacity: .8; }
+.boot-bar { width: 220px; height: 3px; border-radius: 2px; overflow: hidden; background: rgba(255,255,255,.12); }
 .boot-fill {
   height: 100%; width: 42%; border-radius: 2px;
-  background: linear-gradient(90deg, #9a7b2f, #e3c06a, #f0d48a);
+  background: linear-gradient(90deg, #0071e3, #2997ff);
   animation: boot-load 1.4s ease-in-out infinite;
 }
 @keyframes boot-load { 0% { transform: translateX(-110%); } 100% { transform: translateX(360%); } }
-.boot-status { color: #8d98a8; font-size: 11px; letter-spacing: .22em; }
+.boot-status { color: #86868b; font-size: 11px; letter-spacing: .16em; }
 
-/* ── 深色模式：保留切换能力(深色终端风) ── */
-[data-theme="dark"] body {
-  background: #0a0c10;
+/* ── 深色模式细节 ── */
+[data-theme="dark"] body { background: #000; }
+[data-theme="dark"] .container { background: #000; box-shadow: none; }
+[data-theme="dark"] .topbar { background: rgba(22,22,24,.8); border-bottom-color: #222224; }
+[data-theme="dark"] .topbar .brand, [data-theme="dark"] .stock-name,
+[data-theme="dark"] .score-giant, [data-theme="dark"] .section-title,
+[data-theme="dark"] .section-head { color: #f5f5f7; }
+[data-theme="dark"] .name-card, [data-theme="dark"] .panel-section,
+[data-theme="dark"] .battle-plan, [data-theme="dark"] .debate-rounds,
+[data-theme="dark"] .chat-container, [data-theme="dark"] .inst-modeling-wrap,
+[data-theme="dark"] .friendly-card, [data-theme="dark"] .fund-card,
+[data-theme="dark"] .seg-card, [data-theme="dark"] .dim-card,
+[data-theme="dark"] .inv-card, [data-theme="dark"] .jury-board,
+[data-theme="dark"] .risk-box, [data-theme="dark"] .zone {
+  background: #1d1d1f; border-color: #2a2a2c; box-shadow: none;
 }
-[data-theme="dark"] .container { background: #0f1319; box-shadow: none; }
-[data-theme="dark"] .topbar { background: transparent; border-bottom-color: #e3c06a; }
-[data-theme="dark"] .topbar .brand { color: #edf1f6; }
-[data-theme="dark"] .name-card,
-[data-theme="dark"] .panel-section, [data-theme="dark"] .battle-plan,
-[data-theme="dark"] .debate-rounds, [data-theme="dark"] .chat-container,
-[data-theme="dark"] .inst-modeling-wrap, [data-theme="dark"] .friendly-card,
-[data-theme="dark"] .fund-card, [data-theme="dark"] .seg-card,
-[data-theme="dark"] .dim-card, [data-theme="dark"] .inv-card,
-[data-theme="dark"] .jury-board, [data-theme="dark"] .risk-box,
-[data-theme="dark"] .zone {
-  background: var(--bg-card); border-color: #2a3648;
-}
-[data-theme="dark"] .stock-name, [data-theme="dark"] .score-giant { color: #e3c06a; }
-[data-theme="dark"] .tab th { background: #16202f; }
-[data-theme="dark"] footer { border-top-color: #e3c06a; }
+[data-theme="dark"] .core-conclusion, [data-theme="dark"] .punchline { background: #1d1d1f; border-color: #2a2a2c; }
+[data-theme="dark"] .chat-msg { background: #242426; border-color: #2a2a2c; }
+[data-theme="dark"] .tab th { background: #242426; color: #f5f5f7; border-bottom-color: #2a2a2c; }
+[data-theme="dark"] .tab td { border-bottom-color: #2a2a2c; }
+[data-theme="dark"] .toc-rail { background: rgba(22,22,24,.85); border-color: #2a2a2c; }
+[data-theme="dark"] .toc-rail .toc-item.active { background: rgba(41,151,255,.14); color: #2997ff; }
+[data-theme="dark"] footer { border-top-color: #2a2a2c; }
 
 @media print {
   .boot-overlay { display: none !important; }
 }
-
 </style>
 </head>
 <body>
