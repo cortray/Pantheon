@@ -3253,10 +3253,12 @@ body { background: #f5f5f7; background-attachment: fixed; }
 .inst-modeling-wrap, .friendly-card, .fund-card, .seg-card,
 .dim-card, .inv-card, .jury-board, .share-qr-card, .safety-card,
 .style-chip-wrap, .data-gap-banner, .risk-box, .zone {
-  background: #fff;
-  border: 1px solid #f0f0f0;
+  /* v3.9.5 · 原来硬编码 #fff/#f0f0f0，暗色下 share-qr-card / safety-card /
+     style-chip-wrap 未被暗色组覆盖 → 残留白底。改用主题变量，两种模式都正确 */
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,.04);
+  box-shadow: var(--shadow-md);
 }
 
 /* ── 表格：hairline 网格 ── */
