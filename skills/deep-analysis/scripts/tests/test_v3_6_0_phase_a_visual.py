@@ -37,7 +37,7 @@ def test_theme_toggle_button_in_topbar():
 
 def test_theme_toggle_js_persists_localstorage():
     """JS 必须把 theme 存到 localStorage · 跨刷新保留."""
-    assert "uzi-theme" in TEMPLATE
+    assert "pantheon-theme" in TEMPLATE
     assert "localStorage.setItem" in TEMPLATE
     assert "prefers-color-scheme" in TEMPLATE
 

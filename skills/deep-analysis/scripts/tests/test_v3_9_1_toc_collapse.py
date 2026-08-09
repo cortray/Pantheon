@@ -6,7 +6,7 @@ GitHub issue #79（QKioi）：HTML 报告左侧 sticky 导航栏会略微遮挡�
 测试覆盖：
 1. 折叠按钮 markup 存在（在 toc-rail 内 · 有 aria 标注）
 2. 折叠态 CSS（.toc-rail.collapsed 隐藏 toc-item）
-3. 折叠 JS 用 localStorage 持久化（key uzi-toc-collapsed）
+3. 折叠 JS 用 localStorage 持久化（key pantheon-toc-collapsed）
 4. 安全 · 折叠 JS 段不引入 innerHTML 赋值
 """
 from __future__ import annotations
@@ -53,14 +53,14 @@ def test_toc_toggle_css_present():
 
 # ─── #3 · 折叠状态持久化 ──────────────────────────────────
 def test_toc_collapse_persists_localstorage():
-    assert "uzi-toc-collapsed" in TEMPLATE, "缺 localStorage key"
+    assert "pantheon-toc-collapsed" in TEMPLATE, "缺 localStorage key"
     # 同时读取 + 写入
     assert "localStorage.getItem(TOC_KEY)" in TEMPLATE
     assert "localStorage.setItem(TOC_KEY" in TEMPLATE
 
 
 def test_toc_toggle_click_toggles_collapsed_class():
-    idx = TEMPLATE.find("uzi-toc-collapsed")
+    idx = TEMPLATE.find("pantheon-toc-collapsed")
     block = TEMPLATE[idx:idx + 900]
     assert "addEventListener('click'" in block
     assert "classList.toggle('collapsed'" in block
@@ -70,6 +70,6 @@ def test_toc_toggle_click_toggles_collapsed_class():
 
 # ─── #4 · 安全 · 折叠逻辑不引入 innerHTML ─────────────────
 def test_toc_collapse_block_no_innerhtml():
-    idx = TEMPLATE.find("uzi-toc-collapsed")
+    idx = TEMPLATE.find("pantheon-toc-collapsed")
     block = TEMPLATE[idx:idx + 900]
     assert ".innerHTML" not in block, "折叠逻辑禁止使用 innerHTML"

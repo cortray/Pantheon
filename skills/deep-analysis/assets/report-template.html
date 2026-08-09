@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{NAME}} · 游资 SKILLS</title>
+<title>{{NAME}} · Pantheon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════
-   游资 SKILLS · FloatFu-true
-   Bento + Brutalism + Glassmorphism · OLED Dark
+   Pantheon · 万神殿
+   深色金融终端 + 墨金 · OLED Dark / 纸感 Light
    ═══════════════════════════════════════════════════════════ */
 :root {
-  /* ───── LIGHT THEME · 券商研报 · Broker Research ───── */
+  /* ───── LIGHT THEME · 纸感研报 · Paper Research ───── */
   --bg-void:     #f6f5f1;   /* 米白纸感 */
   --bg-deep:     #fbfaf7;
   --bg-card:     #ffffff;
@@ -26,21 +26,21 @@
   --border-hot:  #cfc9bb;
   --border-soft: #f0ede6;
 
-  /* brand colors · 机构蓝 + 低调金 */
-  --neon-cyan:   #1f6feb;
-  --neon-gold:   #b08d3e;
-  --neon-pink:   #c2276b;
+  /* brand colors · 墨金 + 紫 · Pantheon */
+  --neon-cyan:   #9a7b2f;   /* 主强调 · 深金 */
+  --neon-gold:   #b08d3e;   /* 辅助金 */
+  --neon-pink:   #7c5cb8;   /* 紫 · 万神殿点缀 */
   --bull-green:  #1b7f4d;   /* A股 · 跌 */
   --bear-red:    #c62828;   /* A股 · 涨 */
   --warning-amber: #c2702a;
-  --accent-blue: #1f6feb;
-  --accent-indigo: #5b4aa8;
+  --accent-blue: #9a7b2f;
+  --accent-indigo: #7c5cb8;
 
   /* tinted soft fills */
   --bull-tint: #e5f2ea;
   --bear-tint: #fbe9e9;
   --gold-tint: #f6eedd;
-  --cyan-tint: #e6f0fb;
+  --cyan-tint: #f6eedd;
 
   /* text */
   --text-bright: #14202e;
@@ -53,7 +53,7 @@
   --shadow-sm: 0 1px 2px rgba(20,32,46,.05);
   --shadow-md: 0 2px 8px rgba(20,32,46,.06);
   --shadow-lg: 0 8px 24px rgba(20,32,46,.09);
-  --shadow-glow-cyan: 0 0 0 3px rgba(31,111,235,.14);
+  --shadow-glow-cyan: 0 0 0 3px rgba(154,123,47,.16);
   --shadow-glow-gold: 0 0 0 3px rgba(176,141,62,.16);
   --shadow-brutal: 0 0 0 #14202e;
 
@@ -62,38 +62,37 @@
   --glass-border: rgba(20,32,46,.05);
 
   /* 券商附加 */
-  --navy: #1b3a5c;
-  --navy-deep: #12283f;
+  --navy: #1e1b33;
+  --navy-deep: #141226;
   --gold: #b08d3e;
   --gold-soft: #f6eedd;
   --font-sans: "Fira Sans", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, -apple-system, sans-serif;
   --font-num: "Fira Code", "SF Mono", Consolas, "Liberation Mono", monospace;
 }
 
-/* ───── v3.6.0 · DARK THEME · Bloomberg Dark Terminal ───── */
-/* ───── DARK THEME · 深藏青 · Broker Dark ───── */
+/* ───── v3.6.0 · DARK THEME · Pantheon 万神殿终端 ───── */
 [data-theme="dark"] {
-  --bg-void:     #0d1420;
-  --bg-deep:     #111a28;
-  --bg-card:     #16202f;
-  --bg-elevated: #1b2637;
-  --bg-tinted:   #16202f;
-  --bg-rail:     #0d1420;
-  --border:      #2a3648;
-  --border-hot:  #3c4b60;
-  --border-soft: #1f2a3b;
-  --neon-cyan:   #6ea8ff;
-  --neon-gold:   #d4b26a;
-  --neon-pink:   #f28cb8;
+  --bg-void:     #0a0d12;
+  --bg-deep:     #0f1319;
+  --bg-card:     #141a23;
+  --bg-elevated: #1a212c;
+  --bg-tinted:   #141a23;
+  --bg-rail:     #0a0d12;
+  --border:      #232b38;
+  --border-hot:  #33404f;
+  --border-soft: #1b222d;
+  --neon-cyan:   #e3c06a;   /* 主强调 · 亮金 */
+  --neon-gold:   #f0d48a;
+  --neon-pink:   #b78ae8;   /* 紫 */
   --bull-green:  #5ccb8d;
   --bear-red:    #f07d7d;
   --warning-amber: #f0a95c;
-  --accent-blue: #6ea8ff;
+  --accent-blue: #e3c06a;
   --accent-indigo: #9d8cf8;
   --bull-tint:   rgba(92,203,141,.16);
   --bear-tint:   rgba(240,125,125,.16);
-  --gold-tint:   rgba(212,178,106,.16);
-  --cyan-tint:   rgba(110,168,255,.16);
+  --gold-tint:   rgba(227,192,106,.16);
+  --cyan-tint:   rgba(227,192,106,.14);
   --text-bright: #edf1f6;
   --text-main:   #c6cdd8;
   --text-mid:    #8d98a8;
@@ -102,15 +101,15 @@
   --shadow-sm: 0 1px 2px rgba(0,0,0,.35);
   --shadow-md: 0 2px 8px rgba(0,0,0,.45);
   --shadow-lg: 0 8px 24px rgba(0,0,0,.55);
-  --shadow-glow-cyan: 0 0 0 3px rgba(110,168,255,.22);
-  --shadow-glow-gold: 0 0 0 3px rgba(212,178,106,.22);
+  --shadow-glow-cyan: 0 0 0 3px rgba(227,192,106,.22);
+  --shadow-glow-gold: 0 0 0 3px rgba(240,212,138,.22);
   --shadow-brutal: 0 0 0 #000;
-  --glass-bg: rgba(22,32,47,.92);
+  --glass-bg: rgba(20,26,35,.92);
   --glass-border: rgba(237,241,246,.06);
-  --navy: #8fb3e8;
-  --navy-deep: #0d1624;   /* 深色底块保持深藏青（白字可读） */
-  --gold: #d4b26a;
-  --gold-soft: rgba(212,178,106,.14);
+  --navy: #d4b26a;   /* 深色下强调文字 → 金 */
+  --navy-deep: #0d0f16;   /* 底块 · 墨黑紫（白字可读） */
+  --gold: #e3c06a;
+  --gold-soft: rgba(227,192,106,.14);
 }
 
 /* dark mode · 让原本固定深色背景的元素也跟随 */
@@ -3120,7 +3119,7 @@ footer strong { color: var(--navy); }
 
 <!-- ─── BOOT OVERLAY ─── -->
 <div class="boot-overlay" id="boot-overlay">
-  <div class="boot-logo">FloatFu-true <em>· 游资 SKILLS</em></div>
+  <div class="boot-logo">Pantheon <em>· 万神殿</em></div>
   <div class="boot-eye">O.o</div>
   <div class="boot-bar"><div class="boot-fill"></div></div>
   <div class="boot-status">SCANNING · INITIALIZING JURY · LOADING ARENA</div>
@@ -3132,12 +3131,12 @@ footer strong { color: var(--navy); }
   <div class="topbar">
     <div class="left">
       <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
-      <div class="brand">FloatFu-true <span>游资 SKILLS</span></div>
+      <div class="brand">Pantheon <span>万神殿</span></div>
     </div>
     <div class="status">
       <span class="pulse"></span>
       <span class="market-badge {{MARKET_STATUS_CLASS}}">{{MARKET_STATUS}}</span>
-      <span>· DATA @ {{DATA_FETCHED_AT}} · UZI v{{PLUGIN_VERSION}}</span>
+      <span>· DATA @ {{DATA_FETCHED_AT}} · v{{PLUGIN_VERSION}}</span>
       <button class="theme-toggle" id="theme-toggle" title="切换暗色 / 浅色主题" aria-label="切换主题">🌙</button>
     </div>
   </div>
@@ -3514,13 +3513,13 @@ footer strong { color: var(--navy); }
 
       <!-- QR -->
       <div style="margin-bottom:12px">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://github.com/wbh604/UZI-Skill&color=1b3a5c" alt="QR" style="width:80px;height:80px;border-radius:6px" />
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://github.com/cortray/Pantheon&color=1e1b33" alt="QR" style="width:80px;height:80px;border-radius:6px" />
         <div style="font-size:10px;color:#8a8f99;margin-top:4px">扫码获取分析工具</div>
       </div>
 
-      <a href="https://github.com/wbh604/UZI-Skill" target="_blank" style="font-size:12px;color:#1f6feb;text-decoration:none;font-weight:600">github.com/wbh604/UZI-Skill</a>
+      <a href="https://github.com/cortray/Pantheon" target="_blank" style="font-size:12px;color:#9a7b2f;text-decoration:none;font-weight:600">github.com/cortray/Pantheon</a>
       <div style="margin-top:12px;padding-top:10px;border-top:1px solid #e4e1d8">
-        <div style="font-size:9px;color:#98a0aa;letter-spacing:2px">POWERED BY FloatFu-true · 不构成投资建议</div>
+        <div style="font-size:9px;color:#98a0aa;letter-spacing:2px">POWERED BY Pantheon · 不构成投资建议</div>
       </div>
       <button onclick="this.parentElement.parentElement.style.display='none'" style="margin-top:10px;background:#f3f1ea;border:1px solid #e4e1d8;padding:8px 20px;border-radius:6px;color:#4d5a68;cursor:pointer;font-size:12px">关闭</button>
     </div>
@@ -3531,9 +3530,9 @@ footer strong { color: var(--navy); }
     本报告由 AI 模型基于公开信息生成，所有数据通过 akshare / yfinance / 公开数据接口获取，可能存在滞后或误差。
     报告中的评分和建议均为模拟，不代表任何真实投资者的实际观点。
     本报告不构成任何投资建议，投资者应独立判断并承担投资风险。<br><br>
-    Generated by <strong>FloatFu-true · UZI-Skill {{PLUGIN_VERSION}}</strong> · {{GENERATED_AT}} · <span class="oo-eye">O.o</span><br>
-    <a href="https://github.com/wbh604/UZI-Skill" target="_blank" style="color:#1f6feb;text-decoration:none;font-size:13px;margin-top:6px;display:inline-block">⭐ GitHub · 点击查看最新版本 → github.com/wbh604/UZI-Skill</a><br>
-    <span style="font-size:10px;color:#98a0aa;letter-spacing:2px">POWERED BY FloatFu-true</span>
+    Generated by <strong>Pantheon {{PLUGIN_VERSION}}</strong> · {{GENERATED_AT}} · <span class="oo-eye">O.o</span><br>
+    <a href="https://github.com/cortray/Pantheon" target="_blank" style="color:#9a7b2f;text-decoration:none;font-size:13px;margin-top:6px;display:inline-block">⭐ GitHub · 点击查看最新版本 → github.com/cortray/Pantheon</a><br>
+    <span style="font-size:10px;color:#98a0aa;letter-spacing:2px">POWERED BY Pantheon</span>
   </footer>
 </div>
 
@@ -3542,7 +3541,7 @@ footer strong { color: var(--navy); }
 <!-- ═══════════════════════════════════════════════════════════ -->
 <div id="share-card">
   <div class="sc-topbar">
-    <div class="sc-brand">FloatFu-true <em>· 游资 SKILLS</em></div>
+    <div class="sc-brand">Pantheon <em>· 万神殿</em></div>
     <div class="sc-badge">DEEP SCAN</div>
   </div>
 
@@ -3587,12 +3586,12 @@ footer strong { color: var(--navy); }
   </div>
 
   <div style="text-align:center;margin:20px 0 10px">
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://github.com/wbh604/UZI-Skill&color=1b3a5c" alt="QR" style="width:100px;height:100px;border-radius:6px" />
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://github.com/cortray/Pantheon&color=1e1b33" alt="QR" style="width:100px;height:100px;border-radius:6px" />
     <div style="font-size:18px;color:#8a8f99;margin-top:6px">扫码获取分析工具</div>
   </div>
 
   <div class="sc-footer">
-    <span>{{GENERATED_AT}} · POWERED BY FloatFu-true · 不构成投资建议</span>
+    <span>{{GENERATED_AT}} · POWERED BY Pantheon · 不构成投资建议</span>
     <span class="oo-big">O.o</span>
   </div>
 </div>
@@ -3602,7 +3601,7 @@ footer strong { color: var(--navy); }
 <!-- ═══════════════════════════════════════════════════════════ -->
 <div id="war-report">
   <div class="wr-top">
-    <div class="wr-brand">FloatFu-true <em>· 游资 SKILLS</em></div>
+    <div class="wr-brand">Pantheon <em>· 万神殿</em></div>
     <div class="wr-date">{{GENERATED_AT}}</div>
   </div>
   <div class="wr-body">
@@ -3744,7 +3743,7 @@ footer strong { color: var(--navy); }
 // ─── v3.6.0 · Phase A · 视觉/交互升级 ─────────────────────────────
 (function() {
   // 1) Dark mode toggle · 持久化到 localStorage · 跟随 prefers-color-scheme 初始化
-  const KEY = 'uzi-theme';
+  const KEY = 'pantheon-theme';
   const root = document.documentElement;
   const stored = localStorage.getItem(KEY);
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -3799,7 +3798,7 @@ footer strong { color: var(--navy); }
   }));
 
   // 2b) TOC 折叠 / 展开 · issue #79 · 状态持久化到 localStorage
-  const TOC_KEY = 'uzi-toc-collapsed';
+  const TOC_KEY = 'pantheon-toc-collapsed';
   const tocRail = document.getElementById('toc-rail');
   const tocToggle = document.getElementById('toc-toggle');
   if (tocRail && tocToggle) {
