@@ -1757,9 +1757,13 @@ body::after {
 }
 .dim-row {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 14px;
+  /* v3.9.5 · 之前 minmax(280px) 会把行业面 5 张信息卡挤成一行、每张过窄显狭长；
+     加宽到 420px（约 3 列）让每张卡有足够横向空间承载图表 */
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 18px;
   margin-bottom: 8px;
+  /* 卡片按内容自然高度，避免短卡被拉伸留大片空白 */
+  align-items: start;
 }
 .dim-card {
   background: var(--bg-card);
