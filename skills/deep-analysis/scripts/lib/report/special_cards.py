@@ -1,4 +1,4 @@
-"""report.special_cards · 特殊功能卡片 · v3.2 从 assemble_report.py 抽离.
+﻿"""report.special_cards · 特殊功能卡片 · v3.2 从 assemble_report.py 抽离.
 
 ### 内容
 - `render_friendly_layer(syn, raw)` · 一万块场景模拟 + exit triggers + 类似股票
@@ -180,7 +180,7 @@ def render_fund_managers(managers: list) -> str:
         if avatar:
             avatar_html = f'<img src="avatars/{avatar}.svg" style="width:54px;height:54px;image-rendering:pixelated;border:2px solid #d97706;border-radius:8px;background:#fff;flex-shrink:0">'
         else:
-            avatar_html = f'<div style="width:54px;height:54px;background:#fef3c7;border:2px solid #d97706;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:Fira Sans;font-size:20px;font-weight:900;color:#d97706;flex-shrink:0">{name[0] if name else "?"}</div>'
+            avatar_html = f'<div style="width:54px;height:54px;background:#fef3c7;border:2px solid #d97706;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:Inter;font-size:20px;font-weight:900;color:#d97706;flex-shrink:0">{name[0] if name else "?"}</div>'
 
         # Performance stars based on peer rank
         stars = "⭐" * max(1, min(5, int((100 - peer_rank) / 20) + 1))
@@ -217,7 +217,7 @@ def render_fund_managers(managers: list) -> str:
   </div>
 
   <div class="fund-nav-block">
-    <div style="display:flex;justify-content:space-between;font-family:Fira Code;font-size:10px;color:#64748b;margin-bottom:4px">
+    <div style="display:flex;justify-content:space-between;font-family:JetBrains Mono;font-size:10px;color:#64748b;margin-bottom:4px">
       <span>5 年净值走势</span>
       <span>同类排名 <strong style="color:{rank_color}">前 {peer_rank}%</strong></span>
     </div>

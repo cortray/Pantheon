@@ -1,4 +1,4 @@
-"""report.dim_viz · 22 维数据卡的特化可视化 · v3.2 从 assemble_report.py 抽离.
+﻿"""report.dim_viz · 22 维数据卡的特化可视化 · v3.2 从 assemble_report.py 抽离.
 
 ### 内容
 - `_score_class(score)` · 分数 → CSS class（great/good/ok/poor/bad/na）
@@ -58,7 +58,7 @@ def _viz_chain(raw: dict) -> str:
 
     extras = ""
     if client_conc or supplier_conc:
-        extras = f'''<div style="display:flex;justify-content:space-around;margin-top:10px;padding:10px;background:#ffffff;border:1px solid #e2e8f0;border-radius:6px;font-family:Fira Code;font-size:11px;color:#475569">
+        extras = f'''<div style="display:flex;justify-content:space-around;margin-top:10px;padding:10px;background:#ffffff;border:1px solid #e2e8f0;border-radius:6px;font-family:JetBrains Mono;font-size:11px;color:#475569">
   <span>🔧 供应商 <strong style="color:#0f172a">{supplier_conc}</strong></span>
   <span>🎯 大客户 <strong style="color:#0f172a">{client_conc}</strong></span>
 </div>'''
@@ -75,7 +75,7 @@ def _viz_chain(raw: dict) -> str:
             segments.append((name, value, COLORS[i % len(COLORS)]))
         if segments:
             pie = '<div style="margin-top:12px;padding-top:10px;border-top:1px solid #e2e8f0">'
-            pie += '<div style="font-family:Fira Code;font-size:10px;color:#64748b;margin-bottom:8px">🥧 主营业务构成</div>'
+            pie += '<div style="font-family:JetBrains Mono;font-size:10px;color:#64748b;margin-bottom:8px">🥧 主营业务构成</div>'
             pie += svg_donut(segments, label="主营")
             pie += '</div>'
 
@@ -89,7 +89,7 @@ def _viz_trap(raw: dict) -> str:
     hit = int(m.group(1)) if m else 0
     level = raw.get("trap_level", "🟢 安全")
     lights = svg_signal_lights(hit, 8)
-    return f'{lights}<div style="margin-top:10px;font-family:Fira Sans;font-size:14px;font-weight:700;color:#0f172a">{level}</div>'
+    return f'{lights}<div style="margin-top:10px;font-family:Inter;font-size:14px;font-weight:700;color:#0f172a">{level}</div>'
 
 
 def _viz_valuation(raw: dict) -> str:
@@ -109,23 +109,23 @@ def _viz_valuation(raw: dict) -> str:
     pe_hist = raw.get("pe_history", [])
     if pe_hist:
         viz += '<div style="margin-top:12px">'
-        viz += '<div style="font-family:Fira Code;font-size:10px;color:#64748b;margin-bottom:4px">📉 PE 历史 Band · 红区=偏贵 / 黄区=合理 / 绿区=便宜</div>'
+        viz += '<div style="font-family:JetBrains Mono;font-size:10px;color:#64748b;margin-bottom:4px">📉 PE 历史 Band · 红区=偏贵 / 黄区=合理 / 绿区=便宜</div>'
         viz += svg_pe_band(pe_hist, width=320, height=160)
         viz += '</div>'
 
     # KPI trio
     viz += f'''<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px;padding-top:10px;border-top:1px solid #e2e8f0;text-align:center">
   <div style="padding:8px;background:#ffffff;border:1px solid #e2e8f0;border-radius:6px">
-    <div style="font-family:Fira Code;font-size:9px;color:#64748b">当前 PE</div>
-    <div style="font-family:Fira Sans;font-size:16px;color:#0f172a;font-weight:700">{pe}</div>
+    <div style="font-family:JetBrains Mono;font-size:9px;color:#64748b">当前 PE</div>
+    <div style="font-family:Inter;font-size:16px;color:#0f172a;font-weight:700">{pe}</div>
   </div>
   <div style="padding:8px;background:#ffffff;border:1px solid #e2e8f0;border-radius:6px">
-    <div style="font-family:Fira Code;font-size:9px;color:#64748b">行业均值</div>
-    <div style="font-family:Fira Sans;font-size:16px;color:#0f172a;font-weight:700">{industry_pe}</div>
+    <div style="font-family:JetBrains Mono;font-size:9px;color:#64748b">行业均值</div>
+    <div style="font-family:Inter;font-size:16px;color:#0f172a;font-weight:700">{industry_pe}</div>
   </div>
   <div style="padding:8px;background:#ffffff;border:1px solid #e2e8f0;border-radius:6px">
-    <div style="font-family:Fira Code;font-size:9px;color:#64748b">DCF 内在</div>
-    <div style="font-family:Fira Sans;font-size:16px;color:#0f172a;font-weight:700">{dcf}</div>
+    <div style="font-family:JetBrains Mono;font-size:9px;color:#64748b">DCF 内在</div>
+    <div style="font-family:Inter;font-size:16px;color:#0f172a;font-weight:700">{dcf}</div>
   </div>
 </div>'''
 
@@ -137,8 +137,8 @@ def _viz_valuation(raw: dict) -> str:
         values_matrix = dcf_matrix["values"]
         current_price = dcf_matrix.get("current_price", 0)
         viz += '<div style="margin-top:12px;padding-top:10px;border-top:1px solid #e2e8f0">'
-        viz += '<div style="font-family:Fira Code;font-size:10px;color:#64748b;margin-bottom:6px">🧮 DCF 敏感度矩阵 (行=WACC, 列=增长率)</div>'
-        viz += '<table style="width:100%;border-collapse:collapse;font-family:Fira Code;font-size:10px">'
+        viz += '<div style="font-family:JetBrains Mono;font-size:10px;color:#64748b;margin-bottom:6px">🧮 DCF 敏感度矩阵 (行=WACC, 列=增长率)</div>'
+        viz += '<table style="width:100%;border-collapse:collapse;font-family:JetBrains Mono;font-size:10px">'
         # header
         viz += '<tr><td></td>' + "".join(f'<td style="padding:4px;text-align:center;color:#64748b">{g}%</td>' for g in growths) + '</tr>'
         for ri, w in enumerate(waccs):
@@ -171,7 +171,7 @@ def _viz_financials(raw: dict) -> str:
                 growth.append(0)
             else:
                 growth.append(round((rev_hist[i] - rev_hist[i-1]) / rev_hist[i-1] * 100, 1) if rev_hist[i-1] else 0)
-        viz += '<div style="font-family:Fira Code;font-size:10px;color:#64748b;margin-bottom:4px">📊 营收（亿）· 金线=同比增速 %</div>'
+        viz += '<div style="font-family:JetBrains Mono;font-size:10px;color:#64748b;margin-bottom:4px">📊 营收（亿）· 金线=同比增速 %</div>'
         viz += svg_bars(rev_hist, labels=years, color=COLOR_CYAN, overlay_line=growth, line_color=COLOR_GOLD, width=320, height=130)
 
     # Part 2: sparkline rows for ROE + net profit
@@ -185,9 +185,9 @@ def _viz_financials(raw: dict) -> str:
         dcolor = COLOR_BULL if delta > 0 else COLOR_BEAR if delta < 0 else COLOR_MUTED
         spark = svg_sparkline(values, width=150, height=30, color=color)
         return f'''<div style="display:flex;align-items:center;gap:10px;padding:6px 0;border-top:1px solid #f1f5f9">
-  <div style="width:52px;font-family:Fira Code;font-size:10px;color:#64748b">{label}</div>
+  <div style="width:52px;font-family:JetBrains Mono;font-size:10px;color:#64748b">{label}</div>
   <div style="flex:1">{spark}</div>
-  <div style="font-family:Fira Code;font-size:11px;text-align:right;min-width:72px">
+  <div style="font-family:JetBrains Mono;font-size:11px;text-align:right;min-width:72px">
     <div style="color:#0f172a;font-weight:700">{last}{unit}</div>
     <div style="color:{dcolor};font-size:9px">{arrow} {abs(delta):.1f}</div>
   </div>
@@ -203,7 +203,7 @@ def _viz_financials(raw: dict) -> str:
     div_yields = raw.get("dividend_yields", [])
     if div_years and div_amounts:
         viz += '<div style="margin-top:12px;padding-top:10px;border-top:1px solid #e2e8f0">'
-        viz += '<div style="font-family:Fira Code;font-size:10px;color:#64748b;margin-bottom:4px">💰 分红（元/10股）· 金线=股息率 %</div>'
+        viz += '<div style="font-family:JetBrains Mono;font-size:10px;color:#64748b;margin-bottom:4px">💰 分红（元/10股）· 金线=股息率 %</div>'
         viz += svg_dividend_combo(div_years, div_amounts, div_yields, width=320, height=130)
         viz += '</div>'
 
@@ -211,7 +211,7 @@ def _viz_financials(raw: dict) -> str:
     health = raw.get("financial_health", {})
     if health:
         viz += '<div style="margin-top:12px;padding-top:10px;border-top:1px solid #e2e8f0">'
-        viz += '<div style="font-family:Fira Code;font-size:10px;color:#64748b;margin-bottom:6px">💪 财务健康度</div>'
+        viz += '<div style="font-family:JetBrains Mono;font-size:10px;color:#64748b;margin-bottom:6px">💪 财务健康度</div>'
         for k, label, max_v, good_high in [
             ("current_ratio", "流动比率", 3.0, True),
             ("debt_ratio", "资产负债率 %", 100, False),
@@ -252,27 +252,27 @@ def _viz_kline(raw: dict) -> str:
         viz += svg_sparkline(closes, width=320, height=80, color=COLOR_BULL if closes[-1] > closes[0] else COLOR_BEAR)
 
     badges = f'''<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">
-  <span style="padding:4px 10px;background:#fef3c7;color:#d97706;border-radius:4px;font-family:Fira Code;font-size:11px;font-weight:600">{stage}</span>
-  <span style="padding:4px 10px;background:#cffafe;color:#0891b2;border-radius:4px;font-family:Fira Code;font-size:11px;font-weight:600">MA {ma_align}</span>
-  <span style="padding:4px 10px;background:#d1fae5;color:#059669;border-radius:4px;font-family:Fira Code;font-size:11px;font-weight:600">MACD {macd}</span>
-  <span style="padding:4px 10px;background:#e0e7ff;color:#4f46e5;border-radius:4px;font-family:Fira Code;font-size:11px;font-weight:600">RSI {rsi}</span>'''
+  <span style="padding:4px 10px;background:#fef3c7;color:#d97706;border-radius:4px;font-family:JetBrains Mono;font-size:11px;font-weight:600">{stage}</span>
+  <span style="padding:4px 10px;background:#cffafe;color:#0891b2;border-radius:4px;font-family:JetBrains Mono;font-size:11px;font-weight:600">MA {ma_align}</span>
+  <span style="padding:4px 10px;background:#d1fae5;color:#059669;border-radius:4px;font-family:JetBrains Mono;font-size:11px;font-weight:600">MACD {macd}</span>
+  <span style="padding:4px 10px;background:#e0e7ff;color:#4f46e5;border-radius:4px;font-family:JetBrains Mono;font-size:11px;font-weight:600">RSI {rsi}</span>'''
     # v3.8.0 · KDJ / OBV / Williams%R 副指标徽章 (参考 ashare-mcp 指标广度)
     _ind = raw.get("indicators") or {}
     _kj = _ind.get("kdj_j")
     if _kj is not None:
         _kc = "#dc2626" if _kj > 100 else ("#059669" if _kj < 0 else "#7c3aed")
         badges += (f'<span style="padding:4px 10px;background:#f3e8ff;color:{_kc};border-radius:4px;'
-                   f'font-family:Fira Code;font-size:11px;font-weight:600">KDJ-J {_kj:.0f}</span>')
+                   f'font-family:JetBrains Mono;font-size:11px;font-weight:600">KDJ-J {_kj:.0f}</span>')
     _wr = _ind.get("williams_r")
     if _wr is not None:
         _wc = "#dc2626" if _wr > -20 else ("#059669" if _wr < -80 else "#64748b")
         badges += (f'<span style="padding:4px 10px;background:#f1f5f9;color:{_wc};border-radius:4px;'
-                   f'font-family:Fira Code;font-size:11px;font-weight:600">W%R {_wr:.0f}</span>')
+                   f'font-family:JetBrains Mono;font-size:11px;font-weight:600">W%R {_wr:.0f}</span>')
     if _ind.get("obv_trend_up") is not None:
         _ot = "OBV↑" if _ind.get("obv_trend_up") else "OBV↓"
         _oc = "#059669" if _ind.get("obv_trend_up") else "#dc2626"
         badges += (f'<span style="padding:4px 10px;background:#ecfdf5;color:{_oc};border-radius:4px;'
-                   f'font-family:Fira Code;font-size:11px;font-weight:600">{_ot}</span>')
+                   f'font-family:JetBrains Mono;font-size:11px;font-weight:600">{_ot}</span>')
     badges += '</div>'
 
     # Bonus: volatility / beta / max drawdown if available
@@ -281,7 +281,7 @@ def _viz_kline(raw: dict) -> str:
         stat_items = []
         for k, lbl in [("beta", "Beta"), ("volatility", "年化波动"), ("max_drawdown", "最大回撤"), ("ytd_return", "年初至今")]:
             if k in stats:
-                stat_items.append(f'<div><div style="font-family:Fira Code;font-size:9px;color:#64748b">{lbl}</div><div style="font-family:Fira Code;font-size:12px;color:#0f172a;font-weight:700">{stats[k]}</div></div>')
+                stat_items.append(f'<div><div style="font-family:JetBrains Mono;font-size:9px;color:#64748b">{lbl}</div><div style="font-family:JetBrains Mono;font-size:12px;color:#0f172a;font-weight:700">{stats[k]}</div></div>')
         if stat_items:
             badges += f'<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid #e2e8f0">{"".join(stat_items)}</div>'
 
@@ -298,8 +298,8 @@ def _viz_macro(raw: dict) -> str:
     cells = "".join(
         f'<div style="padding:10px;background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;text-align:center">'
         f'<div style="font-size:18px;margin-bottom:4px">{ic}</div>'
-        f'<div style="font-family:Fira Code;font-size:9px;color:#64748b;letter-spacing:.1em">{l}</div>'
-        f'<div style="font-family:Fira Sans;font-size:11px;color:#0f172a;font-weight:600;margin-top:2px">{v}</div>'
+        f'<div style="font-family:JetBrains Mono;font-size:9px;color:#64748b;letter-spacing:.1em">{l}</div>'
+        f'<div style="font-family:Inter;font-size:11px;color:#0f172a;font-weight:600;margin-top:2px">{v}</div>'
         f'</div>'
         for l, v, ic in items
     )
@@ -311,13 +311,13 @@ def _viz_peers(raw: dict) -> str:
     peer_table = raw.get("peer_table", [])
     viz = ""
     if peer_table:
-        viz += '<div style="font-family:Fira Code;font-size:10px;color:#64748b;margin-bottom:6px">🏆 同业估值对比</div>'
+        viz += '<div style="font-family:JetBrains Mono;font-size:10px;color:#64748b;margin-bottom:6px">🏆 同业估值对比</div>'
         viz += svg_peer_table(peer_table)
 
     metrics = raw.get("peer_comparison", [])
     if metrics:
         viz += '<div style="margin-top:12px;padding-top:10px;border-top:1px solid #e2e8f0">'
-        viz += '<div style="font-family:Fira Code;font-size:10px;color:#64748b;margin-bottom:6px">📊 关键指标 vs 行业均值</div>'
+        viz += '<div style="font-family:JetBrains Mono;font-size:10px;color:#64748b;margin-bottom:6px">📊 关键指标 vs 行业均值</div>'
         for m in metrics[:4]:
             name = m.get("name", "")
             # v3.9.4 · self/peer 缺失（None/"—"）时跳过该指标（Codex P2-3）——
@@ -366,7 +366,7 @@ def _viz_research(raw: dict) -> str:
     neu_n = int(neu_m.group(1)) if neu_m else 0
     total = buy_n + overwt_n + neu_n
     if total == 0:
-        return f'<div style="font-family:Fira Code;font-size:11px">{rating}</div>'
+        return f'<div style="font-family:JetBrains Mono;font-size:11px">{rating}</div>'
     donut = svg_donut([
         ("买入", buy_n, COLOR_BULL),
         ("增持", overwt_n, COLOR_CYAN),
@@ -383,8 +383,8 @@ def _viz_research(raw: dict) -> str:
         else:
             upside = "—"
     tail = f'''<div style="display:flex;justify-content:space-between;margin-top:10px;padding:8px;background:#fef3c7;border-radius:6px">
-  <span style="font-family:Fira Code;font-size:10px;color:#64748b">一致目标价</span>
-  <span style="font-family:Fira Code;font-size:12px;color:#d97706;font-weight:700">{target_avg} ({upside})</span>
+  <span style="font-family:JetBrains Mono;font-size:10px;color:#64748b">一致目标价</span>
+  <span style="font-family:JetBrains Mono;font-size:12px;color:#d97706;font-weight:700">{target_avg} ({upside})</span>
 </div>'''
     return donut + tail
 
@@ -401,16 +401,16 @@ def _viz_industry(raw: dict) -> str:
     gauge = svg_gauge(min(growth_val, 100), 100, "行业增速 %", color=COLOR_BULL if growth_val > 15 else COLOR_GOLD)
     tail = f'''<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px;text-align:center">
   <div style="padding:6px;background:#ffffff;border:1px solid #e2e8f0;border-radius:6px">
-    <div style="font-family:Fira Code;font-size:9px;color:#64748b">TAM</div>
-    <div style="font-family:Fira Sans;font-size:13px;font-weight:700;color:#0f172a">{tam}</div>
+    <div style="font-family:JetBrains Mono;font-size:9px;color:#64748b">TAM</div>
+    <div style="font-family:Inter;font-size:13px;font-weight:700;color:#0f172a">{tam}</div>
   </div>
   <div style="padding:6px;background:#ffffff;border:1px solid #e2e8f0;border-radius:6px">
-    <div style="font-family:Fira Code;font-size:9px;color:#64748b">渗透率</div>
-    <div style="font-family:Fira Sans;font-size:13px;font-weight:700;color:#0f172a">{penetration}</div>
+    <div style="font-family:JetBrains Mono;font-size:9px;color:#64748b">渗透率</div>
+    <div style="font-family:Inter;font-size:13px;font-weight:700;color:#0f172a">{penetration}</div>
   </div>
   <div style="padding:6px;background:#ffffff;border:1px solid #e2e8f0;border-radius:6px">
-    <div style="font-family:Fira Code;font-size:9px;color:#64748b">周期</div>
-    <div style="font-family:Fira Sans;font-size:11px;font-weight:700;color:#0f172a">{lifecycle}</div>
+    <div style="font-family:JetBrains Mono;font-size:9px;color:#64748b">周期</div>
+    <div style="font-family:Inter;font-size:11px;font-weight:700;color:#0f172a">{lifecycle}</div>
   </div>
 </div>'''
     return f'<div style="text-align:center">{gauge}</div>{tail}'
@@ -427,7 +427,7 @@ def _viz_materials(raw: dict) -> str:
         color = COLOR_BULL if trend_vals[-1] < trend_vals[0] else COLOR_BEAR
         spark_html = svg_sparkline(trend_vals, width=260, height=48, color=color)
     return f'''{spark_html}
-<div style="margin-top:8px;font-family:Fira Code;font-size:11px;line-height:1.9;color:#475569">
+<div style="margin-top:8px;font-family:JetBrains Mono;font-size:11px;line-height:1.9;color:#475569">
   <div>🔩 核心: <strong style="color:#0f172a">{core}</strong></div>
   <div>📉 12M: <strong style="color:#0f172a">{trend_str}</strong></div>
   <div>💰 成本占比: <strong style="color:#0f172a">{cost_share}</strong> · 🌍 进口依赖: <strong style="color:#0f172a">{import_dep}</strong></div>
@@ -438,8 +438,8 @@ def _viz_futures(raw: dict) -> str:
     linked = raw.get("linked_contract", "—")
     trend = raw.get("contract_trend", "—")
     return f'''<div style="padding:16px;text-align:center;background:#ffffff;border:1px dashed #cbd5e1;border-radius:8px">
-  <div style="font-family:Fira Code;font-size:9px;color:#64748b;letter-spacing:.15em">LINKED CONTRACT</div>
-  <div style="font-family:Fira Sans;font-size:16px;color:#0f172a;font-weight:700;margin-top:4px">{linked}</div>
+  <div style="font-family:JetBrains Mono;font-size:9px;color:#64748b;letter-spacing:.15em">LINKED CONTRACT</div>
+  <div style="font-family:Inter;font-size:16px;color:#0f172a;font-weight:700;margin-top:4px">{linked}</div>
   <div style="font-size:11px;color:#475569;margin-top:4px">{trend}</div>
 </div>'''
 
@@ -475,8 +475,8 @@ def _viz_governance(raw: dict) -> str:
         color = COLOR_BULL if positive else COLOR_BEAR if positive is False else COLOR_GOLD
         bg = "#d1fae5" if positive else "#fee2e2" if positive is False else "#fef3c7"
         return f'''<div style="padding:10px 12px;background:{bg};border-left:3px solid {color};border-radius:0 8px 8px 0">
-  <div style="font-family:Fira Code;font-size:9px;color:#64748b;letter-spacing:.1em">{label}</div>
-  <div style="font-family:Fira Sans;font-size:13px;color:#0f172a;font-weight:700;margin-top:2px">{val}</div>
+  <div style="font-family:JetBrains Mono;font-size:9px;color:#64748b;letter-spacing:.1em">{label}</div>
+  <div style="font-family:Inter;font-size:13px;color:#0f172a;font-weight:700;margin-top:2px">{val}</div>
 </div>'''
     low_pledge = isinstance(pledge_raw, list) and len(pledge_raw) > 0 and (isinstance(pledge_raw[0], dict) and pledge_raw[0].get("质押比例", 100) < 20)
     insider_positive = "增持" in str(insider) or "买入" in str(insider)
@@ -492,14 +492,14 @@ def _viz_capital_flow(raw: dict) -> str:
     def _mini(label, values, summary, color):
         if not values or len(values) < 2:
             return f'''<div style="padding:10px;background:#ffffff;border:1px solid #e2e8f0;border-radius:8px">
-  <div style="font-family:Fira Code;font-size:9px;color:#64748b">{label}</div>
-  <div style="font-family:Fira Code;font-size:12px;font-weight:700;color:#0f172a;margin-top:2px">{summary}</div>
+  <div style="font-family:JetBrains Mono;font-size:9px;color:#64748b">{label}</div>
+  <div style="font-family:JetBrains Mono;font-size:12px;font-weight:700;color:#0f172a;margin-top:2px">{summary}</div>
 </div>'''
         spark = svg_sparkline(values, width=120, height=34, color=color)
         return f'''<div style="padding:10px;background:#ffffff;border:1px solid #e2e8f0;border-radius:8px">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-    <span style="font-family:Fira Code;font-size:9px;color:#64748b">{label}</span>
-    <strong style="font-family:Fira Code;font-size:10px;color:#0f172a">{summary}</strong>
+    <span style="font-family:JetBrains Mono;font-size:9px;color:#64748b">{label}</span>
+    <strong style="font-family:JetBrains Mono;font-size:10px;color:#0f172a">{summary}</strong>
   </div>
   {spark}
 </div>'''
@@ -530,7 +530,7 @@ def _viz_capital_flow(raw: dict) -> str:
     inst = raw.get("institutional_history", {})
     if inst.get("quarters"):
         viz += '<div style="margin-top:12px;padding-top:10px;border-top:1px solid #e2e8f0">'
-        viz += '<div style="font-family:Fira Code;font-size:10px;color:#64748b;margin-bottom:4px">🏛 机构持仓变化（近 8 季）</div>'
+        viz += '<div style="font-family:JetBrains Mono;font-size:10px;color:#64748b;margin-bottom:4px">🏛 机构持仓变化（近 8 季）</div>'
         viz += svg_institutional_quarters(inst, width=320, height=120)
         viz += '</div>'
 
@@ -538,7 +538,7 @@ def _viz_capital_flow(raw: dict) -> str:
     unlocks = raw.get("unlock_schedule", [])
     if unlocks:
         viz += '<div style="margin-top:12px;padding-top:10px;border-top:1px solid #e2e8f0">'
-        viz += '<div style="font-family:Fira Code;font-size:10px;color:#64748b;margin-bottom:4px">🔓 未来 12 月解禁时间表（亿元）</div>'
+        viz += '<div style="font-family:JetBrains Mono;font-size:10px;color:#64748b;margin-bottom:4px">🔓 未来 12 月解禁时间表（亿元）</div>'
         viz += svg_unlock_timeline(unlocks, width=320, height=110)
         viz += '</div>'
 
@@ -555,11 +555,11 @@ def _viz_policy(raw: dict) -> str:
     cells = ""
     for label, val, positive in items:
         if val in ("—", "不适用", "无"):
-            cells += f'<div style="padding:10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px"><div style="font-family:Fira Code;font-size:9px;color:#94a3b8">{label}</div><div style="font-size:11px;color:#94a3b8;margin-top:2px">{val}</div></div>'
+            cells += f'<div style="padding:10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px"><div style="font-family:JetBrains Mono;font-size:9px;color:#94a3b8">{label}</div><div style="font-size:11px;color:#94a3b8;margin-top:2px">{val}</div></div>'
         else:
             color = COLOR_BULL if positive else COLOR_GOLD
             bg = "#d1fae5" if positive else "#fef3c7"
-            cells += f'<div style="padding:10px;background:{bg};border:1px solid {color};border-radius:8px"><div style="font-family:Fira Code;font-size:9px;color:#64748b">{label}</div><div style="font-family:Fira Sans;font-size:11px;color:#0f172a;font-weight:600;margin-top:2px">{val}</div></div>'
+            cells += f'<div style="padding:10px;background:{bg};border:1px solid {color};border-radius:8px"><div style="font-family:JetBrains Mono;font-size:9px;color:#64748b">{label}</div><div style="font-family:Inter;font-size:11px;color:#0f172a;font-weight:600;margin-top:2px">{val}</div></div>'
     return f'<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">{cells}</div>'
 
 
@@ -629,7 +629,7 @@ def _viz_lhb(raw: dict) -> str:
             inv_id = nick_to_id.get(nick, nick)
             cells += f'''<div style="display:flex;flex-direction:column;align-items:center;gap:3px">
   <img src="avatars/{inv_id}.svg" style="width:36px;height:36px;image-rendering:pixelated;border:2px solid #d97706;border-radius:6px;background:#fff">
-  <span style="font-family:Fira Code;font-size:9px;color:#0f172a;font-weight:600">{nick}</span>
+  <span style="font-family:JetBrains Mono;font-size:9px;color:#0f172a;font-weight:600">{nick}</span>
 </div>'''
         avatars_row = f'<div style="display:flex;gap:8px;flex-wrap:wrap;padding:10px;background:#fef3c7;border-radius:8px;margin-bottom:10px">{cells}</div>'
     inst_vs = raw.get("inst_vs_youzi") or {}
@@ -657,7 +657,7 @@ def _viz_lhb(raw: dict) -> str:
     <div style="width:{i_pct}%;background:#2563eb"></div>
     <div style="width:{y_pct}%;background:#d97706"></div>
   </div>
-  <div style="text-align:center;font-family:Fira Code;font-size:10px;color:#64748b;margin-top:6px">近 30 天上榜 <strong style="color:#0f172a">{lhb_30d}</strong></div>
+  <div style="text-align:center;font-family:JetBrains Mono;font-size:10px;color:#64748b;margin-top:6px">近 30 天上榜 <strong style="color:#0f172a">{lhb_30d}</strong></div>
 </div>'''
     # If own LHB is empty, show sector LHB leaders
     sector_lhb = raw.get("sector_lhb_top50") or []
@@ -689,7 +689,7 @@ def _viz_sentiment(raw: dict) -> str:
     big_v = raw.get("big_v_mentions", "—")
     positive = raw.get("positive_pct", "—")
     guba = raw.get("guba_volume", "—")
-    tail = f'''<div style="flex:1;font-family:Fira Code;font-size:11px;line-height:1.8;color:#475569">
+    tail = f'''<div style="flex:1;font-family:JetBrains Mono;font-size:11px;line-height:1.8;color:#475569">
   <div>📣 <strong style="color:#0f172a">{big_v}</strong></div>
   <div>💬 股吧 <strong style="color:#0f172a">{guba}</strong></div>
   <div>😊 正面 <strong style="color:#059669">{positive}</strong></div>
@@ -707,8 +707,8 @@ def _viz_contests(raw: dict) -> str:
     high_return = raw.get("high_return_cubes", "—")
 
     html = f'''<div style="padding:10px;background:#fef3c7;border:1px solid #d97706;border-radius:8px;margin-bottom:12px;display:flex;justify-content:space-around;text-align:center">
-  <div><div style="font-family:Fira Sans;font-size:22px;font-weight:900;color:#d97706;line-height:1">{xq_summary}</div><div style="font-family:Fira Code;font-size:9px;color:#64748b;margin-top:2px">XUEQIU 组合</div></div>
-  <div><div style="font-family:Fira Sans;font-size:22px;font-weight:900;color:#059669;line-height:1">{high_return}</div><div style="font-family:Fira Code;font-size:9px;color:#64748b;margin-top:2px">高收益 &gt;50%</div></div>
+  <div><div style="font-family:Inter;font-size:22px;font-weight:900;color:#d97706;line-height:1">{xq_summary}</div><div style="font-family:JetBrains Mono;font-size:9px;color:#64748b;margin-top:2px">XUEQIU 组合</div></div>
+  <div><div style="font-family:Inter;font-size:22px;font-weight:900;color:#059669;line-height:1">{high_return}</div><div style="font-family:JetBrains Mono;font-size:9px;color:#64748b;margin-top:2px">高收益 &gt;50%</div></div>
 </div>'''
 
     # 雪球组合列表
@@ -722,13 +722,13 @@ def _viz_contests(raw: dict) -> str:
             gain_color = COLOR_BULL if "+" in str(gain) or (isinstance(gain, (int, float)) and gain > 0) else COLOR_BEAR
             cube_rows += f'''<a href="{url}" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:#ffffff;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;margin-bottom:4px;transition:all .15s">
   <div style="min-width:0;flex:1">
-    <div style="font-family:Fira Sans;font-size:12px;color:#0f172a;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{name}</div>
-    <div style="font-family:Fira Code;font-size:9px;color:#64748b">@{owner}</div>
+    <div style="font-family:Inter;font-size:12px;color:#0f172a;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{name}</div>
+    <div style="font-family:JetBrains Mono;font-size:9px;color:#64748b">@{owner}</div>
   </div>
-  <div style="font-family:Fira Code;font-size:13px;font-weight:700;color:{gain_color};margin-left:10px">{gain}</div>
+  <div style="font-family:JetBrains Mono;font-size:13px;font-weight:700;color:{gain_color};margin-left:10px">{gain}</div>
 </a>'''
         html += f'''<details open style="margin-bottom:10px">
-  <summary style="cursor:pointer;font-family:Fira Code;font-size:10px;color:#0891b2;padding:4px 0;letter-spacing:.1em">▼ 雪球组合持仓 ({len(xq_cubes_list)} 个)</summary>
+  <summary style="cursor:pointer;font-family:JetBrains Mono;font-size:10px;color:#0891b2;padding:4px 0;letter-spacing:.1em">▼ 雪球组合持仓 ({len(xq_cubes_list)} 个)</summary>
   <div style="max-height:280px;overflow-y:auto;padding-right:4px">{cube_rows}</div>
 </details>'''
 
@@ -739,7 +739,7 @@ def _viz_contests(raw: dict) -> str:
             url = t.get("url", "")
             tgb_rows += f'<a href="{url}" target="_blank" rel="noopener" style="display:block;padding:6px 10px;background:#ffffff;border:1px solid #e2e8f0;border-radius:6px;text-decoration:none;margin-bottom:4px;font-size:11px;color:#1e293b">• {title}</a>'
         html += f'''<details style="margin-bottom:10px">
-  <summary style="cursor:pointer;font-family:Fira Code;font-size:10px;color:#0891b2;padding:4px 0;letter-spacing:.1em">▼ 淘股吧讨论 ({len(tgb_list)} 条)</summary>
+  <summary style="cursor:pointer;font-family:JetBrains Mono;font-size:10px;color:#0891b2;padding:4px 0;letter-spacing:.1em">▼ 淘股吧讨论 ({len(tgb_list)} 条)</summary>
   <div style="max-height:220px;overflow-y:auto;padding-right:4px">{tgb_rows}</div>
 </details>'''
 
@@ -748,9 +748,9 @@ def _viz_contests(raw: dict) -> str:
         for p in ths_list[:20]:
             nickname = p.get("nickname", "")
             ret = p.get("return_pct", "")
-            ths_rows += f'<div style="display:flex;justify-content:space-between;padding:6px 10px;background:#ffffff;border:1px solid #e2e8f0;border-radius:6px;margin-bottom:4px"><span style="font-size:11px;color:#1e293b">{nickname}</span><strong style="font-family:Fira Code;font-size:11px;color:#059669">+{ret}%</strong></div>'
+            ths_rows += f'<div style="display:flex;justify-content:space-between;padding:6px 10px;background:#ffffff;border:1px solid #e2e8f0;border-radius:6px;margin-bottom:4px"><span style="font-size:11px;color:#1e293b">{nickname}</span><strong style="font-family:JetBrains Mono;font-size:11px;color:#059669">+{ret}%</strong></div>'
         html += f'''<details>
-  <summary style="cursor:pointer;font-family:Fira Code;font-size:10px;color:#0891b2;padding:4px 0;letter-spacing:.1em">▼ 同花顺模拟 ({len(ths_list)} 位)</summary>
+  <summary style="cursor:pointer;font-family:JetBrains Mono;font-size:10px;color:#0891b2;padding:4px 0;letter-spacing:.1em">▼ 同花顺模拟 ({len(ths_list)} 位)</summary>
   <div style="max-height:220px;overflow-y:auto;padding-right:4px">{ths_rows}</div>
 </details>'''
 

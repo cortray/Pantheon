@@ -1,4 +1,4 @@
-"""v3.6.0 · 用户自定义组合批量分析 (--portfolio file.csv).
+﻿"""v3.6.0 · 用户自定义组合批量分析 (--portfolio file.csv).
 
 用户用法:
     # holdings.csv:
@@ -185,9 +185,9 @@ def _render_html(portfolio_name: str, metrics: list[dict], health: dict, depth: 
         w = m.get("_weight", 0) * 100
         rows.append(
             f'<tr style="border-bottom:1px solid var(--border)">'
-            f'  <td style="padding:10px 16px;color:var(--text-dim);font-family:Fira Code,monospace;font-size:11px">#{i}</td>'
+            f'  <td style="padding:10px 16px;color:var(--text-dim);font-family:JetBrains Mono,monospace;font-size:11px">#{i}</td>'
             f'  <td style="padding:10px 16px"><div style="font-weight:700;color:var(--text-bright)">{_esc(m["name"])}</div>'
-            f'    <div style="font-size:11px;color:var(--text-dim);font-family:Fira Code,monospace">{_esc(m["ticker"])} · {_esc(m.get("industry","—"))}</div></td>'
+            f'    <div style="font-size:11px;color:var(--text-dim);font-family:JetBrains Mono,monospace">{_esc(m["ticker"])} · {_esc(m.get("industry","—"))}</div></td>'
             f'  <td style="padding:10px 16px;text-align:right;font-variant-numeric:tabular-nums">{w:.1f}%</td>'
             f'  <td style="padding:10px 16px;text-align:right;color:{sc_color};font-weight:700;font-variant-numeric:tabular-nums">{sc:.1f}</td>'
             f'  <td style="padding:10px 16px;font-size:12px;color:var(--text-main)">{_esc(m.get("verdict","—"))}</td>'
@@ -224,9 +224,9 @@ def _render_html(portfolio_name: str, metrics: list[dict], health: dict, depth: 
   </div>
 
   <div style="text-align:center;margin:24px 0">
-    <div style="font-family:Space Grotesk,sans-serif;font-size:11px;letter-spacing:.24em;color:var(--neon-cyan);text-transform:uppercase">📊 PORTFOLIO HEALTH</div>
+    <div style="font-family:Playfair Display, serif,sans-serif;font-size:11px;letter-spacing:.24em;color:var(--neon-cyan);text-transform:uppercase">📊 PORTFOLIO HEALTH</div>
     <h1 style="font-size:32px;font-weight:900;color:var(--text-bright);margin:8px 0 4px">{portfolio_name}</h1>
-    <div style="font-size:12px;color:var(--text-dim);font-family:Fira Code,monospace">{health["n_valid"]}/{health["n_total"]} 只成分股 · {health["n_industries"]} 个行业</div>
+    <div style="font-size:12px;color:var(--text-dim);font-family:JetBrains Mono,monospace">{health["n_valid"]}/{health["n_total"]} 只成分股 · {health["n_industries"]} 个行业</div>
   </div>
 
   <!-- KPI grid -->

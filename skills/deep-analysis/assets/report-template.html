@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -6,7 +6,7 @@
 <title>{{NAME}} · Pantheon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════
    Pantheon · 万神殿
@@ -66,8 +66,8 @@
   --navy-deep: #141226;
   --gold: #b08d3e;
   --gold-soft: #f6eedd;
-  --font-sans: "Fira Sans", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, -apple-system, sans-serif;
-  --font-num: "Fira Code", "SF Mono", Consolas, "Liberation Mono", monospace;
+  --font-sans: "Inter", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, -apple-system, sans-serif;
+  --font-num: "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", monospace;
 }
 
 /* ───── v3.6.0 · DARK THEME · Pantheon 万神殿终端 ───── */
@@ -122,7 +122,7 @@
   width: 30px; height: 30px;
   background: var(--bg-tinted);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 12px;
   cursor: pointer;
   color: var(--text-mid);
   font-size: 14px;
@@ -141,7 +141,7 @@
   background: var(--glass-bg);
   backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
-  border-radius: 10px;
+  border-radius: 16px;
   box-shadow: var(--shadow-md);
   max-height: 80vh;
   overflow-y: auto;
@@ -149,9 +149,9 @@
 .toc-rail .toc-item {
   display: flex; align-items: center; gap: 8px;
   padding: 6px 10px;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
-  letter-spacing: .12em;
+  letter-spacing: .07em;
   color: var(--text-dim);
   text-decoration: none;
   border-radius: 5px;
@@ -202,7 +202,7 @@
   background: var(--bg-card);
   color: var(--text-main);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 12px;
   padding: 8px 12px;
   font-size: 12px;
   font-weight: 400;
@@ -229,14 +229,14 @@
   padding: 20px 24px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 18px;
   box-shadow: var(--shadow-sm);
   display: flex; align-items: center; gap: 20px;
 }
 .share-qr-card .qr-canvas {
   width: 100px; height: 100px;
   background: white;
-  border-radius: 6px;
+  border-radius: 12px;
   padding: 6px;
   flex-shrink: 0;
 }
@@ -244,9 +244,9 @@
   flex: 1;
 }
 .share-qr-card .qr-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif;
   font-size: 12px;
-  letter-spacing: .14em;
+  letter-spacing: .04em;
   color: var(--neon-cyan);
   text-transform: uppercase;
   margin-bottom: 6px;
@@ -254,7 +254,7 @@
 .share-qr-card .qr-desc { font-size: 13px; color: var(--text-main); line-height: 1.5; }
 .share-qr-card .qr-url {
   margin-top: 8px;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: var(--text-dim);
   word-break: break-all;
@@ -265,9 +265,9 @@
 html, body {
   background: var(--bg-deep);
   color: var(--text-main);
-  font-family: 'Fira Sans', -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
+  font-family: 'Inter', -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "tnum", "ss01";
@@ -296,7 +296,7 @@ body::after {
   padding: 14px 20px; margin-bottom: 28px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 20px;
   box-shadow: var(--shadow-sm);
 }
 .topbar .left { display: flex; align-items: center; gap: 18px; }
@@ -305,18 +305,18 @@ body::after {
 .topbar .dot.red    { background: var(--bear-red); }
 .topbar .dot.yellow { background: var(--neon-gold); }
 .topbar .dot.green  { background: var(--bull-green); }
-.topbar .brand { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: .14em; color: var(--text-bright); }
+.topbar .brand { font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: .04em; color: var(--text-bright); }
 .topbar .brand span { color: var(--neon-cyan); }
-.topbar .status { display: flex; align-items: center; gap: 10px; color: var(--text-dim); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+.topbar .status { display: flex; align-items: center; gap: 10px; color: var(--text-dim); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
 .topbar .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--bull-green); box-shadow: 0 0 10px var(--bull-green); animation: pulse 2s ease-in-out infinite; }
 @keyframes pulse { 0%,100% { opacity:.4; } 50% { opacity:1; } }
 .market-badge {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   font-weight: 700;
   padding: 3px 8px;
-  border-radius: 4px;
-  letter-spacing: .12em;
+  border-radius: 10px;
+  letter-spacing: .07em;
 }
 .market-badge.open { background: var(--bull-tint); color: var(--bull-green); border: 1px solid var(--bull-green); }
 .market-badge.closed { background: var(--bg-tinted); color: var(--text-dim); border: 1px solid var(--border); }
@@ -329,7 +329,7 @@ body::after {
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.10), rgba(245, 158, 11, 0.03));
   border: 1px solid rgba(180, 83, 9, 0.55);  /* v3.4.4 边框加深 */
   border-left: 4px solid #b45309;            /* v3.4.4 左边条深棕色 · 更醒目 */
-  border-radius: 8px;
+  border-radius: 14px;
   display: flex;
   gap: 16px;
   align-items: flex-start;
@@ -338,7 +338,7 @@ body::after {
 .data-gap-banner .body { flex: 1; }
 /* v3.4.4 · title 用深棕 #92400e (WCAG AA 通过 on 浅橙底) · 替代之前难读的 #f59e0b */
 .data-gap-banner .title {
-  font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: 15px;
+  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif; font-weight: 800; font-size: 15px;
   color: #92400e; margin-bottom: 4px; letter-spacing: .04em;
 }
 .data-gap-banner .subtitle { font-size: 13px; color: #1f2937; line-height: 1.6; }  /* v3.4.4 · 深灰主文字 */
@@ -347,7 +347,7 @@ body::after {
 .data-gap-banner .list { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
 /* v3.4.4 · chip 深棕字 + 实色橙底 · 高对比 */
 .data-gap-banner .chip {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   font-weight: 600;
   padding: 3px 10px;
@@ -357,7 +357,7 @@ body::after {
   border-radius: 999px;
 }
 .data-gap-banner .chip.ack { background: rgba(148, 163, 184, 0.18); color: #475569; border-color: #94a3b8; text-decoration: line-through; }
-.data-gap-banner .hint { margin-top: 8px; font-size: 11px; color: #57534e; letter-spacing: .05em; }
+.data-gap-banner .hint { margin-top: 8px; font-size: 11px; color: #57534e; letter-spacing: .04em; }
 
 /* v3.4.4 · 基金类型 banner · 信息性提示 · 蓝色调（区别于"问题"橙色调）*/
 .data-gap-banner.fund-type {
@@ -399,30 +399,30 @@ body::after {
   background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(99, 102, 241, 0.04));
   border: 1px solid rgba(99, 102, 241, 0.45);
   border-left: 4px solid #6366f1;
-  border-radius: 8px;
+  border-radius: 14px;
   display: flex;
   gap: 14px;
   align-items: center;
   flex-wrap: wrap;
 }
 .style-chip-wrap .icon { font-size: 22px; }
-.style-chip-wrap .label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; letter-spacing: .12em; color: var(--text-dim); text-transform: uppercase; }
+.style-chip-wrap .label { font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif; font-size: 11px; letter-spacing: .07em; color: var(--text-dim); text-transform: uppercase; }
 .style-chip-wrap .value {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 17px; font-weight: 800;
   color: #6366f1;
   padding: 3px 10px;
   background: rgba(99, 102, 241, 0.15);
-  border-radius: 6px;
+  border-radius: 12px;
 }
 .style-chip-wrap .hint { font-size: 12px; color: var(--text-bright); flex: 1 1 280px; line-height: 1.5; }
 .style-chip-wrap .compare {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: var(--text-dim);
   background: var(--bg-tinted);
   padding: 4px 10px;
-  border-radius: 4px;
+  border-radius: 10px;
   border: 1px solid var(--border);
 }
 .style-chip-wrap .delta-up { color: var(--bull-green); font-weight: 700; }
@@ -439,7 +439,7 @@ body::after {
 .bento {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: 24px;
   padding: 28px;
   position: relative;
   overflow: hidden;
@@ -459,9 +459,9 @@ body::after {
   top: 0; right: 0; width: 4px; bottom: 0;
   background: linear-gradient(180deg, var(--neon-cyan), var(--accent-blue));
 }
-.ticker-label { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--neon-cyan); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 10px; }
+.ticker-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--neon-cyan); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 10px; }
 .stock-name {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 72px;
   line-height: 1;
@@ -470,7 +470,7 @@ body::after {
   margin-bottom: 8px;
 }
 .stock-code {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 18px;
   color: var(--text-dim);
   margin-bottom: 28px;
@@ -487,24 +487,24 @@ body::after {
 }
 .price-row { display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap; margin-bottom: 22px; }
 .price {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 56px;
   font-weight: 700;
   color: var(--text-bright);
   letter-spacing: -.02em;
 }
 .change {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 22px;
   font-weight: 600;
   padding: 6px 14px;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 .change.up { color: var(--bull-green); background: var(--bull-tint); border: 1px solid var(--bull-green); }
 .change.down { color: var(--bear-red); background: var(--bear-tint); border: 1px solid var(--bear-red); }
 .metric-chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   padding: 6px 12px;
   border: 1px solid var(--border);
@@ -522,14 +522,14 @@ body::after {
   display: flex; flex-direction: column; justify-content: space-between;
   min-height: 240px;
 }
-.score-label { font-family: 'Fira Code', monospace; font-size: 10px; letter-spacing: .25em; color: var(--neon-gold); text-transform: uppercase; font-weight: 700; }
+.score-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .07em; color: var(--neon-gold); text-transform: uppercase; font-weight: 700; }
 .score-giant {
-  font-family: 'Fira Sans', sans-serif;
-  font-weight: 900;
-  font-size: 160px;
-  line-height: .85;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 128px;
+  line-height: .9;
   color: var(--neon-gold);
-  letter-spacing: -.06em;
+  letter-spacing: -.05em;
   text-align: center;
   position: relative;
 }
@@ -540,7 +540,7 @@ body::after {
   font-weight: 500;
 }
 .score-verdict {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 28px;
   color: var(--text-bright);
@@ -559,7 +559,7 @@ body::after {
 .bento.safety-card.orange { background: #fed7aa; border-color: var(--warning-amber); }
 .bento.safety-card.red    { background: var(--bear-tint); border-color: var(--bear-red); }
 .safety-icon { font-size: 40px; line-height: 1; }
-.safety-text strong { display: block; font-family: 'Fira Sans', sans-serif; font-weight: 700; color: var(--text-bright); font-size: 16px; margin-bottom: 4px; }
+.safety-text strong { display: block; font-family: 'Inter', sans-serif; font-weight: 700; color: var(--text-bright); font-size: 16px; margin-bottom: 4px; }
 .safety-text span { color: var(--text-mid); font-size: 11px; line-height: 1.5; }
 
 /* ═══════════════ SECTION HEADERS (BRUTAL) ═══════════════ */
@@ -568,19 +568,19 @@ body::after {
   margin: 48px 0 20px;
 }
 .section-tag {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   font-weight: 600;
   color: var(--neon-cyan);
-  letter-spacing: .2em;
+  letter-spacing: .04em;
   padding: 6px 12px;
   border: 1px solid var(--neon-cyan);
-  border-radius: 4px;
+  border-radius: 10px;
   text-transform: uppercase;
   white-space: nowrap;
 }
 .section-title {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 800;
   font-size: 32px;
   color: var(--text-bright);
@@ -599,7 +599,7 @@ body::after {
   grid-column: span 3;
   background: var(--cyan-tint);
   border: 1px solid var(--neon-cyan);
-  border-radius: 18px;
+  border-radius: 24px;
   padding: 32px;
   position: relative;
   box-shadow: var(--shadow-md);
@@ -608,20 +608,20 @@ body::after {
   content: '"';
   position: absolute;
   top: -20px; left: 20px;
-  font-family: 'Fira Sans', serif;
+  font-family: 'Inter', serif;
   font-size: 160px;
   color: rgba(8,145,178,.15);
   line-height: 1;
 }
 .core-conclusion .label {
-  font-family: 'Fira Code', monospace;
-  font-size: 11px; letter-spacing: .25em;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: .07em;
   color: var(--neon-cyan); text-transform: uppercase;
   margin-bottom: 14px;
   font-weight: 600;
 }
 .core-conclusion .text {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 24px;
   color: var(--text-bright);
@@ -633,7 +633,7 @@ body::after {
 .data-cell {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 20px;
   padding: 20px;
   position: relative;
   overflow: hidden;
@@ -644,15 +644,15 @@ body::after {
   font-size: 20px; opacity: .3;
 }
 .data-cell .key {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
-  letter-spacing: .2em;
+  letter-spacing: .04em;
   color: var(--neon-cyan);
   text-transform: uppercase;
   margin-bottom: 8px;
 }
 .data-cell .value {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 15px;
   color: var(--text-main);
   line-height: 1.5;
@@ -662,7 +662,7 @@ body::after {
   grid-column: span 3;
   background: var(--gold-tint);
   border: 2px solid var(--neon-gold);
-  border-radius: 14px;
+  border-radius: 20px;
   padding: 18px 28px;
   display: grid;
   grid-template-columns: auto repeat(4, 1fr);
@@ -671,16 +671,16 @@ body::after {
   box-shadow: var(--shadow-md);
 }
 .battle-plan .plan-label {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 18px;
   color: var(--neon-gold);
-  letter-spacing: .05em;
+  letter-spacing: .04em;
   padding-right: 24px;
   border-right: 1px solid rgba(249,203,64,.3);
 }
-.plan-field .k { font-size: 10px; color: var(--text-dim); letter-spacing: .15em; text-transform: uppercase; display: block; margin-bottom: 4px; }
-.plan-field .v { font-family: 'Fira Code', monospace; font-size: 15px; color: var(--text-bright); font-weight: 600; }
+.plan-field .k { font-size: 10px; color: var(--text-dim); letter-spacing: .04em; text-transform: uppercase; display: block; margin-bottom: 4px; }
+.plan-field .v { font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--text-bright); font-weight: 600; }
 
 /* ═══════════════ THE GREAT DIVIDE · 拳击擂台 ═══════════════ */
 .divide-section {
@@ -713,11 +713,11 @@ body::after {
   position: absolute;
   top: 30%; left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 200px;
   color: rgba(15,23,42,.025);
-  letter-spacing: .12em;
+  letter-spacing: .07em;
   pointer-events: none;
   white-space: nowrap;
   z-index: 0;
@@ -730,20 +730,20 @@ body::after {
 }
 .divide-header .tag {
   display: inline-block;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: var(--neon-pink);
   letter-spacing: .3em;
   padding: 4px 16px;
   border: 1px solid var(--neon-pink);
-  border-radius: 4px;
+  border-radius: 10px;
   text-transform: uppercase;
   margin-bottom: 12px;
   background: rgba(255,46,99,.05);
   box-shadow: 0 0 20px rgba(255,46,99,.15);
 }
 .divide-header h2 {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 44px;
   color: var(--text-bright);
@@ -752,10 +752,10 @@ body::after {
 }
 .divide-header .round-info {
   margin-top: 8px;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: var(--text-dim);
-  letter-spacing: .15em;
+  letter-spacing: .04em;
 }
 .divide-header .round-info strong { color: var(--neon-gold); }
 
@@ -780,7 +780,7 @@ body::after {
 .arena::after { bottom: -10px; }
 .fighter {
   padding: 32px 24px;
-  border-radius: 18px;
+  border-radius: 24px;
   text-align: center;
   position: relative;
   border: 3px solid;
@@ -802,7 +802,7 @@ body::after {
   height: 8px;
   background: var(--bg-tinted);
   border: 1px solid;
-  border-radius: 4px;
+  border-radius: 10px;
   margin: 0 -8px 14px;
   overflow: hidden;
   position: relative;
@@ -824,11 +824,11 @@ body::after {
 }
 .fighter .corner {
   position: absolute; top: -16px;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 11px; font-weight: 900;
-  letter-spacing: .25em;
+  letter-spacing: .07em;
   padding: 6px 16px;
-  border-radius: 4px;
+  border-radius: 10px;
   text-transform: uppercase;
   box-shadow: 0 4px 12px rgba(0,0,0,.4);
 }
@@ -849,28 +849,28 @@ body::after {
   margin: 0 auto 16px;
   padding: 6px;
   border: 3px solid;
-  border-radius: 12px;
+  border-radius: 18px;
   background: var(--bg-card);
 }
 .fighter.bull .avatar-box { border-color: var(--bull-green); }
 .fighter.bear .avatar-box { border-color: var(--bear-red); }
-.fighter img { width: 100%; height: 100%; image-rendering: pixelated; border-radius: 6px; }
+.fighter img { width: 100%; height: 100%; image-rendering: pixelated; border-radius: 12px; }
 .fighter .fighter-name {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 800;
   font-size: 24px;
   color: var(--text-bright);
   margin-bottom: 4px;
 }
 .fighter .fighter-tag {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   color: var(--text-dim);
-  letter-spacing: .15em;
+  letter-spacing: .04em;
   margin-bottom: 16px;
 }
 .fighter .confidence {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 96px;
   line-height: 1;
@@ -878,13 +878,13 @@ body::after {
 }
 .fighter.bull .confidence { color: var(--bull-green); text-shadow: 0 0 20px rgba(0,255,157,.4); }
 .fighter.bear .confidence { color: var(--bear-red); text-shadow: 0 0 20px rgba(255,60,90,.4); }
-.fighter .conf-label { font-size: 10px; color: var(--text-dim); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 18px; }
+.fighter .conf-label { font-size: 10px; color: var(--text-dim); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 18px; }
 .fighter .quote {
   text-align: left;
   padding: 16px;
   background: var(--bg-tinted);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 14px;
   font-size: 13px;
   line-height: 1.6;
   color: var(--text-main);
@@ -892,7 +892,7 @@ body::after {
 
 .vs-bolt {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 110px;
   color: var(--neon-gold);
@@ -918,7 +918,7 @@ body::after {
   padding: 4px 12px;
   background: #fff;
   border: 2px solid var(--neon-pink);
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 /* 3 rounds debate transcript */
@@ -931,7 +931,7 @@ body::after {
 .round {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 20px;
   padding: 18px 22px;
   position: relative;
   box-shadow: var(--shadow-sm);
@@ -941,12 +941,12 @@ body::after {
   background: var(--neon-gold);
   border: 1px solid var(--neon-gold);
   color: #ffffff;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   font-weight: 700;
   padding: 3px 10px;
-  border-radius: 4px;
-  letter-spacing: .15em;
+  border-radius: 10px;
+  letter-spacing: .04em;
 }
 .round-grid {
   display: grid;
@@ -957,11 +957,11 @@ body::after {
 }
 .round-bull, .round-bear {
   padding: 12px 16px;
-  border-radius: 10px;
+  border-radius: 16px;
   font-size: 13px;
   line-height: 1.6;
   position: relative;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 .round-bull {
   background: var(--bull-tint);
@@ -975,7 +975,7 @@ body::after {
   text-align: right;
 }
 .round-vs {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 18px;
   color: var(--neon-gold);
@@ -987,8 +987,8 @@ body::after {
   background: #ffffff;
   border: 2px solid var(--text-bright);
   border-left: 12px solid var(--neon-gold);
-  border-radius: 8px;
-  font-family: 'Fira Sans', sans-serif;
+  border-radius: 14px;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 26px;
   line-height: 1.5;
@@ -1001,12 +1001,12 @@ body::after {
   content: 'PUNCHLINE';
   position: absolute;
   top: -11px; left: 24px;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   color: #ffffff;
   background: var(--neon-gold);
   padding: 2px 10px;
-  letter-spacing: .2em;
+  letter-spacing: .04em;
   font-weight: 700;
 }
 
@@ -1018,11 +1018,11 @@ body::after {
   padding: 16px 20px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 18px;
   box-shadow: var(--shadow-sm);
 }
 .stat-tile .num {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 36px;
   line-height: 1;
@@ -1032,20 +1032,20 @@ body::after {
 .stat-tile.bear .num  { color: var(--bear-red); }
 .stat-tile.neut .num  { color: var(--text-dim); }
 .stat-tile.total .num { color: var(--neon-cyan); }
-.stat-tile .label { font-family: 'Fira Code', monospace; font-size: 10px; color: var(--text-dim); letter-spacing: .2em; text-transform: uppercase; }
+.stat-tile .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-dim); letter-spacing: .04em; text-transform: uppercase; }
 
 .tabs { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
 .tab {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   font-weight: 600;
   padding: 8px 16px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
-  border-radius: 6px;
+  border-radius: 12px;
   color: var(--text-dim);
   cursor: pointer;
-  letter-spacing: .1em;
+  letter-spacing: .04em;
   text-transform: uppercase;
   transition: all .2s ease;
 }
@@ -1065,7 +1065,7 @@ body::after {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
-  border-radius: 12px;
+  border-radius: 18px;
   padding: 14px;
   position: relative;
   overflow: hidden;
@@ -1084,26 +1084,26 @@ body::after {
   width: 44px; height: 44px;
   image-rendering: pixelated;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 12px;
   background: var(--bg-void);
 }
 .inv-meta { flex: 1; min-width: 0; }
 .inv-name {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 13px;
   color: var(--text-bright);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .inv-group-tag {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 9px;
   color: var(--text-dim);
-  letter-spacing: .1em;
+  letter-spacing: .04em;
 }
 .inv-score-row { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
 .inv-score {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 30px;
   color: var(--neon-gold);
@@ -1111,12 +1111,12 @@ body::after {
   line-height: 1;
 }
 .inv-signal {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 9px;
   font-weight: 700;
   padding: 3px 7px;
-  border-radius: 3px;
-  letter-spacing: .1em;
+  border-radius: 8px;
+  letter-spacing: .04em;
   text-transform: uppercase;
 }
 .inv-signal.bullish { background: rgba(0,255,157,.15); color: var(--bull-green); }
@@ -1137,15 +1137,15 @@ body::after {
   padding: 32px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: 24px;
   margin-bottom: 40px;
   box-shadow: var(--shadow-md);
 }
 .jury-row-label {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   color: var(--text-dim);
-  letter-spacing: .15em;
+  letter-spacing: .04em;
   text-transform: uppercase;
   margin-bottom: 20px;
   text-align: center;
@@ -1161,7 +1161,7 @@ body::after {
   padding: 8px 6px 10px;
   background: var(--bg-tinted);
   border: 2px solid var(--border);
-  border-radius: 10px;
+  border-radius: 16px;
   display: flex; flex-direction: column; align-items: center; gap: 4px;
   cursor: pointer;
   transition: all .2s ease;
@@ -1182,11 +1182,11 @@ body::after {
 .seat-avatar {
   width: 38px; height: 38px;
   image-rendering: pixelated;
-  border-radius: 4px;
+  border-radius: 10px;
   background: #ffffff;
 }
 .seat-name {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 10px;
   font-weight: 600;
   color: var(--text-main);
@@ -1197,7 +1197,7 @@ body::after {
   width: 100%;
 }
 .seat-score {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
   font-weight: 700;
   line-height: 1;
@@ -1210,7 +1210,7 @@ body::after {
 .chat-container {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: 24px;
   overflow: hidden;
   display: flex; flex-direction: column;
   max-height: 900px;
@@ -1227,13 +1227,13 @@ body::after {
 .chat-room-icon {
   width: 46px; height: 46px;
   background: linear-gradient(135deg, var(--neon-cyan), var(--accent-blue));
-  border-radius: 12px;
+  border-radius: 18px;
   display: flex; align-items: center; justify-content: center;
   font-size: 22px;
   box-shadow: 0 0 20px rgba(34,211,238,.3);
 }
 .chat-room-name {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 17px;
   color: var(--text-bright);
@@ -1242,13 +1242,13 @@ body::after {
 .chat-room-meta strong { color: var(--neon-cyan); }
 .chat-filter-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
 .chat-tab {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   font-weight: 600;
   padding: 5px 11px;
   background: #ffffff;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 20px;
   color: var(--text-mid);
   cursor: pointer;
   transition: all .15s ease;
@@ -1268,16 +1268,16 @@ body::after {
   scrollbar-color: var(--border-hot) transparent;
 }
 .chat-messages::-webkit-scrollbar { width: 8px; }
-.chat-messages::-webkit-scrollbar-thumb { background: var(--border-hot); border-radius: 4px; }
+.chat-messages::-webkit-scrollbar-thumb { background: var(--border-hot); border-radius: 10px; }
 .chat-messages::-webkit-scrollbar-track { background: transparent; }
 
 .chat-system {
   text-align: center;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: var(--text-ghost);
   padding: 8px;
-  letter-spacing: .1em;
+  letter-spacing: .04em;
 }
 
 .chat-msg {
@@ -1287,7 +1287,7 @@ body::after {
 .chat-msg .msg-avatar {
   width: 44px; height: 44px;
   image-rendering: pixelated;
-  border-radius: 8px;
+  border-radius: 14px;
   flex-shrink: 0;
   background: #ffffff;
   border: 1px solid var(--border);
@@ -1299,28 +1299,28 @@ body::after {
   font-size: 11px;
 }
 .chat-msg .msg-name {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   color: var(--text-bright);
   font-size: 13px;
 }
 .chat-msg .msg-group-tag {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 9px;
   padding: 2px 6px;
-  border-radius: 3px;
+  border-radius: 8px;
   background: var(--bg-tinted);
   color: var(--text-dim);
-  letter-spacing: .1em;
+  letter-spacing: .04em;
   border: 1px solid var(--border);
 }
 .chat-msg .msg-score-badge {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   font-weight: 700;
   padding: 2px 7px;
-  border-radius: 3px;
-  letter-spacing: .05em;
+  border-radius: 8px;
+  letter-spacing: .04em;
 }
 .chat-msg.bullish .msg-score-badge { background: var(--bull-green); color: var(--bg-void); }
 .chat-msg.bearish .msg-score-badge { background: var(--bear-red); color: var(--text-bright); }
@@ -1334,7 +1334,7 @@ body::after {
 
 .chat-msg .msg-bubble {
   padding: 12px 16px;
-  border-radius: 4px 14px 14px 14px;
+  border-radius: 10px 14px 14px 14px;
   font-size: 13px;
   line-height: 1.6;
   color: var(--text-main);
@@ -1352,20 +1352,20 @@ body::after {
 }
 .chat-msg .msg-verdict {
   display: inline-block;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   padding: 2px 6px;
   margin-top: 4px;
-  border-radius: 3px;
+  border-radius: 8px;
   background: rgba(255,255,255,.06);
   color: var(--text-dim);
-  letter-spacing: .05em;
+  letter-spacing: .04em;
 }
 .chat-msg .msg-confidence {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 9px;
   color: var(--text-dim);
-  letter-spacing: .08em;
+  letter-spacing: .04em;
 }
 .chat-msg .msg-comment {
   margin-top: 8px;
@@ -1382,9 +1382,9 @@ body::after {
 .chat-msg .msg-details summary {
   cursor: pointer;
   color: var(--neon-cyan);
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
-  letter-spacing: .1em;
+  letter-spacing: .04em;
   padding: 4px 0;
   user-select: none;
 }
@@ -1393,17 +1393,17 @@ body::after {
 .conc-content {
   padding: 10px;
   background: #ffffff;
-  border-radius: 6px;
+  border-radius: 12px;
   border: 1px solid var(--border);
 }
 .conc-block { margin-bottom: 8px; }
 .conc-block:last-child { margin-bottom: 0; }
 .conc-label {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   color: var(--text-dim);
   margin-bottom: 4px;
-  letter-spacing: .1em;
+  letter-spacing: .04em;
 }
 .conc-block ul { margin-left: 16px; color: var(--text-main); font-size: 11px; line-height: 1.5; }
 .conc-block li { margin-bottom: 2px; }
@@ -1415,7 +1415,7 @@ body::after {
   animation: flashRing 1.6s ease;
 }
 @keyframes flashRing {
-  0% { box-shadow: 0 0 0 4px var(--neon-cyan); border-radius: 12px; }
+  0% { box-shadow: 0 0 0 4px var(--neon-cyan); border-radius: 18px; }
   100% { box-shadow: 0 0 0 0 transparent; }
 }
 
@@ -1424,15 +1424,15 @@ body::after {
   display: flex; gap: 8px; margin-bottom: 12px;
 }
 .chat-action-btn {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   padding: 6px 12px;
   background: var(--bg-tinted);
   border: 1px solid var(--border);
   color: var(--text-mid);
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
-  letter-spacing: .1em;
+  letter-spacing: .04em;
   text-transform: uppercase;
 }
 .chat-action-btn:hover { color: var(--neon-cyan); border-color: var(--neon-cyan); }
@@ -1444,15 +1444,15 @@ body::after {
   display: flex; align-items: center; gap: 12px;
 }
 .chat-footer-avatar {
-  font-family: 'Fira Sans', serif;
+  font-family: 'Inter', serif;
   font-size: 22px;
   width: 34px; height: 34px;
   background: var(--bg-void);
   border: 1px solid var(--neon-cyan);
-  border-radius: 8px;
+  border-radius: 14px;
   display: flex; align-items: center; justify-content: center;
 }
-.chat-footer-text { font-size: 12px; color: var(--text-dim); font-family: 'Fira Code', monospace; }
+.chat-footer-text { font-size: 12px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; }
 
 /* ═══════════════ FRIENDLY TRIO · 友好层 ═══════════════ */
 .friendly-trio {
@@ -1464,7 +1464,7 @@ body::after {
 .friendly-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 20px;
   padding: 22px;
   position: relative;
   overflow: hidden;
@@ -1475,7 +1475,7 @@ body::after {
 .friendly-card.exit { background: linear-gradient(135deg, var(--bear-tint), #fff); border-color: var(--bear-red); }
 .friendly-card .fc-icon { font-size: 32px; margin-bottom: 6px; }
 .friendly-card .fc-title {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 800;
   font-size: 15px;
   color: var(--text-bright);
@@ -1494,12 +1494,12 @@ body::after {
   gap: 10px;
   padding: 8px 0;
   border-top: 1px dashed var(--border);
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
 }
 .scenario-row:first-of-type { border-top: none; padding-top: 2px; }
 .scenario-row .label { flex: 1; color: var(--text-mid); }
-.scenario-row .val { font-weight: 700; font-family: 'Fira Code', monospace; }
+.scenario-row .val { font-weight: 700; font-family: 'JetBrains Mono', monospace; }
 .scenario-row .val.up { color: var(--bull-green); }
 .scenario-row .val.down { color: var(--bear-red); }
 .scenario-row .val.flat { color: var(--text-mid); }
@@ -1509,15 +1509,15 @@ body::after {
   padding: 10px 14px;
   background: #ffffff;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 14px;
   margin-bottom: 6px;
   text-decoration: none;
   color: var(--text-main);
   transition: all .15s;
 }
 .similar-stock-pill:hover { border-color: var(--neon-cyan); transform: translateX(2px); }
-.similar-stock-pill .ss-name { font-family: 'Fira Sans'; font-weight: 700; font-size: 13px; color: var(--text-bright); }
-.similar-stock-pill .ss-meta { font-family: 'Fira Code'; font-size: 10px; color: var(--text-dim); }
+.similar-stock-pill .ss-name { font-family: 'Inter'; font-weight: 700; font-size: 13px; color: var(--text-bright); }
+.similar-stock-pill .ss-meta { font-family: 'JetBrains Mono'; font-size: 10px; color: var(--text-dim); }
 .similar-stock-pill .ss-reason { font-size: 11px; color: var(--text-mid); margin-top: 3px; }
 
 .exit-trigger-item {
@@ -1547,8 +1547,8 @@ body::after {
   padding: 16px 20px;
   background: var(--gold-tint);
   border: 1px solid var(--neon-gold);
-  border-radius: 12px;
-  font-family: 'Fira Sans', sans-serif;
+  border-radius: 18px;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: var(--text-main);
   margin-bottom: 16px;
@@ -1564,7 +1564,7 @@ body::after {
 .fund-compact-list {
   margin-top: 16px;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 18px;
   overflow: hidden;
   max-height: 600px;
   overflow-y: auto;
@@ -1581,9 +1581,9 @@ body::after {
 }
 .fund-compact-head {
   background: var(--bg-tinted);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif;
   font-size: 11px;
-  letter-spacing: .1em;
+  letter-spacing: .04em;
   text-transform: uppercase;
   color: var(--text-dim);
   position: sticky;
@@ -1596,14 +1596,14 @@ body::after {
 .fc-rank {
   width: 36px; height: 28px;
   display: inline-flex; align-items: center; justify-content: center;
-  border-radius: 6px;
-  font-family: 'Fira Code', monospace;
+  border-radius: 12px;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
   font-weight: 700;
 }
 .fc-avatar {
   width: 32px; height: 32px;
-  border-radius: 6px;
+  border-radius: 12px;
   border: 1px solid var(--border);
   image-rendering: pixelated;
   background: #fff;
@@ -1611,26 +1611,26 @@ body::after {
 }
 .fc-avatar-ph {
   display: inline-flex; align-items: center; justify-content: center;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px; font-weight: 800;
   color: var(--neon-gold);
   background: var(--gold-tint);
 }
 .fc-info { min-width: 0; overflow: hidden; }
 .fc-name {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700; font-size: 13px;
   color: var(--text-bright);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .fc-fund {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   color: var(--text-dim);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .fc-return, .fc-rank-pct {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
   font-weight: 700;
   text-align: right;
@@ -1638,7 +1638,7 @@ body::after {
 .fc-link {
   display: inline-flex; align-items: center; justify-content: center;
   width: 28px; height: 28px;
-  border-radius: 6px;
+  border-radius: 12px;
   text-decoration: none;
   color: var(--neon-cyan);
   font-size: 18px;
@@ -1648,7 +1648,7 @@ body::after {
 .fund-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 20px;
   padding: 18px 20px;
   box-shadow: var(--shadow-sm);
   transition: all .2s ease;
@@ -1667,7 +1667,7 @@ body::after {
   margin-bottom: 14px;
 }
 .fund-manager-name {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 800;
   font-size: 17px;
   color: var(--text-bright);
@@ -1678,14 +1678,14 @@ body::after {
   letter-spacing: -2px;
 }
 .fund-name {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
   color: var(--neon-cyan);
   font-weight: 600;
   margin-top: 2px;
 }
 .fund-meta {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   color: var(--text-dim);
   margin-top: 4px;
@@ -1702,17 +1702,17 @@ body::after {
   padding: 10px 6px;
   background: var(--bg-tinted);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 14px;
 }
 .fund-metric .fm-label {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 9px;
   color: var(--text-dim);
   margin-bottom: 3px;
-  letter-spacing: .05em;
+  letter-spacing: .04em;
 }
 .fund-metric .fm-value {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 17px;
   color: var(--text-bright);
@@ -1722,19 +1722,19 @@ body::after {
   padding: 10px;
   background: var(--bg-tinted);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 14px;
 }
 .fund-link {
   display: inline-block;
   padding: 6px 14px;
   background: var(--neon-cyan);
   color: #ffffff;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   font-weight: 700;
   text-decoration: none;
-  border-radius: 6px;
-  letter-spacing: .1em;
+  border-radius: 12px;
+  letter-spacing: .04em;
 }
 .fund-link:hover {
   background: var(--neon-gold);
@@ -1743,10 +1743,10 @@ body::after {
 /* ═══════════════ DEEP SCAN · 19 维卡片 ═══════════════ */
 .deep-scan { display: flex; flex-direction: column; gap: 24px; }
 .cat-label {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
   color: var(--neon-cyan);
-  letter-spacing: .2em;
+  letter-spacing: .04em;
   text-transform: uppercase;
   padding: 8px 16px;
   background: var(--cyan-tint);
@@ -1764,7 +1764,7 @@ body::after {
 .dim-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 20px;
   padding: 22px 22px 18px;
   position: relative;
   transition: all .2s ease;
@@ -1777,31 +1777,31 @@ body::after {
   gap: 12px;
 }
 .dim-card .dim-num {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 9px;
   color: var(--text-dim);
-  letter-spacing: .15em;
+  letter-spacing: .04em;
   margin-bottom: 2px;
 }
 .dim-card .dim-title {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 800;
   font-size: 18px;
   color: var(--text-bright);
   letter-spacing: -.01em;
 }
 .dim-card .dim-en {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 9px;
   color: var(--text-dim);
-  letter-spacing: .1em;
+  letter-spacing: .04em;
 }
 .dim-score {
   display: flex; flex-direction: column; align-items: flex-end;
   flex-shrink: 0;
 }
 .dim-score .num {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 34px;
   line-height: 1;
@@ -1815,7 +1815,7 @@ body::after {
 .dim-bar {
   height: 6px;
   background: var(--bg-rail);
-  border-radius: 3px;
+  border-radius: 8px;
   overflow: hidden;
   margin-bottom: 12px;
 }
@@ -1837,7 +1837,7 @@ body::after {
   padding: 16px;
   background: var(--bg-tinted);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 16px;
 }
 .dim-viz svg { display: block; max-width: 100%; height: auto; }
 
@@ -1852,18 +1852,18 @@ body::after {
   padding: 8px 10px;
   background: var(--bg-tinted);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 12px;
 }
 .kpi .k {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 9px;
   color: var(--text-dim);
-  letter-spacing: .1em;
+  letter-spacing: .04em;
   text-transform: uppercase;
   margin-bottom: 2px;
 }
 .kpi .v {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
   color: var(--text-bright);
   font-weight: 600;
@@ -1883,7 +1883,7 @@ body::after {
   margin-top: 12px;
   padding-top: 10px;
   border-top: 1px dashed var(--border);
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 10px;
   color: var(--text-dim);
   display: flex; align-items: center; gap: 6px;
@@ -1891,8 +1891,8 @@ body::after {
 .dim-source .badge {
   padding: 2px 7px;
   border: 1px solid var(--border);
-  border-radius: 3px;
-  font-family: 'Fira Code', monospace;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
   font-weight: 600;
 }
 .dim-source .badge.live { color: var(--bull-green); border-color: var(--bull-green); background: var(--bull-tint); }
@@ -1905,9 +1905,9 @@ body::after {
 .dim-card details summary {
   cursor: pointer;
   color: var(--neon-cyan);
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 9px;
-  letter-spacing: .15em;
+  letter-spacing: .04em;
   padding: 4px 0;
 }
 .dim-card details summary:hover { color: var(--neon-gold); }
@@ -1915,9 +1915,9 @@ body::after {
   margin-top: 6px;
   padding: 10px;
   background: var(--bg-rail);
-  border-radius: 6px;
+  border-radius: 12px;
   border: 1px solid var(--border);
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   color: var(--text-main);
   white-space: pre-wrap;
@@ -1932,7 +1932,7 @@ body::after {
   background: var(--bear-tint);
   border: 1px solid var(--bear-red);
   border-left: 6px solid var(--bear-red);
-  border-radius: 14px;
+  border-radius: 20px;
   box-shadow: var(--shadow-md);
 }
 .risk-box ul { list-style: none; }
@@ -1950,7 +1950,7 @@ body::after {
   display: flex; align-items: center; justify-content: center;
   background: var(--bear-red); color: var(--text-bright);
   border-radius: 50%;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900; font-size: 13px;
 }
 
@@ -1964,7 +1964,7 @@ body::after {
   padding: 24px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 20px;
   position: relative;
   box-shadow: var(--shadow-sm);
 }
@@ -1973,15 +1973,15 @@ body::after {
   background: var(--neon-cyan);
 }
 .zone .zone-label {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
-  letter-spacing: .2em;
+  letter-spacing: .04em;
   color: var(--neon-cyan);
   text-transform: uppercase;
   margin-bottom: 10px;
 }
 .zone .zone-price {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 42px;
   color: var(--neon-gold);
@@ -2008,18 +2008,18 @@ footer strong { color: var(--text-dim); }
 /* ═══════════════ O.o LOGO EYE ═══════════════ */
 .oo-eye {
   display: inline-block;
-  font-family: 'Fira Sans', serif;
+  font-family: 'Inter', serif;
   font-weight: 900;
   color: var(--neon-cyan);
   text-shadow: 0 0 8px rgba(6,216,216,.5);
-  letter-spacing: .05em;
+  letter-spacing: .04em;
 }
 
 /* ═══════════════ HIDDEN SHARE-CARDS ═══════════════ */
 #share-card, #war-report {
   position: absolute; left: -9999px; top: -9999px;
   background: var(--bg-void);
-  font-family: 'Fira Code', 'Fira Sans', monospace;
+  font-family: 'JetBrains Mono', 'Inter', monospace;
   color: var(--text-main);
   overflow: hidden;
 }
@@ -2033,15 +2033,15 @@ footer strong { color: var(--text-dim); }
 }
 #share-card .sc-topbar { display: flex; align-items: center; justify-content: space-between; padding-bottom: 30px; border-bottom: 2px solid var(--neon-cyan); }
 #share-card .sc-brand {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif;
   font-weight: 700; font-size: 30px; color: var(--text-bright);
-  letter-spacing: .15em;
+  letter-spacing: .04em;
 }
 #share-card .sc-brand em { color: var(--neon-cyan); font-style: normal; }
-#share-card .sc-badge { font-size: 22px; color: var(--text-dim); letter-spacing: .1em; }
+#share-card .sc-badge { font-size: 22px; color: var(--text-dim); letter-spacing: .04em; }
 
 #share-card .sc-name {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 96px;
   color: var(--text-bright);
@@ -2050,9 +2050,9 @@ footer strong { color: var(--text-dim); }
   margin-bottom: 10px;
 }
 #share-card .sc-code-row { display: flex; align-items: baseline; gap: 24px; margin-bottom: 36px; }
-#share-card .sc-code { font-family: 'Fira Code', monospace; font-size: 30px; color: var(--text-dim); }
-#share-card .sc-price { font-family: 'Fira Code', monospace; font-size: 54px; color: var(--neon-gold); font-weight: 700; }
-#share-card .sc-change { font-size: 32px; padding: 8px 16px; border-radius: 8px; }
+#share-card .sc-code { font-family: 'JetBrains Mono', monospace; font-size: 30px; color: var(--text-dim); }
+#share-card .sc-price { font-family: 'JetBrains Mono', monospace; font-size: 54px; color: var(--neon-gold); font-weight: 700; }
+#share-card .sc-change { font-size: 32px; padding: 8px 16px; border-radius: 14px; }
 #share-card .sc-change.up { background: rgba(0,255,157,.15); color: var(--bull-green); }
 #share-card .sc-change.down { background: rgba(255,60,90,.15); color: var(--bear-red); }
 
@@ -2066,7 +2066,7 @@ footer strong { color: var(--text-dim); }
   box-shadow: 10px 10px 0 rgba(249,203,64,.4);
 }
 #share-card .sc-score-giant {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 260px;
   line-height: .85;
@@ -2076,7 +2076,7 @@ footer strong { color: var(--text-dim); }
 }
 #share-card .sc-score-unit { font-size: 48px; color: var(--text-dim); margin-left: 8px; }
 #share-card .sc-verdict {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 44px;
   color: var(--text-bright);
@@ -2086,10 +2086,10 @@ footer strong { color: var(--text-dim); }
 }
 
 #share-card .sc-section-title {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 22px;
   color: var(--neon-cyan);
-  letter-spacing: .25em;
+  letter-spacing: .07em;
   text-transform: uppercase;
   margin: 50px 0 24px;
   padding-bottom: 12px;
@@ -2098,19 +2098,19 @@ footer strong { color: var(--text-dim); }
 #share-card .sc-votes { display: flex; flex-direction: column; gap: 14px; }
 #share-card .sc-vote-row { display: flex; align-items: center; gap: 20px; font-size: 28px; color: var(--text-main); }
 #share-card .sc-vote-row .lbl { width: 160px; }
-#share-card .sc-vote-row .bar { flex: 1; height: 28px; background: var(--bg-card); border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
+#share-card .sc-vote-row .bar { flex: 1; height: 28px; background: var(--bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--border); }
 #share-card .sc-vote-row .fill { height: 100%; }
-#share-card .sc-vote-row .cnt { width: 120px; text-align: right; font-family: 'Fira Code', monospace; font-weight: 700; color: var(--text-bright); }
+#share-card .sc-vote-row .cnt { width: 120px; text-align: right; font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--text-bright); }
 
 #share-card .sc-best { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 #share-card .sc-bestcell {
   padding: 28px;
   background: var(--bg-card);
   border: 2px solid var(--bull-green);
-  border-radius: 16px;
+  border-radius: 22px;
   text-align: center;
 }
-#share-card .sc-bestcell img { width: 120px; height: 120px; image-rendering: pixelated; border-radius: 8px; border: 2px solid var(--border); }
+#share-card .sc-bestcell img { width: 120px; height: 120px; image-rendering: pixelated; border-radius: 14px; border: 2px solid var(--border); }
 #share-card .sc-bestcell .n { font-size: 28px; margin-top: 12px; color: var(--text-bright); font-weight: 600; }
 #share-card .sc-bestcell .s { font-size: 48px; color: var(--neon-gold); font-weight: 900; }
 
@@ -2120,7 +2120,7 @@ footer strong { color: var(--text-dim); }
   background: var(--bg-void);
   border: 3px solid var(--neon-gold);
   border-left: 16px solid var(--neon-gold);
-  border-radius: 12px;
+  border-radius: 18px;
   box-shadow: 12px 12px 0 rgba(249,203,64,.4);
   position: relative;
 }
@@ -2128,13 +2128,13 @@ footer strong { color: var(--text-dim); }
   position: absolute; top: -18px; left: 40px;
   background: var(--neon-gold); color: var(--bg-void);
   padding: 6px 20px;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 18px;
   font-weight: 700;
-  letter-spacing: .25em;
+  letter-spacing: .07em;
 }
 #share-card .sc-punchline-box .txt {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 42px;
   color: var(--text-bright);
@@ -2144,7 +2144,7 @@ footer strong { color: var(--text-dim); }
 #share-card .sc-trap {
   font-size: 32px;
   padding: 28px;
-  border-radius: 12px;
+  border-radius: 18px;
   border: 2px solid;
   display: flex; align-items: center; gap: 16px;
   margin-bottom: 40px;
@@ -2162,32 +2162,32 @@ footer strong { color: var(--text-dim); }
   font-size: 22px; color: var(--text-dim);
 }
 #share-card .sc-footer .oo-big {
-  font-family: 'Fira Sans', serif;
+  font-family: 'Inter', serif;
   font-size: 64px;
   color: var(--neon-cyan);
   text-shadow: 0 0 20px rgba(6,216,216,.5);
-  letter-spacing: .08em;
+  letter-spacing: .04em;
   line-height: 1;
 }
 
 /* WAR REPORT 1920x1080 */
 #war-report { width: 1920px; height: 1080px; padding: 70px 90px; }
 #war-report .wr-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 24px; border-bottom: 2px solid var(--neon-cyan); margin-bottom: 40px; }
-#war-report .wr-brand { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: .15em; color: var(--text-bright); }
+#war-report .wr-brand { font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: .04em; color: var(--text-bright); }
 #war-report .wr-brand em { color: var(--neon-cyan); font-style: normal; }
 #war-report .wr-date { font-size: 20px; color: var(--text-dim); }
 #war-report .wr-body { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; height: calc(100% - 180px); }
 #war-report .wr-left { display: flex; flex-direction: column; justify-content: space-between; }
-#war-report .wr-name { font-family: 'Fira Sans', sans-serif; font-weight: 900; font-size: 88px; color: var(--text-bright); letter-spacing: -.03em; line-height: 1; }
-#war-report .wr-code { font-family: 'Fira Code', monospace; font-size: 26px; color: var(--text-dim); margin-top: 8px; }
+#war-report .wr-name { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 88px; color: var(--text-bright); letter-spacing: -.03em; line-height: 1; }
+#war-report .wr-code { font-family: 'JetBrains Mono', monospace; font-size: 26px; color: var(--text-dim); margin-top: 8px; }
 #war-report .wr-one { color: var(--text-main); font-size: 22px; margin-top: 14px; }
 #war-report .wr-punch {
   padding: 28px 32px;
   background: var(--bg-void);
   border: 3px solid var(--neon-gold);
   border-left: 12px solid var(--neon-gold);
-  border-radius: 8px;
-  font-family: 'Fira Sans', sans-serif;
+  border-radius: 14px;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 36px;
   color: var(--text-bright);
@@ -2196,14 +2196,14 @@ footer strong { color: var(--text-dim); }
 }
 #war-report .wr-fight { display: flex; gap: 24px; align-items: center; }
 #war-report .wr-fi { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-#war-report .wr-fi img { width: 96px; height: 96px; image-rendering: pixelated; border: 2px solid; border-radius: 8px; padding: 4px; background: var(--bg-void); }
+#war-report .wr-fi img { width: 96px; height: 96px; image-rendering: pixelated; border: 2px solid; border-radius: 14px; padding: 4px; background: var(--bg-void); }
 #war-report .wr-fi.bull img { border-color: var(--bull-green); }
 #war-report .wr-fi.bear img { border-color: var(--bear-red); }
-#war-report .wr-fi .fn { font-family: 'Fira Sans', sans-serif; font-weight: 700; font-size: 20px; color: var(--text-bright); }
-#war-report .wr-fi .fs { font-family: 'Fira Code', monospace; font-size: 22px; font-weight: 700; }
+#war-report .wr-fi .fn { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; color: var(--text-bright); }
+#war-report .wr-fi .fs { font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; }
 #war-report .wr-fi.bull .fs { color: var(--bull-green); }
 #war-report .wr-fi.bear .fs { color: var(--bear-red); }
-#war-report .wr-vs { font-family: 'Fira Sans', sans-serif; font-weight: 900; font-size: 52px; color: var(--neon-gold); transform: skewX(-8deg); }
+#war-report .wr-vs { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 52px; color: var(--neon-gold); transform: skewX(-8deg); }
 #war-report .wr-right {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px;
   padding: 40px;
@@ -2212,12 +2212,12 @@ footer strong { color: var(--text-dim); }
   border-radius: 24px;
   box-shadow: 12px 12px 0 rgba(249,203,64,.4);
 }
-#war-report .wr-score-label { font-family: 'Fira Code', monospace; font-size: 16px; letter-spacing: .25em; color: var(--neon-gold); text-transform: uppercase; }
-#war-report .wr-score { font-family: 'Fira Sans', sans-serif; font-weight: 900; font-size: 280px; line-height: .8; color: var(--neon-gold); text-shadow: 0 0 40px rgba(249,203,64,.5); letter-spacing: -.06em; }
-#war-report .wr-verdict { font-family: 'Fira Sans', sans-serif; font-weight: 700; font-size: 38px; color: var(--text-bright); text-align: center; }
+#war-report .wr-score-label { font-family: 'JetBrains Mono', monospace; font-size: 16px; letter-spacing: .07em; color: var(--neon-gold); text-transform: uppercase; }
+#war-report .wr-score { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 280px; line-height: .8; color: var(--neon-gold); text-shadow: 0 0 40px rgba(249,203,64,.5); letter-spacing: -.06em; }
+#war-report .wr-verdict { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--text-bright); text-align: center; }
 #war-report .wr-trap { font-size: 22px; color: var(--text-dim); }
 #war-report .wr-footer { grid-column: 1/-1; display: flex; justify-content: space-between; color: var(--text-dim); font-size: 18px; padding-top: 30px; border-top: 1px solid var(--border); }
-#war-report .wr-oo { font-family: 'Fira Sans', serif; font-size: 42px; color: var(--neon-cyan); text-shadow: 0 0 15px rgba(6,216,216,.5); letter-spacing: .08em; }
+#war-report .wr-oo { font-family: 'Inter', serif; font-size: 42px; color: var(--neon-cyan); text-shadow: 0 0 15px rgba(6,216,216,.5); letter-spacing: .04em; }
 
 /* ═══════════════ BOOT SEQUENCE OVERLAY ═══════════════ */
 .boot-overlay {
@@ -2229,19 +2229,19 @@ footer strong { color: var(--text-dim); }
 }
 .boot-overlay.done { opacity: 0; pointer-events: none; }
 .boot-logo {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', sans-serif;
   font-weight: 700; font-size: 32px;
-  letter-spacing: .25em;
+  letter-spacing: .07em;
   color: var(--text-bright);
 }
 .boot-logo em { color: var(--neon-cyan); font-style: normal; text-shadow: 0 0 20px rgba(6,216,216,.6); }
 .boot-eye {
-  font-family: 'Fira Sans', serif;
+  font-family: 'Inter', serif;
   font-size: 96px;
   color: var(--neon-cyan);
   text-shadow: 0 0 40px rgba(6,216,216,.6);
   animation: blink 1.4s ease-in-out infinite;
-  letter-spacing: .1em;
+  letter-spacing: .04em;
 }
 @keyframes blink {
   0%, 90%, 100% { opacity: 1; }
@@ -2252,7 +2252,7 @@ footer strong { color: var(--text-dim); }
   width: 320px; height: 4px;
   background: var(--bg-rail);
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: 6px;
   overflow: hidden;
 }
 .boot-fill {
@@ -2263,10 +2263,10 @@ footer strong { color: var(--text-dim); }
 }
 @keyframes bootFill { to { width: 100%; } }
 .boot-status {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: var(--text-dim);
-  letter-spacing: .15em;
+  letter-spacing: .04em;
   text-transform: uppercase;
 }
 
@@ -2332,16 +2332,16 @@ footer strong { color: var(--text-dim); }
   .container { padding: 14px 12px 40px; }
 
   /* topbar collapses */
-  .topbar { padding: 10px 14px; gap: 10px; flex-wrap: wrap; border-radius: 10px; margin-bottom: 16px; }
+  .topbar { padding: 10px 14px; gap: 10px; flex-wrap: wrap; border-radius: 16px; margin-bottom: 16px; }
   .topbar .left { gap: 10px; flex: 1; min-width: 0; }
-  .topbar .brand { font-size: 12px; letter-spacing: .12em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .topbar .brand { font-size: 12px; letter-spacing: .07em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .topbar .brand span { display: none; }
   .topbar .status { font-size: 9px; gap: 6px; }
   .topbar .status span:not(.pulse) { display: none; }
 
   /* hero stacks */
   .bento-hero { grid-template-columns: 1fr; gap: 12px; margin-bottom: 12px; }
-  .bento { padding: 18px; border-radius: 14px; }
+  .bento { padding: 18px; border-radius: 20px; }
   .bento.name-card { padding: 22px 18px; box-shadow: none; }
   .ticker-label { font-size: 9px; }
   .stock-name { font-size: 38px; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 6px; }
@@ -2393,7 +2393,7 @@ footer strong { color: var(--text-dim); }
   }
 
   /* ─── DIVIDE / ARENA · 移动端拳击擂台垂直排列 ─── */
-  .divide-section { padding: 28px 18px; border-radius: 18px; }
+  .divide-section { padding: 28px 18px; border-radius: 24px; }
   .divide-section::before { font-size: 56px; top: 16px; }
   .divide-header h2 { font-size: 22px; }
   .divide-header .tag { font-size: 9px; padding: 3px 12px; }
@@ -2412,7 +2412,7 @@ footer strong { color: var(--text-dim); }
   .jury-board { padding: 18px 14px; }
   .jury-row-label { font-size: 9px; margin-bottom: 14px; }
   .jury-seats { grid-template-columns: repeat(5, 1fr); gap: 6px; }
-  .seat { padding: 6px 4px 8px; border-radius: 8px; }
+  .seat { padding: 6px 4px 8px; border-radius: 14px; }
   .seat-avatar { width: 30px; height: 30px; }
   .seat-name { font-size: 9px; }
   .seat-score { font-size: 11px; }
@@ -2424,9 +2424,9 @@ footer strong { color: var(--text-dim); }
   .stat-tile .label { font-size: 9px; }
 
   /* ─── CHAT ROOM ─── */
-  .chat-container { border-radius: 14px; max-height: none; }
+  .chat-container { border-radius: 20px; max-height: none; }
   .chat-header { padding: 14px 16px; gap: 10px; }
-  .chat-room-icon { width: 38px; height: 38px; font-size: 18px; border-radius: 10px; }
+  .chat-room-icon { width: 38px; height: 38px; font-size: 18px; border-radius: 16px; }
   .chat-room-name { font-size: 14px; }
   .chat-room-meta { font-size: 10px; }
   .chat-filter-tabs { gap: 3px; width: 100%; overflow-x: auto; padding-bottom: 4px; }
@@ -2442,7 +2442,7 @@ footer strong { color: var(--text-dim); }
   .chat-msg .msg-group-tag { font-size: 8px; padding: 1px 5px; }
   .chat-msg .msg-score-badge { font-size: 9px; padding: 1px 5px; }
   .chat-msg .msg-confidence { font-size: 8px; }
-  .chat-msg .msg-bubble { padding: 10px 13px; font-size: 12px; border-radius: 4px 12px 12px 12px; }
+  .chat-msg .msg-bubble { padding: 10px 13px; font-size: 12px; border-radius: 10px 12px 12px 12px; }
   .chat-msg .msg-comment { font-size: 11px; padding-left: 8px; }
   .chat-msg .msg-verdict { font-size: 9px; }
   .chat-msg .msg-details summary { font-size: 9px; }
@@ -2454,7 +2454,7 @@ footer strong { color: var(--text-dim); }
   /* deep scan */
   .cat-label { font-size: 9px; padding: 5px 10px; }
   .dim-row { grid-template-columns: 1fr; gap: 10px; }
-  .dim-card { padding: 14px 16px; border-radius: 12px; }
+  .dim-card { padding: 14px 16px; border-radius: 18px; }
   .dim-card .dim-title { font-size: 14px; }
   .dim-score .num { font-size: 24px; }
   .dim-kpis { gap: 5px; }
@@ -2462,13 +2462,13 @@ footer strong { color: var(--text-dim); }
   .kpi .v { font-size: 11px; }
 
   /* risks */
-  .risk-box { padding: 18px 16px; border-radius: 12px; }
+  .risk-box { padding: 18px 16px; border-radius: 18px; }
   .risk-box li { padding: 10px 0; font-size: 12px; gap: 8px; }
   .risk-box li::before { width: 18px; height: 18px; font-size: 11px; }
 
   /* zones */
   .zones-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .zone { padding: 18px 16px; border-radius: 12px; }
+  .zone { padding: 18px 16px; border-radius: 18px; }
   .zone .zone-label { font-size: 9px; }
   .zone .zone-price { font-size: 30px; }
   .zone .zone-rationale { font-size: 10px; }
@@ -2477,7 +2477,7 @@ footer strong { color: var(--text-dim); }
   footer { font-size: 10px; padding: 24px 0 8px; }
 
   /* boot overlay smaller */
-  .boot-logo { font-size: 18px; letter-spacing: .15em; padding: 0 20px; text-align: center; }
+  .boot-logo { font-size: 18px; letter-spacing: .04em; padding: 0 20px; text-align: center; }
   .boot-eye { font-size: 64px; }
   .boot-bar { width: 240px; }
   .boot-status { font-size: 9px; padding: 0 20px; text-align: center; }
@@ -2498,7 +2498,7 @@ footer strong { color: var(--text-dim); }
 .segmental-section {
   background: linear-gradient(135deg, rgba(8,145,178,0.04) 0%, rgba(217,119,6,0.04) 100%);
   border: 1px solid rgba(8,145,178,0.15);
-  border-radius: 12px;
+  border-radius: 18px;
   padding: 24px;
   margin: 32px 0;
 }
@@ -2535,7 +2535,7 @@ footer strong { color: var(--text-dim); }
   padding: 12px 16px;
   background: rgba(255,255,255,0.6);
   border-left: 3px solid #0891b2;
-  border-radius: 6px;
+  border-radius: 12px;
   margin-bottom: 20px;
 }
 .seg-thesis .lbl {
@@ -2557,7 +2557,7 @@ footer strong { color: var(--text-dim); }
 }
 .seg-chart-cell {
   background: rgba(255,255,255,0.5);
-  border-radius: 8px;
+  border-radius: 14px;
   padding: 14px;
 }
 .seg-chart-title {
@@ -2575,7 +2575,7 @@ footer strong { color: var(--text-dim); }
 .seg-card {
   background: #fff;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  border-radius: 14px;
   padding: 14px 16px;
 }
 .seg-head {
@@ -2619,7 +2619,7 @@ footer strong { color: var(--text-dim); }
   font-size: 11px;
   padding: 3px 8px;
   background: #f1f5f9;
-  border-radius: 4px;
+  border-radius: 10px;
   color: #334155;
 }
 .seg-driver.muted { color: #94a3b8; font-style: italic; }
@@ -2632,7 +2632,7 @@ footer strong { color: var(--text-dim); }
 .cagr-cell {
   text-align: center;
   padding: 8px 4px;
-  border-radius: 6px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -2647,7 +2647,7 @@ footer strong { color: var(--text-dim); }
 /* v2.10+ · 卡片新富字段 */
 .seg-metrics-row {
   display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 8px;
-  padding: 6px 10px; background: #f8fafc; border-radius: 4px;
+  padding: 6px 10px; background: #f8fafc; border-radius: 10px;
 }
 .seg-metric { font-size: 11px; color: #64748b; }
 .seg-metric strong { font-size: 13px; }
@@ -2656,7 +2656,7 @@ footer strong { color: var(--text-dim); }
 .seg-spark {
   display: flex; align-items: center; gap: 8px;
   margin-bottom: 10px; padding: 4px 6px;
-  background: rgba(241,245,249,0.5); border-radius: 4px;
+  background: rgba(241,245,249,0.5); border-radius: 10px;
 }
 .spark-lbl { font-size: 9px; color: #94a3b8; white-space: nowrap; }
 .spark-val { font-size: 11px; color: #0f172a; font-weight: 700; margin-left: auto; }
@@ -2664,7 +2664,7 @@ footer strong { color: var(--text-dim); }
 /* v2.10+ · 3×3 projection 表 */
 .seg-projection-table-wrap {
   background: rgba(255,255,255,0.6);
-  border-radius: 8px;
+  border-radius: 14px;
   padding: 14px;
   margin-bottom: 20px;
   overflow-x: auto;
@@ -2696,7 +2696,7 @@ footer strong { color: var(--text-dim); }
   font-style: italic;
   padding: 6px 10px;
   background: rgba(251,191,36,0.08);
-  border-radius: 4px;
+  border-radius: 10px;
 }
 .seg-warnings {
   margin-top: 14px;
@@ -2704,7 +2704,7 @@ footer strong { color: var(--text-dim); }
   color: #d97706;
   padding: 8px 12px;
   background: rgba(251,191,36,0.1);
-  border-radius: 4px;
+  border-radius: 10px;
   border-left: 3px solid #d97706;
 }
 .seg-source {
@@ -2765,7 +2765,7 @@ a:hover { text-decoration: underline; }
   background: var(--bg-deep);
   color: var(--navy);
 }
-.boot-logo { font-weight: 700; letter-spacing: .12em; }
+.boot-logo { font-weight: 700; letter-spacing: .07em; }
 .boot-bar { background: var(--border); }
 .boot-fill { background: var(--gold); }
 .boot-status { color: var(--text-dim); letter-spacing: .18em; font-size: 11px; }
@@ -2782,7 +2782,7 @@ a:hover { text-decoration: underline; }
 .topbar .status { color: var(--text-dim); font-size: 12px; }
 .market-badge {
   background: var(--bg-tinted); color: var(--text-mid);
-  border: 1px solid var(--border); border-radius: 4px;
+  border: 1px solid var(--border); border-radius: 10px;
   padding: 1px 8px; font-weight: 600;
 }
 .market-badge.open { color: var(--bull-green); }
@@ -2792,7 +2792,7 @@ a:hover { text-decoration: underline; }
   background: var(--bg-tinted);
   border: 1px solid var(--border);
   color: var(--text-mid);
-  border-radius: 4px;
+  border-radius: 10px;
 }
 .theme-toggle:hover { color: var(--gold); border-color: var(--gold); transform: none; }
 
@@ -2800,12 +2800,12 @@ a:hover { text-decoration: underline; }
 .toc-rail {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 14px;
   box-shadow: var(--shadow-md) !important;
 }
 .toc-item {
   color: var(--text-dim);
-  border-radius: 4px;
+  border-radius: 10px;
   font-size: 12px;
 }
 .toc-item:hover { background: var(--bg-tinted); color: var(--navy); }
@@ -2814,19 +2814,19 @@ a:hover { text-decoration: underline; }
 .toc-toggle { color: var(--text-dim); }
 
 /* ── 章节标题 · 研报分区 ── */
-.section-tag { color: var(--gold); font-family: var(--font-num); letter-spacing: .16em; font-size: 11px; }
+.section-tag { color: var(--gold); font-family: var(--font-num); letter-spacing: .04em; font-size: 11px; }
 .section-title { color: var(--navy); font-weight: 700; letter-spacing: .02em; }
-.section-line { background: linear-gradient(90deg, var(--gold), var(--border)); height: 2px; border-radius: 2px; }
+.section-line { background: linear-gradient(90deg, var(--gold), var(--border)); height: 2px; border-radius: 6px; }
 
 /* ── Bento 主视觉 ── */
 .bento-hero { gap: 14px; }
 .bento {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 16px;
   box-shadow: var(--shadow-md) !important;
 }
-.name-card .ticker-label { color: var(--gold); font-family: var(--font-num); letter-spacing: .14em; }
+.name-card .ticker-label { color: var(--gold); font-family: var(--font-num); letter-spacing: .04em; }
 .stock-name { color: var(--navy); font-weight: 800; letter-spacing: .01em; }
 .stock-code { color: var(--text-dim); font-size: 12px; }
 .one-liner { color: var(--text-mid); }
@@ -2836,14 +2836,14 @@ a:hover { text-decoration: underline; }
 .metric-chips .chip {
   background: var(--bg-tinted);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 12px;
   color: var(--text-mid);
 }
 .metric-chips .chip strong { color: var(--navy); }
 
 /* ALPHA SCORE */
 .score-card { border-top: 3px solid var(--gold); }
-.score-label { color: var(--text-dim); letter-spacing: .16em; font-size: 11px; }
+.score-label { color: var(--text-dim); letter-spacing: .04em; font-size: 11px; }
 .score-giant { color: var(--navy); font-weight: 800; }
 .score-verdict { color: var(--gold); font-weight: 700; }
 
@@ -2856,48 +2856,48 @@ a:hover { text-decoration: underline; }
 .core-conclusion {
   background: var(--bg-tinted);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 16px;
 }
-.core-conclusion .label { color: var(--gold); font-family: var(--font-num); letter-spacing: .14em; }
+.core-conclusion .label { color: var(--gold); font-family: var(--font-num); letter-spacing: .04em; }
 .core-conclusion .text { color: var(--text-main); font-size: 15px; line-height: 1.75; }
 .data-cell {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 14px;
 }
-.data-cell .key { color: var(--text-dim); letter-spacing: .08em; font-size: 11px; }
+.data-cell .key { color: var(--text-dim); letter-spacing: .04em; font-size: 11px; }
 .data-cell .value { color: var(--navy); font-weight: 600; font-size: 13px; }
 .battle-plan {
   background: var(--navy-deep);
-  border-radius: 10px;
+  border-radius: 16px;
   color: #fff;
 }
 [data-theme="dark"] .battle-plan { background: var(--navy-deep); }
-.battle-plan .plan-label { color: var(--gold); letter-spacing: .16em; font-size: 11px; }
+.battle-plan .plan-label { color: var(--gold); letter-spacing: .04em; font-size: 11px; }
 .battle-plan .k { color: rgba(255,255,255,.65); }
 .battle-plan .v { color: #fff; font-weight: 600; font-family: var(--font-num); }
 
 /* ── 世纪分歧 · arena ── */
-.divide-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; }
-.divide-header .tag { color: var(--gold); letter-spacing: .16em; }
+.divide-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; }
+.divide-header .tag { color: var(--gold); letter-spacing: .04em; }
 .divide-header h2 { color: var(--navy); font-weight: 700; }
 .round-info { color: var(--text-dim); font-size: 12px; }
-.fighter { background: var(--bg-tinted); border-radius: 10px; }
-.fighter .corner { color: var(--text-dim); letter-spacing: .12em; font-size: 11px; }
+.fighter { background: var(--bg-tinted); border-radius: 16px; }
+.fighter .corner { color: var(--text-dim); letter-spacing: .07em; font-size: 11px; }
 .fighter.bull .corner { color: var(--bull-green); }
 .fighter.bear .corner { color: var(--bear-red); }
-.hp-bar { background: var(--border); border-radius: 4px; }
-.hp-fill { background: linear-gradient(90deg, var(--gold), var(--bear-red)); border-radius: 4px; }
+.hp-bar { background: var(--border); border-radius: 10px; }
+.hp-fill { background: linear-gradient(90deg, var(--gold), var(--bear-red)); border-radius: 10px; }
 .fighter.bull .hp-fill { background: linear-gradient(90deg, var(--bull-green), var(--gold)); }
 .fighter .confidence { color: var(--navy); font-weight: 800; }
 .fighter.bull .confidence { color: var(--bull-green); }
 .fighter.bear .confidence { color: var(--bear-red); }
-.conf-label { color: var(--text-ghost); font-size: 10px; letter-spacing: .14em; }
+.conf-label { color: var(--text-ghost); font-size: 10px; letter-spacing: .04em; }
 .vs-bolt { color: var(--gold); font-weight: 800; }
 .punchline {
   background: var(--gold-soft);
   border: 1px solid rgba(176,141,62,.35);
-  border-radius: 8px;
+  border-radius: 14px;
   color: var(--text-main);
 }
 .round-label { color: var(--gold); font-family: var(--font-num); }
@@ -2909,7 +2909,7 @@ a:hover { text-decoration: underline; }
 .panel-stats .stat-tile {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 16px;
 }
 .stat-tile .num { font-weight: 800; }
 .stat-tile.bull .num { color: var(--bull-green); }
@@ -2917,9 +2917,9 @@ a:hover { text-decoration: underline; }
 .stat-tile.bear .num { color: var(--bear-red); }
 .stat-tile.total .num { color: var(--navy); }
 .stat-tile .label { color: var(--text-dim); font-size: 11px; }
-.jury-row-label { color: var(--text-dim); font-size: 11px; letter-spacing: .06em; }
-.jury-board { background: var(--bg-tinted); border: 1px solid var(--border); border-radius: 10px; }
-.seat { border-radius: 4px; background: var(--border); }
+.jury-row-label { color: var(--text-dim); font-size: 11px; letter-spacing: .04em; }
+.jury-board { background: var(--bg-tinted); border: 1px solid var(--border); border-radius: 16px; }
+.seat { border-radius: 10px; background: var(--border); }
 .seat.bull { background: var(--bull-green); }
 .seat.bear { background: var(--bear-red); }
 .seat.neutral { background: var(--text-ghost); }
@@ -2928,7 +2928,7 @@ a:hover { text-decoration: underline; }
 .chat-container {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 18px;
 }
 .chat-header { border-bottom: 1px solid var(--border); }
 .chat-room-name { color: var(--navy); font-weight: 700; }
@@ -2936,7 +2936,7 @@ a:hover { text-decoration: underline; }
 .chat-tab {
   color: var(--text-dim);
   border: 1px solid transparent;
-  border-radius: 14px;
+  border-radius: 20px;
   font-size: 12px;
 }
 .chat-tab:hover { color: var(--navy); background: var(--bg-tinted); }
@@ -2944,18 +2944,18 @@ a:hover { text-decoration: underline; }
 .chat-action-btn {
   background: var(--bg-tinted);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 12px;
   color: var(--text-mid);
   font-size: 12px;
 }
 .chat-action-btn:hover { color: var(--navy); border-color: var(--navy); }
 .chat-messages { background: var(--bg-deep); }
 .chat-system { color: var(--text-ghost); font-size: 11px; }
-.chat-msg { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; }
+.chat-msg { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; }
 .chat-msg.bullish { border-left: 4px solid var(--bull-green); }
 .chat-msg.bearish { border-left: 4px solid var(--bear-red); }
 .msg-name { color: var(--navy); font-weight: 700; }
-.msg-group-tag { background: var(--gold-soft); color: var(--gold); border-radius: 4px; font-size: 10px; }
+.msg-group-tag { background: var(--gold-soft); color: var(--gold); border-radius: 10px; font-size: 10px; }
 .msg-verdict.bullish { color: var(--bull-green); }
 .msg-verdict.bearish { color: var(--bear-red); }
 .msg-score-badge { color: var(--text-dim); font-family: var(--font-num); }
@@ -2970,16 +2970,16 @@ a:hover { text-decoration: underline; }
 .dim-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 16px;
 }
 .dim-title { color: var(--navy); font-weight: 700; }
-.dim-head .dim-label { color: var(--text-dim); font-size: 11px; letter-spacing: .08em; }
+.dim-head .dim-label { color: var(--text-dim); font-size: 11px; letter-spacing: .04em; }
 .dim-score { font-family: var(--font-num); font-weight: 700; }
 .dim-pass-fail.pass { color: var(--bull-green); }
 .dim-pass-fail.fail { color: var(--bear-red); }
-.dim-bar { background: var(--border); border-radius: 3px; }
-.dim-bar .fill { background: var(--gold); border-radius: 3px; }
-.dim-kpis .dim-kpi { background: var(--bg-tinted); border-radius: 6px; }
+.dim-bar { background: var(--border); border-radius: 8px; }
+.dim-bar .fill { background: var(--gold); border-radius: 8px; }
+.dim-kpis .dim-kpi { background: var(--bg-tinted); border-radius: 12px; }
 .dim-kpi .dim-num { color: var(--navy); font-weight: 700; }
 .dim-kpi .dim-label { color: var(--text-dim); font-size: 10px; }
 .dim-source { color: var(--text-ghost); font-size: 10px; }
@@ -2987,16 +2987,16 @@ a:hover { text-decoration: underline; }
 
 /* ── 机构建模 / segmental ── */
 .inst-modeling-wrap .fm-label, .inst-modeling-wrap .fm-value { font-family: var(--font-num); }
-.seg-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; }
+.seg-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; }
 .seg-section-header, .seg-head { color: var(--navy); font-weight: 700; }
-.seg-table-wrap, .seg-projection-table-wrap { border: 1px solid var(--border); border-radius: 8px; }
+.seg-table-wrap, .seg-projection-table-wrap { border: 1px solid var(--border); border-radius: 14px; }
 .seg-projection-table th { background: var(--navy); color: #fff; }
 [data-theme="dark"] .seg-projection-table th { background: var(--navy); color: var(--navy-deep); }
 .seg-projection-table td { border-bottom: 1px solid var(--border-soft); }
 .seg-driver, .seg-warnings { color: var(--text-mid); font-size: 12px; }
 
 /* ── 风险清单 ── */
-.risk-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; }
+.risk-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; }
 .risk-box li { color: var(--text-main); line-height: 1.75; }
 .risk-box li::marker { color: var(--bear-red); }
 
@@ -3004,40 +3004,40 @@ a:hover { text-decoration: underline; }
 .zone {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 16px;
   border-top: 3px solid var(--gold);
 }
-.zone-label { color: var(--text-dim); font-size: 12px; letter-spacing: .06em; }
+.zone-label { color: var(--text-dim); font-size: 12px; letter-spacing: .04em; }
 .zone-price { color: var(--navy); font-weight: 800; font-size: 20px; }
 .zone-rationale { color: var(--text-mid); font-size: 12px; }
 
 /* ── 分享卡 + QR ── */
-.share-qr-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; }
+.share-qr-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; }
 .qr-title { color: var(--navy); font-weight: 700; }
 .qr-desc { color: var(--text-mid); font-size: 13px; }
 .qr-url { color: var(--text-ghost); font-size: 11px; }
-.qr-url code { background: var(--bg-tinted); border-radius: 4px; padding: 1px 5px; }
+.qr-url code { background: var(--bg-tinted); border-radius: 10px; padding: 1px 5px; }
 
 /* ── 大佬抄作业 · fund manager ── */
 .fund-mgr-grid { gap: 12px; }
 .fund-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 16px;
 }
 .fund-header { border-bottom: 1px solid var(--border-soft); }
 .fund-name, .fund-manager-name { color: var(--navy); font-weight: 700; }
-.fund-type { color: var(--gold); font-size: 11px; letter-spacing: .1em; }
+.fund-type { color: var(--gold); font-size: 11px; letter-spacing: .04em; }
 .fund-meta, .fund-metric { color: var(--text-dim); font-size: 12px; }
 .fund-stars { color: var(--gold); }
-.fund-nav-block { background: var(--bg-tinted); border-radius: 8px; }
+.fund-nav-block { background: var(--bg-tinted); border-radius: 14px; }
 .fund-return { color: var(--bear-red); font-family: var(--font-num); font-weight: 600; }
 .fund-return.neg { color: var(--bull-green); }
 
 /* ── 相似股 / 大佬投资人与观点 ── */
-.similar-stock-pill { background: var(--bg-tinted); border: 1px solid var(--border); border-radius: 16px; color: var(--text-mid); }
+.similar-stock-pill { background: var(--bg-tinted); border: 1px solid var(--border); border-radius: 22px; color: var(--text-mid); }
 .similar-stock-pill:hover { border-color: var(--gold); color: var(--navy); }
-.inv-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; }
+.inv-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; }
 .inv-name, .inv-head { color: var(--navy); font-weight: 700; }
 .inv-score { color: var(--gold); font-weight: 700; }
 .inv-signal { font-weight: 600; }
@@ -3059,22 +3059,22 @@ footer strong { color: var(--navy); }
 .sc-topbar { border-bottom: 1px solid var(--border); }
 .sc-brand { color: var(--navy); font-weight: 700; }
 .sc-brand em { color: var(--gold); font-style: normal; }
-.sc-badge { background: var(--gold-soft); color: var(--gold); border-radius: 4px; font-family: var(--font-num); letter-spacing: .12em; }
+.sc-badge { background: var(--gold-soft); color: var(--gold); border-radius: 10px; font-family: var(--font-num); letter-spacing: .07em; }
 .sc-name { color: var(--navy); font-weight: 800; }
 .sc-code-row .sc-code { color: var(--text-dim); font-family: var(--font-num); }
 .sc-price { color: var(--text-bright); font-weight: 700; }
 .sc-change.up { color: var(--bear-red) !important; }
 .sc-change.down { color: var(--bull-green) !important; }
-.sc-score-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; }
+.sc-score-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 22px; }
 .sc-score-giant { color: var(--navy); font-weight: 800; }
 .sc-score-unit { color: var(--text-dim); }
 .sc-verdict { color: var(--gold); font-weight: 700; }
-.sc-section-title { color: var(--text-dim); font-family: var(--font-num); letter-spacing: .14em; }
-.sc-bestcell { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; }
+.sc-section-title { color: var(--text-dim); font-family: var(--font-num); letter-spacing: .04em; }
+.sc-bestcell { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; }
 .sc-bestcell .ss-name { color: var(--navy); font-weight: 700; }
 .sc-bestcell .ss-reason { color: var(--text-mid); }
-.sc-punchline-box { background: var(--gold-soft); border-radius: 12px; }
-.sc-punchline-box .lbl { color: var(--gold); font-family: var(--font-num); letter-spacing: .14em; }
+.sc-punchline-box { background: var(--gold-soft); border-radius: 18px; }
+.sc-punchline-box .lbl { color: var(--gold); font-family: var(--font-num); letter-spacing: .04em; }
 .sc-punchline-box .txt { color: var(--text-main); }
 .sc-footer { color: var(--text-dim); font-size: 12px; }
 
@@ -3086,24 +3086,24 @@ footer strong { color: var(--navy); }
 .wr-name { color: var(--navy); font-weight: 800; }
 .wr-code { color: var(--text-dim); font-family: var(--font-num); }
 .wr-one { color: var(--text-mid); }
-.wr-punch { background: var(--gold-soft); border-radius: 12px; color: var(--text-main); }
-.wr-fi { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; }
+.wr-punch { background: var(--gold-soft); border-radius: 18px; color: var(--text-main); }
+.wr-fi { background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; }
 .wr-fi .fn { color: var(--navy); font-weight: 700; }
 .wr-fi .fs { color: var(--gold); font-weight: 800; }
 .wr-fi.bull .fs { color: var(--bull-green); }
 .wr-fi.bear .fs { color: var(--bear-red); }
 .wr-vs { color: var(--gold); font-weight: 800; }
-.wr-score-label { color: var(--text-dim); font-family: var(--font-num); letter-spacing: .16em; }
+.wr-score-label { color: var(--text-dim); font-family: var(--font-num); letter-spacing: .04em; }
 .wr-score { color: var(--navy); font-weight: 800; }
 .wr-verdict { color: var(--gold); font-weight: 700; }
 .wr-trap { color: var(--text-mid); }
 .wr-footer { border-top: 1px solid var(--border); color: var(--text-dim); font-size: 12px; }
 
 /* ── 数据质量 / 风格 chip / 其他注入 ── */
-.data-gap-banner { background: var(--gold-tint); border: 1px solid rgba(176,141,62,.3); border-radius: 8px; color: var(--text-main); }
-.style-chip-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; }
+.data-gap-banner { background: var(--gold-tint); border: 1px solid rgba(176,141,62,.3); border-radius: 14px; color: var(--text-main); }
+.style-chip-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; }
 .style-chip-wrap .chip { background: var(--gold-soft); color: var(--gold); }
-.tab, .tab.active { border-radius: 6px; }
+.tab, .tab.active { border-radius: 12px; }
 .tab.active { background: var(--navy); color: #fff; }
 .flash-highlight { animation: brokFlash 1.6s ease; }
 @keyframes brokFlash {

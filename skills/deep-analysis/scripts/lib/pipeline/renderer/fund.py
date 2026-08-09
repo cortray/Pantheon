@@ -1,4 +1,4 @@
-"""FundRenderer · 基金经理抄作业 section · 从 assemble_report.py 迁移.
+﻿"""FundRenderer · 基金经理抄作业 section · 从 assemble_report.py 迁移.
 
 v2.15.x 教训集合：
 - v2.15.1: lite 行不能当 full-card 渲染（return_5y=None 时跳）
@@ -212,7 +212,7 @@ class FundRenderer(SectionRenderer):
                 f'<div style="width:54px;height:54px;background:#fef3c7;'
                 f'border:2px solid #d97706;border-radius:8px;'
                 f'display:flex;align-items:center;justify-content:center;'
-                f'font-family:Fira Sans;font-size:20px;font-weight:900;'
+                f'font-family:Inter;font-size:20px;font-weight:900;'
                 f'color:#d97706;flex-shrink:0">{initial}</div>'
             )
 
