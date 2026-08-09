@@ -3387,6 +3387,18 @@ footer { border-top: 1px solid #f0f0f0; margin-top: 48px; padding-top: 20px; col
 [data-theme="dark"] .chat-tab, [data-theme="dark"] .chat-msg .msg-bubble {
   background: var(--bg-elevated);
 }
+/* v3.9.5 · dark · 评委打分板中性/弃权(低分·零分)席位:头像是浅色像素底,
+   在深色 tile 上会像一张白卡。压实深底 + 柔化头像,使其呈"已中性/未参与"的暗调 */
+[data-theme="dark"] .seat.neutral,
+[data-theme="dark"] .seat.skip {
+  background: var(--bg-elevated);
+  border-color: var(--border);
+  opacity: 1;
+}
+[data-theme="dark"] .seat.neutral .seat-avatar,
+[data-theme="dark"] .seat.skip .seat-avatar {
+  filter: brightness(.5) grayscale(.45);
+}
 [data-theme="dark"] .fighter.bull { background: linear-gradient(180deg, rgba(92,203,141,.10), var(--bg-card)); }
 [data-theme="dark"] .fighter.bear { background: linear-gradient(180deg, rgba(240,125,125,.10), var(--bg-card)); }
 [data-theme="dark"] .friendly-card.scenario { background: linear-gradient(135deg, rgba(41,151,255,.10), var(--bg-card)); }
