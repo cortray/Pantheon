@@ -3155,6 +3155,11 @@ footer strong { color: var(--navy); }
   --shadow-brutal: 0 0 0 #000;
   --tag-indigo-bg: #e0e7ff;
   --tag-indigo-fg: #4f46e5;
+  --heat-neutral-bg: #e5e7eb;
+  --heat-neutral-fg: #111;
+  --info-bg: #f0f9ff;
+  --rec-bg: #fef2f2;
+  --bcg-bg: #faf5ff;
 }
 [data-theme="dark"] {
   --neon-cyan: #2997ff;
@@ -3188,11 +3193,16 @@ footer strong { color: var(--navy); }
   --shadow-lg: 0 12px 40px rgba(0,0,0,.6);
   --tag-indigo-bg: rgba(79,70,229,.18);
   --tag-indigo-fg: #a5b4fc;
+  --heat-neutral-bg: #3a3a3c;
+  --heat-neutral-fg: #f5f5f7;
+  --info-bg: rgba(3,105,161,.16);
+  --rec-bg: rgba(239,68,68,.14);
+  --bcg-bg: rgba(139,92,246,.16);
 }
 
 /* ── 页面：canvas-parchment 背景 + 白色画廊页 ── */
 body { background: #f5f5f7; background-attachment: fixed; }
-.container { max-width: 1080px; padding: 0 44px 100px; background: #fff; box-shadow: 0 0 90px rgba(0,0,0,.07); }
+.container { max-width: 1320px; padding: 0 48px 100px; background: #fff; box-shadow: 0 0 90px rgba(0,0,0,.07); }
 
 /* ── TOP BAR：毛玻璃极简 ── */
 .topbar {
@@ -3375,6 +3385,21 @@ footer { border-top: 1px solid #f0f0f0; margin-top: 48px; padding-top: 20px; col
 [data-theme="dark"] .seg-projection-table th, [data-theme="dark"] .tab.active { background: var(--navy-deep); }
 [data-theme="dark"] .style-chip-wrap .chip { background: var(--bg-tinted); }
 [data-theme="dark"] .share-qr-card .qr-canvas { background: #fff; }  /* QR 码必须白底可扫描 */
+
+/* ── dark · 数据缺口横幅(橙调) ── */
+[data-theme="dark"] .data-gap-banner {
+  background: linear-gradient(135deg, rgba(245,158,11,.14), rgba(245,158,11,.04)), var(--bg-card);
+  border-color: rgba(245,158,11,.35);
+}
+[data-theme="dark"] .data-gap-banner .title { color: #fbbf24; }
+[data-theme="dark"] .data-gap-banner .subtitle { color: var(--text-main); }
+[data-theme="dark"] .data-gap-banner .chip, [data-theme="dark"] .data-gap-banner .badge { background: rgba(245,158,11,.15); color: #fbbf24; }
+
+/* ── dark · 风格 chips 值(indigo 变量) ── */
+[data-theme="dark"] .style-chip-wrap .value { background: var(--tag-indigo-bg); color: var(--tag-indigo-fg); }
+
+/* ── dark · PUNCHLINE 标签 ── */
+[data-theme="dark"] .punchline::before { background: var(--neon-gold); color: #fff; }
 
 /* ── dark 模式 SVG 图表覆盖(fill/stroke 属性形式) ── */
 [data-theme="dark"] svg text { fill: var(--text-main); }
@@ -3729,7 +3754,7 @@ footer { border-top: 1px solid #f0f0f0; margin-top: 48px; padding-top: 20px; col
   </div>
 
   <!-- ─── 一键分享 + QR Code ─── -->
-  <div style="text-align:center;padding:30px 0 20px;border-top:1px solid #e5e7eb;margin-top:30px">
+  <div style="text-align:center;padding:30px 0 20px;border-top:1px solid var(--border);margin-top:30px">
     <button onclick="document.getElementById('share-overlay').style.display='flex'" style="background:#1b3a5c;color:#fff;border:none;padding:13px 40px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(27,58,92,0.28);letter-spacing:2px;transition:opacity .15s">
       📤 一键分享报告
     </button>
@@ -3754,21 +3779,21 @@ footer { border-top: 1px solid #f0f0f0; margin-top: 48px; padding-top: 20px; col
         <div style="font-size:11px;color:var(--text-dim);margin-bottom:8px;letter-spacing:1px">51 位大佬投票</div>
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
           <span style="font-size:11px;color:var(--text-dim);width:40px">看多</span>
-          <div style="flex:1;height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden">
+          <div style="flex:1;height:8px;background:var(--bg-tinted);border-radius:4px;overflow:hidden">
             <div style="height:100%;background:#1b7f4d;width:calc({{BULL_COUNT}} / {{TOTAL_COUNT}} * 100%)"></div>
           </div>
           <span style="font-size:12px;font-weight:700;color:#1b7f4d;width:30px">{{BULL_COUNT}}</span>
         </div>
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
           <span style="font-size:11px;color:var(--text-dim);width:40px">中性</span>
-          <div style="flex:1;height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden">
+          <div style="flex:1;height:8px;background:var(--bg-tinted);border-radius:4px;overflow:hidden">
             <div style="height:100%;background:#94a3b8;width:calc({{NEUT_COUNT}} / {{TOTAL_COUNT}} * 100%)"></div>
           </div>
           <span style="font-size:12px;font-weight:700;color:var(--text-dim);width:30px">{{NEUT_COUNT}}</span>
         </div>
         <div style="display:flex;align-items:center;gap:8px">
           <span style="font-size:11px;color:var(--text-dim);width:40px">看空</span>
-          <div style="flex:1;height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden">
+          <div style="flex:1;height:8px;background:var(--bg-tinted);border-radius:4px;overflow:hidden">
             <div style="height:100%;background:#c62828;width:calc({{BEAR_COUNT}} / {{TOTAL_COUNT}} * 100%)"></div>
           </div>
           <span style="font-size:12px;font-weight:700;color:#c62828;width:30px">{{BEAR_COUNT}}</span>

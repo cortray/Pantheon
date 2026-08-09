@@ -497,7 +497,7 @@ def render_school_scores(syn: dict, panel: dict) -> str:
             f'        <span style="color:#d1d5db"> · 实分均值 {score_mean:.1f} · 投票共识 {vote_cons:.0f}%</span>'
             f'      </div>'
             f'    </div>'
-            f'    <div style="font-size:11px;color:#374151;white-space:nowrap">'
+            f'    <div style="font-size:11px;color:var(--text-main);white-space:nowrap">'
             f'      <span style="color:#059669">📈{bull}</span> · '
             f'      <span style="color:var(--text-dim)">⚖️{neu}</span> · '
             f'      <span style="color:#dc2626">📉{bear}</span>'

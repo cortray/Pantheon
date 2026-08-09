@@ -1,4 +1,4 @@
-"""report.institutional · 机构级建模渲染 · v3.2 从 assemble_report.py 抽离.
+﻿"""report.institutional · 机构级建模渲染 · v3.2 从 assemble_report.py 抽离.
 
 ### 内容
 - `trap_color_emoji(level)` · 杀猪盘风险级 → 颜色+emoji
@@ -96,15 +96,15 @@ def _render_dcf_block(dim20: dict) -> str:
                     elif ratio >= 1.1:
                         color = "#10b981"; fg = "#fff"
                     elif ratio >= 0.9:
-                        color = "#e5e7eb"; fg = "#111"
+                        color = "var(--heat-neutral-bg)"; fg = "var(--heat-neutral-fg)"
                     elif ratio >= 0.7:
                         color = "#f97316"; fg = "#fff"
                     else:
                         color = "#b91c1c"; fg = "#fff"
                 else:
-                    color = "#e5e7eb"; fg = "#111"
+                    color = "var(--heat-neutral-bg)"; fg = "var(--heat-neutral-fg)"
                 cells += f'<td style="background:{color};color:{fg};padding:6px 10px;text-align:center;font-weight:700">¥{val}</td>'
-            body += f'<tr><th style="padding:6px 8px;background:#f3f4f6;font-size:12px">WACC {wacc_axis[i]}</th>{cells}</tr>'
+            body += f'<tr><th style="padding:6px 8px;background:var(--bg-tinted);font-size:12px">WACC {wacc_axis[i]}</th>{cells}</tr>'
         heat_rows = f'<table class="sens-heatmap" style="border-collapse:collapse;margin:12px 0;font-size:13px">{header}{body}</table>'
 
     sm_color = "#10b981" if sm > 10 else ("#f59e0b" if sm > -10 else "#ef4444")
@@ -113,7 +113,7 @@ def _render_dcf_block(dim20: dict) -> str:
     tv_pct = dcf.get("tv_pct_of_ev", 0)
 
     return f'''
-    <div class="dcf-block" style="background:var(--bg-card);border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+    <div class="dcf-block" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
       <div class="dcf-head" style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #06b6d4;padding-bottom:8px;margin-bottom:14px">
         <div>
           <span style="background:#06b6d4;color:#fff;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px">DCF VALUATION</span>
@@ -129,7 +129,7 @@ def _render_dcf_block(dim20: dict) -> str:
       </div>
       <details style="margin-bottom:14px">
         <summary style="cursor:pointer;color:#0369a1;font-weight:600;font-size:13px">📐 计算推导（7 步）</summary>
-        <ol style="margin:10px 0 0 20px;color:#374151;font-size:13px;line-height:1.8">{log_items}</ol>
+        <ol style="margin:10px 0 0 20px;color:var(--text-main);font-size:13px;line-height:1.8">{log_items}</ol>
       </details>
       <div>
         <div style="font-size:12px;color:var(--text-dim);margin-bottom:6px">📊 5×5 敏感性表（WACC × 终值 g）· 中心 = 基础案例</div>
@@ -160,7 +160,7 @@ def _render_comps_block(dim20: dict) -> str:
         s = stats.get(m)
         if not s: continue
         pct = target_pct.get(m, 50)
-        bar = f'<div style="background:#e5e7eb;height:6px;border-radius:3px;overflow:hidden"><div style="background:{_pct_color(pct)};height:100%;width:{pct}%"></div></div>'
+        bar = f'<div style="background:var(--bg-tinted);height:6px;border-radius:3px;overflow:hidden"><div style="background:{_pct_color(pct)};height:100%;width:{pct}%"></div></div>'
         metric_rows += f'''
         <tr>
           <td style="padding:8px;font-weight:600">{m.upper().replace("_", "-")}</td>
@@ -176,7 +176,7 @@ def _render_comps_block(dim20: dict) -> str:
     ) or '<span class="muted">—</span>'
 
     return f'''
-    <div class="comps-block" style="background:var(--bg-card);border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+    <div class="comps-block" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
       <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #8b5cf6;padding-bottom:8px;margin-bottom:14px">
         <div>
           <span style="background:#8b5cf6;color:#fff;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px">COMPS</span>
@@ -190,7 +190,7 @@ def _render_comps_block(dim20: dict) -> str:
         </thead>
         <tbody>{metric_rows}</tbody>
       </table>
-      <div style="margin-top:14px;padding-top:12px;border-top:1px dashed #e5e7eb">
+      <div style="margin-top:14px;padding-top:12px;border-top:1px dashed var(--border)">
         <div style="font-size:11px;color:var(--text-dim);margin-bottom:6px">隐含每股价（基于同行中位数倍数）</div>
         {implied_rows}
       </div>
@@ -213,7 +213,7 @@ def _render_lbo_block(dim20: dict) -> str:
     debt_sparks = svg_sparkline(debt_sched, width=220, height=40, color="#ef4444") if debt_sched else ""
 
     return f'''
-    <div class="lbo-block" style="background:var(--bg-card);border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+    <div class="lbo-block" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
       <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #f59e0b;padding-bottom:8px;margin-bottom:14px">
         <div>
           <span style="background:#f59e0b;color:#fff;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px">QUICK LBO</span>
@@ -257,7 +257,7 @@ def _render_initiating_coverage(dim21: dict) -> str:
     )
 
     return f'''
-    <div class="initiating-block" style="background:var(--bg-card);border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+    <div class="initiating-block" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
       <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #0369a1;padding-bottom:8px;margin-bottom:14px">
         <div>
           <span style="background:#0369a1;color:#fff;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px">INITIATING COVERAGE</span>
@@ -270,7 +270,7 @@ def _render_initiating_coverage(dim21: dict) -> str:
         <div><div style="font-size:11px;color:var(--text-dim)">CURRENT</div><div style="font-size:18px;font-weight:800">¥{cur}</div></div>
         <div><div style="font-size:11px;color:var(--text-dim)">UPSIDE</div><div style="font-size:18px;font-weight:800;color:{rating_color}">{ups:+.1f}%</div></div>
       </div>
-      <div style="padding:10px;background:#f0f9ff;border-left:3px solid #0369a1;margin-bottom:14px;font-size:13px;line-height:1.6">{ic.get("executive_summary", "")}</div>
+      <div style="padding:10px;background:var(--info-bg);border-left:3px solid #0369a1;margin-bottom:14px;font-size:13px;line-height:1.6">{ic.get("executive_summary", "")}</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
         <div>
           <div style="font-size:11px;color:var(--text-dim);font-weight:700;margin-bottom:8px">💪 INVESTMENT THESIS</div>
@@ -302,7 +302,7 @@ def _render_ic_memo(dim22: dict) -> str:
         ret = s.get("return_pct", 0)
         ret_color = "#10b981" if ret > 0 else "#ef4444"
         scen_html += f'''
-        <div style="border:1px solid #e5e7eb;border-radius:8px;padding:10px">
+        <div style="border:1px solid var(--border);border-radius:8px;padding:10px">
           <div style="font-size:11px;color:var(--text-dim);font-weight:700">{s.get("scenario", "—")} · p={s.get("probability_pct", 0)}%</div>
           <div style="font-size:20px;font-weight:800;margin:4px 0">¥{s.get("price_target", 0)}</div>
           <div style="font-size:13px;font-weight:700;color:{ret_color}">{ret:+.1f}%</div>
@@ -315,14 +315,14 @@ def _render_ic_memo(dim22: dict) -> str:
     )
 
     return f'''
-    <div class="ic-memo-block" style="background:var(--bg-card);border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+    <div class="ic-memo-block" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
       <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #be123c;padding-bottom:8px;margin-bottom:14px">
         <div>
           <span style="background:#be123c;color:#fff;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px">IC MEMO</span>
           <span style="margin-left:12px;font-size:14px;color:var(--text-dim)">投委会备忘录 · 8 章节</span>
         </div>
       </div>
-      <div style="padding:14px;background:#fef2f2;border-left:4px solid {rec_color};margin-bottom:14px">
+      <div style="padding:14px;background:var(--rec-bg);border-left:4px solid {rec_color};margin-bottom:14px">
         <div style="font-size:11px;color:var(--text-dim);font-weight:700;margin-bottom:4px">RECOMMENDATION</div>
         <div style="font-size:18px;font-weight:800;color:{rec_color}">{headline}</div>
       </div>
@@ -360,7 +360,7 @@ def _render_catalyst_calendar(dim21: dict) -> str:
         </div>'''
 
     return f'''
-    <div class="catalyst-block" style="background:var(--bg-card);border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+    <div class="catalyst-block" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
       <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #059669;padding-bottom:8px;margin-bottom:10px">
         <div>
           <span style="background:#059669;color:#fff;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px">CATALYST CALENDAR</span>
@@ -396,7 +396,7 @@ def _render_competitive_analysis(dim22: dict) -> str:
     bcg_color = {"Star (明星)": "#10b981", "Cash Cow (现金牛)": "#06b6d4", "Question Mark (问号)": "#f59e0b", "Dog (瘦狗)": "#9ca3af"}.get(bcg_cat, "#9ca3af")
 
     return f'''
-    <div class="competitive-block" style="background:var(--bg-card);border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+    <div class="competitive-block" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
       <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #7c3aed;padding-bottom:8px;margin-bottom:14px">
         <div>
           <span style="background:#7c3aed;color:#fff;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px">COMPETITIVE</span>
@@ -409,8 +409,8 @@ def _render_competitive_analysis(dim22: dict) -> str:
         <div>
           <div style="font-size:11px;color:var(--text-dim);margin-bottom:6px">BCG 矩阵定位</div>
           <div style="font-size:22px;font-weight:800;color:{bcg_color};margin-bottom:8px">{bcg_cat}</div>
-          <div style="font-size:12px;color:#374151;margin-bottom:4px">市场份额 {bcg.get("market_share_pct", 0)}% · 市场增速 {bcg.get("market_growth_pct", 0)}%</div>
-          <div style="padding:10px;background:#faf5ff;border-left:3px solid {bcg_color};font-size:12px">战略建议：{bcg.get("strategic_action", "—")}</div>
+          <div style="font-size:12px;color:var(--text-main);margin-bottom:4px">市场份额 {bcg.get("market_share_pct", 0)}% · 市场增速 {bcg.get("market_growth_pct", 0)}%</div>
+          <div style="padding:10px;background:var(--bcg-bg);border-left:3px solid {bcg_color};font-size:12px">战略建议：{bcg.get("strategic_action", "—")}</div>
         </div>
       </div>
     </div>
@@ -622,7 +622,7 @@ def _render_school_lock_banner(syn: dict | None) -> str:
         f'    <div style="font-size:11px;letter-spacing:2px;color:{fg};font-weight:700;margin-bottom:3px">'
         f'      SCHOOL LOCK · 已锁定单一流派视角'
         f'    </div>'
-        f'    <div style="color:#1f2937">'
+        f'    <div style="color:var(--text-main)">'
         f'      本次分析仅由 <strong style="color:{fg}">{group} · {label}</strong> 的评委参与评分 · '
         f'其他流派的评委已 skip · 报告里"评委打分板 / 流派分数 / 多空辩论"均限于该派内.'
         f'    </div>'
