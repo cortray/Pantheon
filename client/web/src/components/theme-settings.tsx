@@ -47,7 +47,7 @@ export function ThemeSettings() {
         <DialogHeader>
           <DialogTitle>主题设置</DialogTitle>
           <DialogDescription>
-            design-md 品牌色板（{themes.length} 套）· 深浅模式独立生效
+            skills/design 品牌色板（{themes.length} 套）· 深浅模式独立生效
           </DialogDescription>
         </DialogHeader>
 
@@ -107,7 +107,7 @@ export function ThemeSettings() {
 
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <Badge variant="outline">当前：{themes.find((t) => t.id === themeId)?.label ?? themeId}</Badge>
-          <span>由 design-md/ 自动生成 · scripts/design-themes-gen.cjs</span>
+          <span>由 skills/design/ 自动生成 · scripts/design-themes-gen.cjs</span>
         </div>
       </DialogContent>
     </Dialog>

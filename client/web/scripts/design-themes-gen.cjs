@@ -145,7 +145,7 @@ ${darkVars}
 // default 主题：保留现有 :root/.dark（此处仅注册条目）
 registry.unshift({ id: 'default', name: 'default', label: '默认 (shadcn)', primary: '#0f172a', darkBg: '#09090b' })
 
-const cssContent = `/* 自动生成：design-md 品牌主题（${css.length} 套）—— 由 scripts/design-themes-gen.cjs 生成 */
+const cssContent = `/* 自动生成：skills/design 品牌主题（${css.length} 套）—— 由 scripts/design-themes-gen.cjs 生成 */
 /* 用法：在 <html> 上挂 .theme-<id> class（浅色）或 .theme-<id>.dark（深色）即可切换品牌色板 */
 ${css.join('\n\n')}
 `

@@ -27,8 +27,8 @@ cd client/web
 npm install
 npm run build
 
-# 1b. （可选）design-md 品牌主题有更新时，重新生成主题：
-npm run design:themes   # 解析 design-md/*/DESIGN.md → src/assets/themes.css + src/lib/themes.ts
+# 1b. （可选）skills/design 品牌主题有更新时，重新生成主题：
+npm run design:themes   # 解析 skills/design/*/DESIGN.md → src/assets/themes.css + src/lib/themes.ts
 npm run build
 
 # 2. 启动服务（自动托管前端 + 报告 + API）
@@ -59,7 +59,7 @@ npm run dev                  # http://127.0.0.1:5173
 | 报告列表 | 全部 standalone HTML 产物 |
 | 缓存浏览器 | .cache/ 全部股票 · 搜索 · 数据徽章 · **recharts 评分分布图（65/50 参考线）** |
 | 命令文档 | commands/*.md Markdown 渲染 · **搜索过滤 + 命令描述（frontmatter）+ 参数提示 + 标题 TOC 锚点 + 代码块一键复制** |
-| **主题设置** | **design-md 74 套品牌主题一键切换**（linear/stripe/claude/airbnb…）+ 明暗三态（浅色/深色/跟随系统）+ 品牌搜索 · 由 `scripts/design-themes-gen.cjs` 自动生成 |
+| **主题设置** | **skills/design 74 套品牌主题一键切换**（linear/stripe/claude/airbnb…）+ 明暗三态（浅色/深色/跟随系统）+ 品牌搜索 · 由 `scripts/design-themes-gen.cjs` 自动生成 |
 | **命令面板** | **Ctrl+K 全局搜索**：页面导航 / 缓存股票直达报告 / 品牌主题切换 / 明暗切换 / 刷新数据 |
 
 ## API（client/server.py）

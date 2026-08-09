@@ -1,9 +1,9 @@
-// 解析 design-md/*/DESIGN.md 的 frontmatter（colors / typography）与正文风格特征
-// 适配：UZI 客户端 · 读取仓库根 design-md/ · 输出 design-tokens.json
+// 解析 skills/design/*/DESIGN.md 的 frontmatter（colors / typography）与正文风格特征
+// 适配：Pantheon 客户端 · 读取仓库根 skills/design/ · 输出 design-tokens.json
 const fs = require('fs')
 const path = require('path')
 
-const dir = path.join(__dirname, '..', '..', '..', 'design-md')
+const dir = path.join(__dirname, '..', '..', '..', 'skills', 'design')
 const out = []
 
 for (const entry of fs.readdirSync(dir)) {
