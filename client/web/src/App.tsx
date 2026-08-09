@@ -49,7 +49,7 @@ function Sidebar() {
           <LineChart className="size-4" />
         </div>
         <div className="leading-tight">
-          <div className="text-sm font-bold">UZI-Skill</div>
+          <div className="text-sm font-bold">Pantheon</div>
           <div className="text-[11px] text-muted-foreground">股票深度分析台</div>
         </div>
       </div>

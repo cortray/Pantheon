@@ -25,8 +25,8 @@ const ThemeProviderContext = createContext<ThemeProviderState | undefined>(undef
 export function ThemeProvider({
   children,
   defaultTheme = 'dark',
-  storageKey = 'uzi-theme',
-  styleStorageKey = 'uzi-theme-style',
+  storageKey = 'pantheon-theme',
+  styleStorageKey = 'pantheon-theme-style',
   ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => {

@@ -45,7 +45,7 @@ export default function DashboardPage() {
         <div>
           <h1 className="text-2xl font-bold tracking-tight">仪表盘</h1>
           <p className="text-sm text-muted-foreground">
-            UZI-Skill 22 维深度分析 · 66 位投资大佬评审 · 一键触发
+            Pantheon 22 维深度分析 · 66 位投资大佬评审 · 一键触发
           </p>
         </div>
         <div className="flex items-center gap-2">

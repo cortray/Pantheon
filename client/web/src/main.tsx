@@ -20,7 +20,7 @@ const queryClient = new QueryClient({
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="dark" storageKey="uzi-theme">
+      <ThemeProvider defaultTheme="dark" storageKey="pantheon-theme">
         <BrowserRouter>
           <App />
         </BrowserRouter>

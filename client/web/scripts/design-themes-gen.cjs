@@ -1,5 +1,5 @@
 // 由 design-tokens.json 生成品牌主题 CSS（src/assets/themes.css）与注册表（src/lib/themes.ts）
-// 适配：UZI 客户端 · 输出到 client/web/src/assets/ 与 client/web/src/lib/
+// 适配：Pantheon 客户端 · 输出到 client/web/src/assets/ 与 client/web/src/lib/
 const fs = require('fs')
 const path = require('path')
 
