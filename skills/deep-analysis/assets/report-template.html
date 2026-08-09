@@ -2005,7 +2005,7 @@ footer {
 }
 footer strong { color: var(--text-dim); }
 
-/* ═══════════════ O.o LOGO EYE ═══════════════ */
+/* ═══════════════ DECORATIVE MARK · ✦ ═══════════════ */
 .oo-eye {
   display: inline-block;
   font-family: 'Inter', serif;
@@ -3113,16 +3113,211 @@ footer strong { color: var(--navy); }
 .jargon { color: var(--accent-blue); border-bottom: 1px dashed var(--accent-blue); cursor: help; }
 .oo-big, .wr-oo { color: var(--gold); }
 
+/* ═══════════════════════════════════════════════════════════
+   Pantheon v4 · 视觉重构层
+   万神殿 · 墨金深空 · 大圆角卡片系统
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── 背景：墨黑深空 + 金色辉光 ── */
+body {
+  background:
+    radial-gradient(1100px 520px at 50% -8%, rgba(227,192,106,.08), transparent 62%),
+    radial-gradient(700px 480px at 88% 12%, rgba(157,140,248,.05), transparent 60%),
+    radial-gradient(900px 700px at 6% 92%, rgba(227,192,106,.04), transparent 60%),
+    #090b10;
+  background-attachment: fixed;
+}
+
+/* ── 通用卡片系统：大圆角 · 金微光描边 · 柔和深影 ── */
+.panel-section, .core-conclusion, .battle-plan, .debate-rounds,
+.chat-container, .inst-modeling-wrap, .friendly-card, .fund-card,
+.seg-card, .dim-card, .inv-card, .jury-board, .share-qr-card,
+.safety-card, .style-chip-wrap, .name-card, .data-gap-banner {
+  background: linear-gradient(180deg, rgba(227,192,106,.035), rgba(227,192,106,0) 32%), var(--bg-card);
+  border: 1px solid rgba(227,192,106,.10);
+  border-radius: 18px;
+  box-shadow: 0 10px 32px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.03);
+}
+
+/* ── LOADING · 万神殿加载环 ── */
+.boot-overlay {
+  background:
+    radial-gradient(800px 400px at 50% 28%, rgba(227,192,106,.10), transparent 62%),
+    radial-gradient(600px 400px at 50% 72%, rgba(157,140,248,.06), transparent 60%),
+    #080a0e;
+  gap: 26px;
+}
+.boot-ring {
+  width: 88px; height: 88px; border-radius: 50%;
+  border: 2px solid rgba(227,192,106,.14);
+  border-top-color: #e3c06a;
+  animation: boot-spin 1.1s linear infinite;
+  position: relative;
+}
+.boot-ring::after {
+  content: ''; position: absolute; inset: -11px; border-radius: 50%;
+  border: 1px dashed rgba(227,192,106,.20);
+  animation: boot-spin 9s linear infinite reverse;
+}
+@keyframes boot-spin { to { transform: rotate(360deg); } }
+.boot-logo {
+  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  font-size: 34px; font-weight: 700; letter-spacing: .26em;
+  color: #e3c06a; text-shadow: 0 0 34px rgba(227,192,106,.35);
+}
+.boot-logo em {
+  color: #f0d48a; font-style: normal; font-size: 17px; letter-spacing: .34em;
+}
+.boot-eye { font-size: 20px; color: #f0d48a; opacity: .75; }
+.boot-bar {
+  width: 230px; height: 3px; border-radius: 2px; overflow: hidden;
+  background: rgba(227,192,106,.12);
+}
+.boot-fill {
+  height: 100%; width: 42%; border-radius: 2px;
+  background: linear-gradient(90deg, #9a7b2f, #e3c06a, #f0d48a);
+  animation: boot-load 1.4s ease-in-out infinite;
+}
+@keyframes boot-load { 0% { transform: translateX(-110%); } 100% { transform: translateX(360%); } }
+.boot-status { color: #8d98a8; font-size: 11px; letter-spacing: .22em; }
+
+/* ── TOP BAR · 毛玻璃胶囊 ── */
+.topbar {
+  background: rgba(16,21,29,.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(227,192,106,.12);
+  border-radius: 16px;
+  padding: 12px 22px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.35);
+}
+.topbar .brand {
+  font-family: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  font-weight: 700; font-size: 19px; letter-spacing: .12em; color: #e3c06a;
+}
+.topbar .brand span { color: #f0d48a; }
+.topbar .status { font-size: 10px; letter-spacing: .14em; }
+.market-badge { border-radius: 999px; padding: 4px 12px; letter-spacing: .1em; }
+
+/* ── TOC 导航 · 深色胶囊 ── */
+.toc-rail {
+  left: 20px;
+  background: rgba(13,17,24,.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(227,192,106,.12);
+  border-radius: 16px;
+  padding: 14px 10px;
+  box-shadow: 0 12px 36px rgba(0,0,0,.4);
+}
+.toc-rail .toc-item {
+  font-size: 11px; letter-spacing: .06em;
+  border-radius: 10px; border-left: none;
+  padding: 8px 12px;
+}
+.toc-rail .toc-item.active {
+  background: linear-gradient(90deg, rgba(227,192,106,.16), rgba(227,192,106,.02));
+  color: #e3c06a;
+  box-shadow: inset 2px 0 0 #e3c06a;
+  font-weight: 600;
+}
+
+/* ── HERO · 评分卡 ── */
+.score-label { font-size: 11px; letter-spacing: .2em; color: #f0d48a; }
+.score-giant {
+  background: linear-gradient(180deg, #f9ecc0 0%, #e3c06a 55%, #9a7b2f 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 6px 24px rgba(227,192,106,.18));
+}
+.score-verdict { letter-spacing: .06em; }
+.punchline {
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(227,192,106,.12), rgba(157,140,248,.05));
+  border: 1px solid rgba(227,192,106,.22);
+}
+
+/* ── 数据缺口横幅 ── */
+.data-gap-banner { border-radius: 14px; }
+
+/* ── 评审团 / 审判席 ── */
+.panel-stats { border-radius: 14px; }
+.jury-board { padding: 20px; }
+.seat, .fighter {
+  border-radius: 14px;
+  border: 1px solid rgba(227,192,106,.08);
+}
+.inv-card { border-radius: 16px; }
+
+/* ── 聊天室 · 气泡 ── */
+.chat-container { padding: 18px; }
+.chat-msg {
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.04);
+  background: rgba(255,255,255,.015);
+}
+.chat-msg .msg-name { font-weight: 600; }
+.msg-score-badge { border-radius: 999px; }
+.chat-tab {
+  border-radius: 999px;
+  border: 1px solid rgba(227,192,106,.14);
+}
+.chat-tab.active { background: rgba(227,192,106,.14); color: #e3c06a; }
+
+/* ── 多空辩论 ── */
+.round-card { border-radius: 16px; }
+.round-bull { border-left: 3px solid var(--bull-green); }
+.round-bear { border-left: 3px solid var(--bear-red); }
+.battle-plan { padding: 20px; }
+
+/* ── 22 维卡片 ── */
+.dim-card { border-radius: 16px; padding: 16px; }
+.dim-viz { border-radius: 12px; }
+.dim-bar { border-radius: 999px; }
+.dim-bar .fill { border-radius: 999px; }
+
+/* ── 表格 · 圆角容器 ── */
+.tab, .seg-table-wrap, .seg-projections-table-wrap {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(227,192,106,.08);
+}
+.tab th { letter-spacing: .06em; }
+
+/* ── 机构建模 ── */
+.inst-modeling-wrap .fm-card { border-radius: 14px; }
+
+/* ── 基金 / 友好三卡 ── */
+.fund-card, .friendly-card { border-radius: 16px; }
+.fc-avatar, .fund-stars { border-radius: 12px; }
+
+/* ── 风险 / 买入区间 ── */
+.risk-box { border-radius: 16px; border-left: 4px solid var(--warning-amber); }
+.zone {
+  border-radius: 16px;
+  border: 1px solid rgba(227,192,106,.10);
+  background: linear-gradient(180deg, rgba(227,192,106,.04), rgba(227,192,106,0) 55%), var(--bg-card);
+}
+
+/* ── 风格 chips ── */
+.chip, .style-chip-wrap .chip { border-radius: 999px; }
+
+/* ── 打印时隐藏 loading 覆盖 ── */
+@media print {
+  .boot-overlay { display: none !important; }
+}
+
 </style>
 </head>
 <body>
 
 <!-- ─── BOOT OVERLAY ─── -->
 <div class="boot-overlay" id="boot-overlay">
-  <div class="boot-logo">Pantheon <em>· 万神殿</em></div>
-  <div class="boot-eye">O.o</div>
+  <div class="boot-ring"></div>
+  <div class="boot-logo">PANTHEON <em>· 万神殿</em></div>
+  <div class="boot-eye">✦</div>
   <div class="boot-bar"><div class="boot-fill"></div></div>
-  <div class="boot-status">SCANNING · INITIALIZING JURY · LOADING ARENA</div>
+  <div class="boot-status">集结 66 位评审 · 载入 22 维数据 · 生成报告</div>
 </div>
 
 <div class="container">
@@ -3346,7 +3541,7 @@ footer strong { color: var(--navy); }
     </div>
 
     <div class="chat-footer">
-      <div class="chat-footer-avatar oo-eye">O.o</div>
+      <div class="chat-footer-avatar oo-eye">✦</div>
       <div class="chat-footer-text">Alpha Terminal 正在监听... 讨论基于 {{GENERATED_AT}} 数据</div>
     </div>
   </div>
@@ -3530,7 +3725,7 @@ footer strong { color: var(--navy); }
     本报告由 AI 模型基于公开信息生成，所有数据通过 akshare / yfinance / 公开数据接口获取，可能存在滞后或误差。
     报告中的评分和建议均为模拟，不代表任何真实投资者的实际观点。
     本报告不构成任何投资建议，投资者应独立判断并承担投资风险。<br><br>
-    Generated by <strong>Pantheon {{PLUGIN_VERSION}}</strong> · {{GENERATED_AT}} · <span class="oo-eye">O.o</span><br>
+    Generated by <strong>Pantheon {{PLUGIN_VERSION}}</strong> · {{GENERATED_AT}} · <span class="oo-eye">✦</span><br>
     <a href="https://github.com/cortray/Pantheon" target="_blank" style="color:#9a7b2f;text-decoration:none;font-size:13px;margin-top:6px;display:inline-block">⭐ GitHub · 点击查看最新版本 → github.com/cortray/Pantheon</a><br>
     <span style="font-size:10px;color:#98a0aa;letter-spacing:2px">POWERED BY Pantheon</span>
   </footer>
@@ -3592,7 +3787,7 @@ footer strong { color: var(--navy); }
 
   <div class="sc-footer">
     <span>{{GENERATED_AT}} · POWERED BY Pantheon · 不构成投资建议</span>
-    <span class="oo-big">O.o</span>
+    <span class="oo-big">✦</span>
   </div>
 </div>
 
@@ -3627,7 +3822,7 @@ footer strong { color: var(--navy); }
   </div>
   <div class="wr-footer">
     <span>Stock Deep Analyzer · 不构成投资建议 · 数据仅供参考</span>
-    <span class="wr-oo">O.o</span>
+    <span class="wr-oo">✦</span>
   </div>
 </div>
 
