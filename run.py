@@ -605,16 +605,27 @@ def main():
     _force_legacy = os.environ.get("UZI_LEGACY") == "1"
     _pipeline_requested = not _force_legacy
     if _pipeline_requested:
-        try:
-            from lib.pipeline.run import run_pipeline
-            print("🚀 [run.py] v3.0.0 pipeline · 默认路径")
-            run_pipeline(args.ticker, resume=not args.no_resume)
-            _pipeline_succeeded = True
-        except Exception as e:
-            print(f"⚠️  [run.py] pipeline 异常 · 回退 legacy: {type(e).__name__}: {str(e)[:100]}")
-            import traceback
-            traceback.print_exc()
-            _pipeline_succeeded = False
+        # v3.9.4 · 中文名由 legacy 解析 · 前置分流 · 不进入 pipeline（避免触发异常路径打印堆栈）
+        from lib.market_router import is_chinese_name
+        if is_chinese_name(args.ticker):
+            print(f"ℹ️  中文名 {args.ticker!r} · 走 legacy 解析")
+            _pipeline_requested = False
+        else:
+            try:
+                from lib.pipeline.run import run_pipeline
+                print("🚀 [run.py] v3.0.0 pipeline · 默认路径")
+                run_pipeline(args.ticker, resume=not args.no_resume)
+                _pipeline_succeeded = True
+            except Exception as e:
+                msg = str(e)
+                if "fallback" in msg or "需 legacy" in msg:
+                    # 设计内回退（中文名 / ETF / 可转债等）· 非异常 · 不打印堆栈
+                    print(f"ℹ️  [run.py] {msg[:100]}")
+                else:
+                    print(f"⚠️  [run.py] pipeline 异常 · 回退 legacy: {type(e).__name__}: {msg[:100]}")
+                    import traceback
+                    traceback.print_exc()
+                _pipeline_succeeded = False
 
     from run_real_test import main as run_analysis, stage1 as _stage1, stage2 as _stage2
 
